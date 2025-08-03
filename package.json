@@ -1,0 +1,14 @@
+{
+  "name": "sovereign-academy",
+  "version": "2.0.0",
+  "description": "Legal self-representation education platform",
+  "main": "index.html",
+  "scripts": {
+    "start": "vercel dev"
+  },
+  "dependencies": {
+    "openai": "^4.67.3"
+  },
+  "author": "Gina Lopez",
+  "license": "MIT"
+}
