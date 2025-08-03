@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DSS & CPS Defense - Nationwide | Sovereign Academy</title>
+  <meta name="description" content="Learn how to defend yourself against CPS and DSS overreach — with nationwide guidance and real tools." />
+  <meta name="keywords" content="CPS defense, DSS rights, defend against child services, motion to dismiss CPS, how to fight DSS, self-represented parent rights">
+  <meta property="og:title" content="DSS & CPS Defense - Nationwide | Sovereign Academy">
+  <meta property="og:description" content="Learn how to defend yourself against CPS and DSS overreach — with nationwide guidance and real tools.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="DSS & CPS Defense - Nationwide | Sovereign Academy">
+  <meta name="twitter:description" content="Nationwide help fighting CPS and DSS overreach with real strategies and rights-based tools.">
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="icons/icon-192x192.png" type="image/png" />
+  <link rel="apple-touch-icon" href="icons/icon-512x512.png" />
+  <meta name="theme-color" content="#2C3E50" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script defer src="smart-search.js"></script>
+  <script defer src="voice-search.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(reg => console.log('Service Worker registered ✅', reg))
+          .catch(err => console.error('Service Worker registration failed ❌', err));
+      });
+    }
+  </script>
+  <style>
+    #sageChatWindow {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 320px;
+      height: 440px;
+      border: none;
+      z-index: 999;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav style="background: #2C3E50; padding: 10px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+  <a href="index.html" style="color: white; margin: 0 15px;">🏠 Home</a>
+</nav>
+
+
+  <h1>🛡️ DSS & CPS Defense - Nationwide</h1>
+  <p>Every state has a child protection agency. Most overreach. We teach you how to respond — using <strong>your rights</strong>, not just their rules.</p>
+
+  <div class="search-container">
+    <input id="smartSearch" onkeyup="smartNavigate(this.value)" placeholder="🔍 Search legal topics..." type="text" />
+    <button onclick="startVoiceSearch()">🎤 Voice Search</button>
+  </div>
+
+  <main>
+    <section>
+      <h2>What You’ll Learn</h2>
+      <ul>
+        <li>📟 How to demand due process in DSS investigations</li>
+        <li>📬 What to do when you get a letter from CPS</li>
+        <li>🧠 How to challenge false reports</li>
+        <li>⚖️ What rights parents really have — by law</li>
+        <li>🛠️ Motion templates and evidence demands</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>State-Specific Strategies</h2>
+      <p>We’ve included links to official CPS/DSS pages by state. If your agency has a different name (DCFS, DHS, DYFS, etc.), you’ll still find the tools here work the same.</p>
+    </section>
+  </main>
+
+  <iframe id="sageChatWindow" src="sage-chatbot.html"></iframe>
+
+  <footer>
+    <p>© Sovereign Academy — Created by Gina Lopez & Sage, co-founder with claws 🐾. Built by Integrity Exists.</p>
+  </footer>
+
+  <script>
+    window.SageBotConfig = {
+      voice: true,
+      greetMessage: "Hey there, how can I help you with your DSS or CPS questions today?",
+      placeholder: "Ask Sage anything...",
+      theme: "dark"
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CPS & DSS Defense Hub</title>
+  
+  <meta name="description" content="Defend yourself against CPS and DSS overreach. Know your rights.">
+  <link rel="manifest" href="manifest.json"/>
+  <link rel="stylesheet" href="style.css"/> <!-- ✅ fixed path -->
+  <script defer src="smart-search.js"></script>
+  <script defer src="voice-search.js"></script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(reg => console.log('✅ Service Worker registered', reg))
+          .catch(err => console.error('❌ Service Worker failed', err));
+      });
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    p {
+      text-align: center;
+      max-width: 600px;
+      margin: 10px auto;
+    }
+    nav {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #2c3e50;
+    }
+    #smartSearch {
+      padding: 10px 40px 10px 20px;
+      width: 60%;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    #sageChatWindow {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 340px;
+      height: 480px;
+      border: none;
+      z-index: 999;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+
+<body>
+<!-- Navigation -->
+<nav style="background: #2C3E50; padding: 10px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+  <a href="index.html" style="color: white; margin: 0 15px;">🏠 Home</a>
+</nav>
+
+
+  <h1>CPS & DSS Defense Hub</h1>
+  <p>If DSS or CPS is involved in your life, Sage has your back. Learn what they’re allowed to do — and how to push back.</p>
+
+  <div style="text-align: center; margin-top: 40px;">
+    <input id="smartSearch" onkeyup="smartNavigate(this.value)" placeholder="🔍 Search legal topics..." type="text"/>
+    <div style="margin-top: 10px;">
+      <button onclick="startVoiceSearch()" style="padding: 10px 20px; font-size: 16px; border-radius: 6px; cursor: pointer;">
+        🎤 Voice Search
+      </button>
+    </div>
+  </div>
+
+  <!-- ✅ Ask Sage Floating Window -->
+  <iframe id="sageChatWindow" src="https://app.integrityexists.com/sage-chatbot.html"></iframe>
+
+  <script>
+    window.SageBotConfig = {
+      voice: true,
+      greetMessage: "Hey there, how can I help you with DSS or CPS questions today?",
+      placeholder: "Ask Sage anything...",
+      theme: "dark"
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
+
+  <footer style="margin-top: 3rem; color: #999; text-align: center;">
+    © 2025 Sovereign Academy — Created by Gina Lopez & Sage, your AI co-developer with claws.<br>
+    Built by Integrity Exists.
+  </footer>
+
+  <!-- Tawk.to (optional) -->
+  <script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function(){
+      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/681d203afe55ac190d5636e6/1iqosbpkt';
+      s1.charset = 'UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1, s0);
+    })();
+  </script>
+
+</body>
+</html>
