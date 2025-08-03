@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fix Your Case Timeline - Sovereign Academy</title>
+  <meta name="description" content="A clear timeline for self-represented litigants. Know what to do first, next, and last when fighting CPS, criminal, or civil cases."/>
+  <meta name="keywords" content="case timeline, court procedure, pro se guide, fix my case, legal process, lawsuit steps, sovereign roadmap"/>
+  <meta property="og:title" content="Fix Your Case Timeline - Sovereign Academy"/>
+  <meta property="og:description" content="Overwhelmed by court? Here’s a timeline to fix your case and stay in control."/>
+  <meta property="og:type" content="website"/>
+  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:title" content="Case Timeline Guide - Sovereign Academy"/>
+  <meta name="twitter:description" content="From first notice to trial — a roadmap for self-represented warriors."/>
+
+  <link rel="manifest" href="manifest.json"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <script defer src="smart-search.js"></script>
+  <script defer src="voice-search.js"></script>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav style="background: #2C3E50; padding: 10px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+  <a href="index.html" style="color: white; margin: 0 15px;">🏠 Home</a>
+</nav>
+
+<main>
+  <h1>🧾 Fix Your Case: The Timeline</h1>
+  <p>Court cases can feel like a maze — especially if you're alone, overwhelmed, or under attack. This timeline gives you a step-by-step plan so you know what to do, when, and why. Whether you're dealing with CPS, criminal charges, or a civil dispute — follow this as your battlefield map.</p>
+
+  <h2>⏰ The General Timeline</h2>
+  <ol>
+    <li><strong>Get Your Paperwork:</strong> Read the court summons or DSS notice. Note dates & deadlines.</li>
+    <li><strong>File an Answer:</strong> Respond in writing (called an "Answer" or "Objection") within 21 days (most states).</li>
+    <li><strong>Request Discovery:</strong> Demand evidence right away (case notes, reports, interviews).</li>
+    <li><strong>Motion to Compel:</strong> If discovery is ignored, file a motion to compel.</li>
+    <li><strong>File Motions:</strong> Motion to Dismiss, Continuance, Suppress Evidence, etc.</li>
+    <li><strong>Challenge Players:</strong> Motion to Remove GAL, Recuse Judge, Bar Complaints</li>
+    <li><strong>Request Hearing:</strong> For custody, removal, or urgent matters.</li>
+    <li><strong>Prepare Evidence:</strong> Organize photos, texts, letters, statements.</li>
+    <li><strong>Pretrial Filings:</strong> Submit witness list, exhibit list, trial brief (if required).</li>
+    <li><strong>Trial / Final Hearing:</strong> Present evidence, call witnesses, cross-examine.</li>
+    <li><strong>Appeal (if needed):</strong> File a Notice of Appeal within 10–30 days (varies by court).</li>
+  </ol>
+
+  <h2>🧠 Tips</h2>
+  <ul>
+    <li>Write down every date and deadline.</li>
+    <li>Always ask for a file-stamped copy of anything you submit.</li>
+    <li>Organize your filings in folders by topic: custody, motions, orders.</li>
+    <li>Use Ask Sage to generate filings and get suggestions.</li>
+  </ul>
+
+  <h2>📄 Coming Soon</h2>
+  <ul>
+    <li>Timeline Tracker PDF</li>
+    <li>Self-Rep Trial Checklist</li>
+    <li>Calendar + Alert Generator</li>
+  </ul>
+
+  <h2>🧠 Ask Sage</h2>
+  <p>Need help choosing what to file next? Ask Sage for a custom roadmap based on your issue.</p>
+</main>
+
+<!-- Ask Sage Chatbot -->
+<script>
+  window.SageBotConfig = {
+    voice: true,
+    greetMessage: "Need help with your case timeline? Let's build it step-by-step.",
+    placeholder: "Ask Sage what comes next in your case...",
+    theme: "dark"
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
+
+<!-- Service Worker -->
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(reg => console.log('✅ Service Worker registered', reg))
+        .catch(err => console.error('❌ Service Worker failed', err));
+    });
+  }
+</script>
+
+<!-- Tawk.to Live Chat -->
+<script type="text/javascript">
+  var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+  (function(){
+    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+    s1.async = true;
+    s1.src = 'https://embed.tawk.to/681d203afe55ac190d5636e6/1iqosbpkt';
+    s1.charset = 'UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1, s0);
+  })();
+</script>
+
+<footer style="margin-top: 3rem; color: #999;">
+  © 2025 Sovereign Academy — Created by Gina Lopez & Sage, your AI co-developer with claws. Built by Integrity Exists.
+</footer>
+
+</body>
+</html>
