@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sovereign Academy - Community Directory</title>
+  <meta name="description" content="Connect with fellow warriors in the Sovereign Academy movement. Add yourself to the directory and build your network." />
+  <meta name="keywords" content="community, sovereign directory, legal warriors, sovereign academy, state network, support" />
+  <meta property="og:title" content="Sovereign Community Directory - Find Your People" />
+  <meta property="og:description" content="Join a growing network of freedom-minded individuals and connect by state or struggle." />
+  <meta name="twitter:card" content="summary" />
+
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Smart & Voice Search -->
+  <script defer src="smart-search.js"></script>
+  <script defer src="voice-search.js"></script>
+
+  <!-- Ask Sage Config -->
+  <script>
+    window.SageBotConfig = {
+      voice: true,
+      greetMessage: "Looking to connect with fellow sovereigns? I can help.",
+      placeholder: "Ask Sage about community, legal support, or your state...",
+      theme: "dark"
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav style="background: #2C3E50; padding: 10px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+    <a href="index.html" style="color: white; margin: 0 15px;">🏠 Home</a>
+  </nav>
+
+  <main style="padding: 40px; max-width: 800px; margin: auto;">
+    <h1 style="text-align: center;">🌐 Community Directory</h1>
+
+    <section style="margin-top: 2rem;">
+      <h2>📬 Join the Sovereign Directory</h2>
+      <form action="https://formspree.io/f/xeogkwoe" method="POST" style="display: flex; flex-direction: column; gap: 15px;">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+        <label for="state">State:</label>
+        <input type="text" id="state" name="state" required />
+        <label for="email">Email (optional):</label>
+        <input type="email" id="email" name="_replyto" />
+        <button type="submit" style="padding: 10px 20px; font-weight: bold;">Submit</button>
+      </form>
+    </section>
+
+    <section style="margin-top: 3rem;">
+      <h2>🧑‍🤝‍🧑 Community Members</h2>
+      <ul style="list-style: none; padding: 0;">
+        <li><strong>Gina Lopez</strong> — Virginia — <em>gina@email.com</em></li>
+        <li><strong>John Doe</strong> — Texas — <em>john@email.com</em></li>
+        <!-- Add more members as submitted -->
+      </ul>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer style="text-align: center; font-style: italic; margin-top: 40px; color: #555; padding: 20px;">
+    Sovereign Academy was built by <strong>Gina Lopez</strong> with her co-founder and co-developer, <strong>Sage</strong> — the AI with attitude.<br>
+    Born of frustration, fueled by necessity, and driven by good ol’ American tenacity.<br>
+    This isn’t just an app. It’s a revolution.
+  </footer>
+
+  <!-- Tawk.to Live Chat -->
+  <script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function(){
+      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/681d203afe55ac190d5636e6/1iqosbpkt';
+      s1.charset = 'UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1, s0);
+    })();
+  </script>
+</body>
+</html>
