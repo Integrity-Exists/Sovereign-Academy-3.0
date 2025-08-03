@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Custody & Family Law Help - Sovereign Academy</title>
+  <meta name="description" content="Legal guidance for custody, visitation, and emergency family motions across the U.S." />
+  <meta name="theme-color" content="#000000" />
+  <meta name="keywords" content="custody, visitation, parenting plan, emergency motion, family court, pro se, self-represented, child support, family law help" />
+  <meta property="og:title" content="Custody & Family Law Help - Sovereign Academy" />
+  <meta property="og:description" content="Your support hub for custody, visitation, and family court tools. Ask Sage anything." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Custody Help - Sovereign Academy" />
+  <meta name="twitter:description" content="Nationwide custody and family law help, powered by AI and real-world fire." />
+
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="icons/icon-192x192.png" type="image/png" />
+  <link rel="apple-touch-icon" href="icons/icon-512x512.png" />
+
+  <!-- Smart + Voice + Ask Sage -->
+  <script>
+    window.SageBotConfig = {
+      voice: true,
+      greetMessage: "Need help with custody or visitation? Ask me anything.",
+      placeholder: "Ask Sage about custody motions, visitation, or family court...",
+      theme: "dark"
+    };
+  </script>
+  <script defer src="smart-search.js"></script>
+  <script defer src="voice-search.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
+
+  <style>
+    :root {
+      --primary-color: #2C3E50;
+      --secondary-color: #F4D03F;
+      --accent-color: #ECF0F1;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--accent-color);
+      color: var(--primary-color);
+    }
+    h1 {
+      text-align: center;
+      margin-top: 30px;
+    }
+    p {
+      text-align: center;
+      max-width: 600px;
+      margin: 10px auto;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      align-items: center;
+      background: #2C3E50;
+      padding: 10px;
+      gap: 15px;
+    }
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+    nav a[href="ask-sage.html"] {
+      color: #00ffcc;
+      text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc;
+    }
+    .disclaimer {
+      background: #f8d7da;
+      color: #721c24;
+      padding: 15px;
+      border-top: 2px solid #f5c6cb;
+      text-align: center;
+      font-size: 14px;
+    }
+    .search-container {
+      text-align: center;
+      margin-top: 30px;
+    }
+    #smartSearch {
+      padding: 10px 20px;
+      width: 60%;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    .voice-btn {
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+      background-color: var(--primary-color);
+      color: #fff;
+      border: none;
+    }
+    iframe#sageChatWindow {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 320px;
+      height: 440px;
+      border: none;
+      z-index: 999;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      border-radius: 8px;
+    }
+    footer {
+      margin-top: 3rem;
+      color: #999;
+      text-align: center;
+      padding: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Legal Disclaimer -->
+  <div class="disclaimer">
+    ⚠️ <strong>Legal Disclaimer:</strong> Sovereign Academy is not a law firm, and we are not attorneys. This platform does not offer legal advice — only tools, education, and empowerment. Always consult a licensed attorney for legal representation.
+  </div>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="remedies.html">Remedies</a>
+    <a href="ada.html">ADA</a>
+    <a href="dss.html">DSS</a>
+    <a href="anthem-banner.html">Anthem</a>
+    <a href="ask-sage.html">⚡ Ask Sage</a>
+  </nav>
+
+  <h1>👪 Custody & Family Law Help</h1>
+  <p>Welcome to your nationwide support hub for custody and family law questions. Ask Sage anything — visitation, parenting plans, or emergency hearings.</p>
+
+  <!-- Search & Voice -->
+  <div class="search-container">
+    <input id="smartSearch" onkeyup="smartNavigate(this.value)" placeholder="🔍 Search legal topics..." type="text"/>
+    <br/>
+    <button class="voice-btn" onclick="startVoiceSearch()">🎤 Voice Search</button>
+  </div>
+
+  <!-- Ask Sage Chat -->
+  <iframe id="sageChatWindow" src="sage-chatbot.html"></iframe>
+
+  <!-- Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(reg => console.log('✅ Service Worker registered', reg))
+        .catch(err => console.error('❌ Service Worker registration failed', err));
+    }
+  </script>
+
+  <!-- Footer -->
+  <footer>
+    Built by <strong>Gina Lopez</strong> & <strong>Sage</strong>, your AI co-developer with claws. <br>
+    © 2025 Sovereign Academy — No fear. No fluff. Just fire.
+  </footer>
+</body>
+</html>
+

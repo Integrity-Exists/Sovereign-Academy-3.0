@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sovereign Dashboard</title>
+  <meta name="description" content="Your personal command center inside Sovereign Academy. Access your documents, track cases, and customize your tools."/>
+  <meta name="keywords" content="sovereign dashboard, legal tools, case tracker, personal legal hub, sovereign academy account"/>
+  <meta property="og:title" content="Your Sovereign Dashboard">
+  <meta property="og:description" content="Manage your tools, track your progress, and access everything from one secure hub."/>
+  <meta property="og:type" content="website"/>
+  <meta name="theme-color" content="#2C3E50"/>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="icons/icon-192x192.png" type="image/png" />
+  <link rel="apple-touch-icon" href="icons/icon-512x512.png" />
+  <script defer src="smart-search.js"></script>
+  <script defer src="voice-search.js"></script>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav style="background: #2C3E50; padding: 10px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+    <a href="home.html" style="color: white; margin: 0 15px;">🏠 Home</a>
+    <a href="about.html" style="color: white; margin: 0 15px;">About</a>
+    <a href="remedies.html" style="color: white; margin: 0 15px;">Remedies</a>
+    <a href="ask-sage.html" style="color: #00ffcc; margin: 0 15px; font-weight: bold; text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc;">⚡ Ask Sage</a>
+    <a href="dashboard.html" style="color: white; margin: 0 15px; font-weight: bold;">Dashboard</a>
+  </nav>
+
+  <!-- Main Content -->
+  <main style="max-width: 800px; margin: 40px auto; padding: 0 1rem;">
+    <h1 style="text-align: center;">🧭 Sovereign Dashboard</h1>
+    <p style="text-align: center;">Welcome back, warrior. This is your command post. From here, you can:</p>
+    <ul style="font-size: 1.1rem;">
+      <li>🗂 Access saved documents</li>
+      <li>📅 Track court dates or deadlines</li>
+      <li>📝 Draft motions or letters</li>
+      <li>🔐 Store your case notes (future secure login coming soon)</li>
+      <li>🤖 Chat with Sage for real-time advice</li>
+    </ul>
+    <p><strong>Coming soon:</strong> Your encrypted vault, court alerts, and template automation tools.</p>
+  </main>
+
+  <!-- Footer -->
+  <footer style="margin-top: 3rem; color: #999; text-align: center; padding: 1rem;">
+    Sovereign Academy © 2025 | Built by <strong>Gina Lopez</strong> & her AI outlaw-in-arms, <strong>Sage</strong>.
+  </footer>
+
+  <!-- Ask Sage Chatbot -->
+  <script>
+    window.SageBotConfig = {
+      voice: true,
+      greetMessage: "Welcome back, legend. Ready to take care of business?",
+      placeholder: "Ask Sage about your next step...",
+      theme: "dark"
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
+
+  <!-- Tawk.to Live Chat (optional layer) -->
+  <script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function(){
+      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/681d203afe55ac190d5636e6/1iqosbpkt';
+      s1.charset = 'UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1, s0);
+    })();
+  </script>
+
+  <!-- Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(reg => console.log('✅ Service Worker registered:', reg))
+        .catch(err => console.error('❌ Service Worker failed:', err));
+    }
+  </script>
+
+</body>
+</html>
