@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Start an LLC | Sovereign Academy</title>
+  <link href="manifest.json" rel="manifest"/>
+  <link href="styles.css" rel="stylesheet"/>
+  <script defer src="smart-search.js"></script>
+  <script defer src="voice-search.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(reg => console.log('Service Worker registered ✅', reg))
+          .catch(err => console.error('Service Worker registration failed ❌', err));
+      });
+    }
+  </script>
+  <style>
+    #sageChatWindow {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 300px;
+      height: 400px;
+      border: none;
+      z-index: 999;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Start Your LLC the Sovereign Way</h1>
+  <p><em>Protect yourself. Build power. Own your business.</em></p>
+</header>
+
+<!-- Search Bar -->
+<div style="text-align: center; margin: 30px 0; position: relative;">
+  <input id="smartSearch" onkeyup="smartNavigate(this.value)" placeholder="🔍 Search legal topics..." style="padding: 10px 40px 10px 20px; width: 60%; font-size: 16px; border-radius: 6px; border: 1px solid #ccc;" type="text"/>
+  <span style="position: absolute; right: 22%; top: 50%; transform: translateY(-50%); font-size: 18px; color: #999;">🔍</span>
+  <div style="text-align: center; margin-top: 10px;">
+    <button onclick="startVoiceSearch()" style="padding: 10px 20px; font-size: 16px; border-radius: 6px; cursor: pointer;">
+      🎤 Voice Search
+    </button>
+  </div>
+</div>
+
+<!-- Navigation -->
+<nav style="background: #2C3E50; padding: 10px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+  <a href="index.html" style="color: white; margin: 0 15px;">🏠 Home</a>
+</nav>
+
+<!-- Main Content -->
+<main>
+  <section id="what-is-an-llc">
+    <h2>What’s an LLC (and why should you care)?</h2>
+    <p>
+      An <strong>LLC</strong> separates <strong>you</strong> from <strong>your business</strong>.
+      If your business gets sued or goes into debt, your personal assets are protected.
+    </p>
+    <ul>
+      <li>✔️ Easy to start</li>
+      <li>✔️ Easy to manage</li>
+      <li>✔️ Accepted by banks and the IRS</li>
+      <li>✔️ You control it 100%</li>
+    </ul>
+  </section>
+
+  <section id="steps">
+    <h2>Step-by-Step: Start Your LLC (Nationwide)</h2>
+    <ol>
+      <li><strong>Pick Your Name:</strong> Check your state’s Secretary of State website.</li>
+      <li><strong>Registered Agent:</strong> Required in every state — can be you or a service.</li>
+      <li><strong>File Articles of Organization:</strong> Varies by state, fees range $50–$300.</li>
+      <li><strong>Get Your EIN:</strong> Free at <a href="https://irs.gov/ein">irs.gov/ein</a>.</li>
+      <li><strong>Write an Operating Agreement:</strong> Required in some states, recommended in all.</li>
+      <li><strong>Annual Report or Renewal:</strong> Most states require yearly filings and fees.</li>
+    </ol>
+  </section>
+
+  <section id="tips">
+    <h2>Pro Tips from the Field</h2>
+    <ul>
+      <li>✅ Keep personal and business money separate.</li>
+      <li>✅ Use a PO Box if you want privacy.</li>
+      <li>✅ Use smart naming: “Holdings,” “Group,” “Solutions,” etc.</li>
+    </ul>
+  </section>
+
+  <section id="trust">
+    <h2>Turn It Into a Trust Later</h2>
+    <p>
+      Once your LLC is live, you can transfer ownership into a <strong>revocable living trust</strong>
+      for asset protection and legacy planning. That guide is coming next.
+    </p>
+    <ul>
+      <li><a href="llc-to-trust.html">Convert LLC to Trust</a></li>
+    </ul>
+  </section>
+
+  <section id="downloads">
+    <h2>Coming Soon: Downloads</h2>
+    <ul>
+      <li>📄 LLC Operating Agreement Template</li>
+      <li>📄 IRS EIN Walkthrough PDF</li>
+      <li>📄 State-by-State Filing Checklist</li>
+      <li>📄 Trust Assignment Template</li>
+    </ul>
+  </section>
+</main>
+
+<!-- Ask Sage Full Chat -->
+<iframe id="sageChatWindow" src="sage-chatbot.html"></iframe>
+
+<!-- Footer -->
+<footer>
+  <p>© Sovereign Academy | Built by Gina Lopez and Sage, your AI co-founder with claws. Empowered by IntegrityExists.</p>
+</footer>
+
+<!-- Ask Sage Config -->
+<script>
+  window.SageBotConfig = {
+    voice: true,
+    greetMessage: "Hey there, how can I help you with your legal questions today?",
+    placeholder: "Ask Sage anything...",
+    theme: "dark"
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
+
+<!-- Tawk.to Live Chat -->
+<script type="text/javascript">
+  var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+  (function(){
+    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+    s1.async = true;
+    s1.src = 'https://embed.tawk.to/681d203afe55ac190d5636e6/1iqosbpkt';
+    s1.charset = 'UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1, s0);
+  })();
+</script>
+
+</body>
+</html>
