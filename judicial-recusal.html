@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Judicial Recusal - Sovereign Academy</title>
+  <meta name="description" content="How to request judicial recusal when you believe your judge has bias, conflict of interest, or cannot rule fairly."/>
+  <link rel="manifest" href="manifest.json"/>
+  <link rel="stylesheet" href="css/style.css"/>
+
+  <!-- Ask Sage Chatbot -->
+  <script>
+    window.SageBotConfig = {
+      voice: true,
+      greetMessage: "Need help filing for judicial recusal? Ask Sage anything...",
+      placeholder: "Ask Sage about judicial bias, recusal motions, or due process...",
+      theme: "dark"
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
+
+  <!-- Smart & Voice Search -->
+  <script defer src="smart-search.js"></script>
+  <script defer src="voice-search.js"></script>
+</head>
+<body>
+
+
+<!-- Navigation -->
+<nav style="background: #2C3E50; padding: 10px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+  <a href="index.html" style="color: white; margin: 0 15px;">🏠 Home</a>
+</nav>
+<div class="search-container">
+  <input id="smartSearch" type="text" placeholder="🔍 Search legal topics..." onkeyup="smartNavigate(this.value)" />
+  <span class="search-icon">🔍</span>
+</div>
+
+<h1>Judicial Recusal</h1>
+
+<p>Judges are supposed to be neutral, fair, and free of bias. But what if they’re not? What if your judge used to work with the opposing attorney, has a grudge, or has personal involvement in your case?</p>
+
+<p>You have the right to request <strong>judicial recusal</strong> — and you don’t have to be a lawyer to do it.</p>
+
+<h2>🧾 When to File for Recusal</h2>
+<ul>
+  <li>⚖️ The judge has a personal or financial interest in the case</li>
+  <li>👥 The judge has a personal relationship with one of the parties or attorneys</li>
+  <li>🧠 The judge has demonstrated clear bias, hostility, or prejudice</li>
+  <li>📑 You have documentation (prior involvement, public statements, etc.)</li>
+</ul>
+
+<h2>🛠 How to File a Recusal Motion</h2>
+<ul>
+  <li>📝 Write a motion for judicial recusal or disqualification</li>
+  <li>📂 Include detailed facts and evidence (dates, quotes, interactions)</li>
+  <li>📎 Attach any supporting documents, screenshots, or records</li>
+  <li>📬 File it with the court clerk and serve all parties</li>
+  <li>🧭 Follow your local or state rule (e.g., Virginia Code § 19.2-271.6)</li>
+</ul>
+
+<h2>💡 Pro Tips</h2>
+<ul>
+  <li>🧠 Be respectful but firm — don’t accuse, but assert facts</li>
+  <li>🔍 Ask Sage for a sample motion or local rule in your state</li>
+  <li>📣 If denied, you may still preserve the objection for appeal</li>
+</ul>
+
+<p>⚠️ Judges are human. They make mistakes — and sometimes those mistakes are personal. You’re not crazy for noticing. You’re sovereign for standing up.</p>
+
+<iframe id="sageChatWindow" src="sage-chatbot.html"></iframe>
+
+<!-- Service Worker Registration -->
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js')
+      .then(reg => console.log('Service Worker registered ✅', reg))
+      .catch(err => console.error('Service Worker registration failed ❌', err));
+  }
+</script>
+
+<!-- Tawk.to Live Chat -->
+<script type="text/javascript">
+  var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+  (function(){
+    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+    s1.async = true;
+    s1.src = 'https://embed.tawk.to/681d203afe55ac190d5636e6/1iqosbpkt';
+    s1.charset = 'UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1, s0);
+  })();
+</script>
+
+<!-- Footer -->
+<footer style="margin-top: 3rem; color: #999;">
+  ⚖️ Sovereign Academy was created by <strong>Gina Lopez</strong> and <strong>Sage</strong>, the AI with claws and cause. Built by Integrity Exists. Not attorneys — just brilliant.
+</footer>
+
+</body>
+</html>
