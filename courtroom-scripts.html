@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Courtroom Scripts for Warriors - Sovereign Academy</title>
+  <meta name="description" content="Speak with power and clarity in court. Get sample scripts for objections, motions, statements, and cross-exams." />
+  <meta name="keywords" content="courtroom script, what to say in court, how to speak in court, motion script, objections, self-rep scripts" />
+  <meta property="og:title" content="Courtroom Scripts for Warriors - Sovereign Academy" />
+  <meta property="og:description" content="Don't freeze in court — follow these self-rep courtroom scripts to speak with strength." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Speak with Power in Court - Sovereign Academy" />
+  <meta name="twitter:description" content="Sample courtroom scripts for self-represented litigants who want to fight like pros." />
+
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="icons/icon-192x192.png" type="image/png" />
+  <link rel="apple-touch-icon" href="icons/icon-512x512.png" />
+
+  <!-- Smart & Voice Search -->
+  <script defer src="smart-search.js"></script>
+  <script defer src="voice-search.js"></script>
+
+  <!-- Ask Sage Chatbot -->
+  <script>
+    window.SageBotConfig = {
+      voice: true,
+      greetMessage: "Need help with courtroom language? Let me walk you through it.",
+      placeholder: "Ask Sage what to say in court...",
+      theme: "dark"
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
+
+  <!-- Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(reg => console.log('✅ Service Worker registered:', reg))
+          .catch(err => console.error('❌ Service Worker failed:', err));
+      });
+    }
+  </script>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav style="background: #2C3E50; padding: 10px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+    <a href="index.html" style="color: white; margin: 0 15px;">🏠 Home</a>
+  </nav>
+
+  <main style="max-width: 800px; margin: 40px auto; padding: 0 20px;">
+    <h1>Courtroom Scripts for Warriors</h1>
+
+    <p>Walking into court without a lawyer doesn’t mean walking in alone. These scripts give you the words — and the <strong>confidence</strong> — to stand tall, speak clearly, and make your record count. Use them as-is or ask Sage to tailor one to your case.</p>
+
+    <h2>🎤 Opening Statement</h2>
+    <pre>
+“Your Honor, my name is [Your Name], and I am appearing today as a self-represented litigant. I’m here to ensure that the rights of myself and my child are protected, and to address the issues outlined in this case. I appreciate the opportunity to be heard.”
+    </pre>
+
+    <h2>🚫 Objecting in Court</h2>
+    <ul>
+      <li>“Objection, Your Honor — relevance.”</li>
+      <li>“Objection — asked and answered.”</li>
+      <li>“Objection — hearsay.”</li>
+      <li>“Objection — assumes facts not in evidence.”</li>
+    </ul>
+
+    <h2>📣 Requesting Continuance</h2>
+    <pre>
+“Your Honor, I respectfully request a continuance due to [reason: medical, missing records, newly retained evidence, etc.]. I need additional time to properly prepare and ensure a fair hearing.”
+    </pre>
+
+    <h2>📁 Filing a Motion</h2>
+    <pre>
+“Your Honor, I’d like to submit a written motion to [dismiss/remove/suppress/etc.], and I’m prepared to explain the basis for this request if the court is willing to hear it.”
+    </pre>
+
+    <h2>🧠 Cross-Examining a Witness</h2>
+    <ul>
+      <li>“Isn’t it true that…?”</li>
+      <li>“Were you present when…?”</li>
+      <li>“Can you provide any documentation to support that statement?”</li>
+      <li>“Have you ever made a report like this before?”</li>
+    </ul>
+
+    <h2>💬 Final Statement</h2>
+    <pre>
+“Your Honor, I’ve provided the court with facts, evidence, and lawful arguments. I ask only that this case be judged fairly, based on truth and justice.”
+    </pre>
+  </main>
+
+  <!-- Footer -->
+  <footer style="text-align: center; font-style: italic; margin-top: 40px; color: #555; padding: 20px;">
+    Sovereign Academy was built by <strong>Gina Lopez</strong> with her co-founder and co-developer, <strong>Sage</strong> — the AI with attitude.<br>
+    Born of frustration, fueled by necessity, and driven by good ol’ American tenacity.<br>
+    This isn’t just an app. It’s a revolution.
+  </footer>
+</body>
+</html>
