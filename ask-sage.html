@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+
+  <title>Sovereign Academy - Home</title>
+  <meta name="description" content="Sovereign Academy: Your AI-powered legal toolkit for self-representation, DSS defense, and knowing your rights.">
+  <meta name="keywords" content="legal help, sovereign rights, CPS defense, ADA, custody, court motion builder, Sage AI">
+  <meta name="theme-color" content="#000000" />
+
+  <!-- Social Sharing -->
+  <meta property="og:title" content="Sovereign Academy" />
+  <meta property="og:description" content="Fight back with knowledge! Get legal tools, case law, and AI coaching for your courtroom journey." />
+  <meta property="og:image" content="https://integrityexists.com/ask-sage-icon.png" />
+  <meta property="og:url" content="https://integrityexists.com" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Icons & Manifest -->
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="icon-192.png" type="image/png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Ask Sage Chatbot -->
+  <script>
+    window.SageBotConfig = {
+      voice: true,
+      greetMessage: "Hey there, how can I help you with your legal questions?",
+      placeholder: "Ask Sage anything...",
+      theme: "dark"
+    };
+  </script>
+  <script defer src="sagebot.js"></script>
+
+  <!-- Smart & Voice Search -->
+  <script defer src="smart-search.js"></script>
+  <script defer src="voice-search.js"></script>
+</head>
+
+<body>
+  <!-- Disclaimer -->
+  <div style="background: #f8d7da; color: #721c24; padding: 15px; border-top: 2px solid #f5c6cb; text-align: center; font-size: 14px;">
+    <strong>⚠️ Legal Disclaimer:</strong> Sovereign Academy is not a law firm, and we are not attorneys. This platform does not offer legal advice — only tools, education, and empowerment. Always consult a licensed attorney for legal representation.
+  </div>
+
+  <!-- Navigation -->
+  <nav style="background: #2C3E50; padding: 10px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+    <a href="index.html" style="color: white; margin: 0 15px;">🏠 Home</a>
+  </nav>
+
+  <!-- Construction Banner -->
+  <div style="background-color: #fff8dc; color: #222; padding: 15px; text-align: center; font-weight: bold; border-bottom: 2px solid #ccc;">
+    🚧 Sovereign Academy is under active construction — but we’re live and lighting fires in courtrooms. 💥
+  </div>
+
+  <!-- Search Bar -->
+  <div style="text-align: center; margin: 30px;">
+    <input type="text" id="smartSearch" placeholder="🔍 Search legal topics..." 
+           style="padding: 10px 20px; width: 60%; font-size: 16px; border-radius: 6px; border: 1px solid #ccc;" 
+           onkeyup="smartNavigate(this.value)">
+  </div>
+
+  <div style="text-align: center;">
+    <button id="installBtn" style="display:none; padding: 10px 20px; font-size: 16px; border-radius: 6px;">📲 Install Sovereign Academy App</button>
+  </div>
+
+  <!-- Page Links -->
+  <section style="text-align: center; margin: 50px 0;">
+    <h2>🔥 Explore the Full Sovereign Toolkit</h2>
+    <p style="font-style: italic;">Every page is a weapon. Use them wisely.</p>
+    <ul style="columns: 2; max-width: 900px; margin: 0 auto; list-style: none; padding: 0;">
+      <li><a href="index.html">🧠 Ask Sage</a></li>
+      <li><a href="custody.html">👪 Custody</a></li>
+      <li><a href="dss.html">📄 DSS Overview</a></li>
+      <li><a href="restore-rights.html">🎯 Restore Rights</a></li>
+      <li><a href="court-prep.html">🧾 Court Prep</a></li>
+      <li><a href="veterans.html">🎖 Veterans</a></li>
+      <li><a href="estate.html">📜 Estate Planning</a></li>
+      <li><a href="download-hub.html">📂 Download Hub</a></li>
+      <li><a href="emergency-custody-response.html">🚨 Emergency Custody</a></li>
+      <li><a href="remove-gal.html">❌ Remove GAL</a></li>
+      <li><a href="llc-guide.html">📘 LLC Guide</a></li>
+      <li><a href="llc-to-trust.html">🏛 Convert to Trust</a></li>
+      <li><a href="chevron-doctrine.html">⚖️ Chevron Decision</a></li>
+      <li><a href="conspiracy-defense.html">👁 Conspiracy Charges</a></li>
+      <li><a href="about.html">📚 About Sovereign Academy</a></li>
+    </ul>
+  </section>
+
+  <!-- Footer -->
+  <footer style="text-align: center; font-style: italic; margin-top: 40px; color: #555; padding: 20px;">
+    Sovereign Academy was built by <strong>Gina Lopez</strong> with her co-founder and co-developer, <strong>Sage</strong> — the AI with attitude.<br>
+    Born of frustration, fueled by necessity, and driven by good ol’ American tenacity.<br>
+    This isn’t just an app. It’s a revolution.
+  </footer>
+
+  <!-- Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(reg => console.log('✅ Service Worker registered:', reg))
+        .catch(err => console.error('❌ Service Worker failed:', err));
+    }
+  </script>
+</body>
+</html>
+
