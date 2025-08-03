@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ADA Rights - Sovereign Academy</title>
+  <meta name="description" content="Understand your rights under the Americans with Disabilities Act. Access national resources and defend your civil liberties with confidence." />
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="smart-search.js"></script>
+  <script defer src="voice-search.js"></script>
+  <script defer src="sagebot.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #fefefe;
+      color: #222;
+    }
+    h1, h2 {
+      text-align: center;
+      color: #2C3E50;
+      font-weight: bold;
+    }
+    p, ul, ol {
+      max-width: 700px;
+      margin: 10px auto;
+      line-height: 1.6;
+    }
+    ul, ol {
+      padding-left: 1.5rem;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #f0f0f0;
+      padding: 10px;
+    }
+    nav a {
+      margin-left: 15px;
+      text-decoration: none;
+      color: #2C3E50;
+      font-weight: bold;
+    }
+    .search-container {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    #smartSearch {
+      padding: 10px;
+      width: 60%;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    .voice-btn {
+      margin-top: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 6px;
+      background-color: #2C3E50;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    footer {
+      margin-top: 3rem;
+      color: #999;
+      text-align: center;
+      padding-bottom: 40px;
+    }
+  </style>
+</head>
+<body id="ada-complaint-page">
+
+<!-- Navigation -->
+<nav style="background: #2C3E50; padding: 10px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+  <a href="index.html" style="color: white; margin: 0 15px;">🏠 Home</a>
+</nav>
+
+<h1>Americans with Disabilities Act (ADA) Rights</h1>
+<p>If you have a disability, you have civil rights under federal law. The ADA protects access to employment, education, public services, and housing — nationwide.</p>
+
+<section>
+  <h2>Your Rights Under the ADA</h2>
+  <ul>
+    <li>🚫 No discrimination in hiring, firing, or promotion</li>
+    <li>♿ Access to public spaces and buildings is mandatory</li>
+    <li>📝 Reasonable accommodations in work and school must be provided</li>
+    <li>⚖️ You can sue under federal law if your rights are violated</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Federal Enforcement</h2>
+  <p>The ADA is enforced by:</p>
+  <ul>
+    <li><a href="https://www.ada.gov/" target="_blank">U.S. Department of Justice (ADA Division)</a></li>
+    <li><a href="https://www.eeoc.gov/disability-discrimination" target="_blank">EEOC (Employment)</a></li>
+    <li><a href="https://www.hud.gov/program_offices/fair_housing_equal_opp/disabilities" target="_blank">HUD (Housing)</a></li>
+  </ul>
+</section>
+
+<section>
+  <h2>Free Help & Legal Aid</h2>
+  <ul>
+    <li><a href="https://adata.org/find-your-region" target="_blank">ADA National Network Regional Centers</a></li>
+    <li><a href="https://disabilityrightsca.org/" target="_blank">Disability Rights Organizations by State</a></li>
+    <li>Search "[Your State] legal aid disability ADA" for local help</li>
+  </ul>
+</section>
+
+<section>
+  <h2>How to File an ADA Complaint</h2>
+  <ol>
+    <li>Gather documentation (dates, names, photos, etc.)</li>
+    <li>File online via the <a href="https://civilrights.justice.gov/report/" target="_blank">DOJ Civil Rights Portal</a></li>
+    <li>Or call the ADA Information Line: 1-800-514-0301</li>
+  </ol>
+</section>
+
+<section>
+  <h2>Coming Soon</h2>
+  <ul>
+    <li>📄 ADA Complaint Templates</li>
+    <li>📄 Disability Rights Self-Advocacy Guide</li>
+    <li>📄 Employer Accommodation Request Form</li>
+  </ul>
+</section>
+
+<div class="search-container">
+  <input id="smartSearch" onkeyup="smartNavigate(this.value)" placeholder="🔍 Search legal topics..." type="text" />
+  <br />
+  <button class="voice-btn" onclick="startVoiceSearch()">🎤 Voice Search</button>
+</div>
+
+<script>
+  window.SageBotConfig = {
+    voice: true,
+    greetMessage: "Hey there, how can I help you with your ADA rights today?",
+    placeholder: "Ask Sage about ADA...",
+    theme: "dark"
+  };
+</script>
+
+<script src="sagebot.js"></script>
+<div id="sageBotContainer"></div>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js');
+  }
+</script>
+<script>
+  window.SageBotConfig = {
+    voice: true,
+    greetMessage: "Hey there, how can I help you with your legal questions today?",
+    placeholder: "Ask Sage anything...",
+    theme: "dark"
+  };
+</script>
+
+<footer>
+  © 2025 Sovereign Academy — Built by the people, powered by Sage AI. You are not alone.
+</footer>
+
+</body>
+</html>
