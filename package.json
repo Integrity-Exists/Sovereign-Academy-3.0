@@ -1,6 +1,7 @@
 {
   "name": "sovereign-academy",
   "version": "2.0.0",
+  "type":  "module",
   "description": "Legal self-representation education platform",
   "main": "index.html",
   "scripts": {
