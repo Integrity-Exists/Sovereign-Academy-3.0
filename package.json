@@ -3,9 +3,10 @@
   "version": "2.0.0",
   "type":  "module",
   "description": "Legal self-representation education platform",
-  "main": "index.html",
+  "main": "ask-sage.js",
   "scripts": {
-    "start": "vercel dev"
+    "start":  "vercel dev",
+    "build":  "vercel build"
   },
   "dependencies": {
     "openai": "^4.67.3"
