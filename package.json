@@ -1,13 +1,8 @@
 {
   "name": "sovereign-academy",
   "version": "2.0.0",
-  "type": "module",
   "description": "Legal self-representation education platform",
   "main": "index.html",
-  "scripts": {
-    "start": "node server.js",
-    "build": "echo 'Build complete - static files ready'"
-  },
   "dependencies": {
     "openai": "^4.67.3"
   },
