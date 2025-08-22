@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Reopen Your Case - Sovereign Academy</title>
+  <meta name="description" content="Learn how to reopen your case when your attorney failed, new evidence surfaces, or justice wasn’t served."/>
+  <meta name="keywords" content="reopen case, set aside judgment, motion for new trial, vacate order, ineffective counsel, new evidence"/>
+  <link rel="manifest" href="manifest.json"/>
+  <link rel="stylesheet" href="style.css"/>
+  <script src="smart-search.js"></script>
+  <script src="voice-search.js"></script>
+
+  <!-- Ask Sage Config -->
+  <script>
+    window.SageBotConfig = {
+      voice: true,
+      greetMessage: "Want to reopen your case? I'm right here with legal backup.",
+      placeholder: "Ask Sage anything...",
+      theme: "dark"
+    };
+  </script>
+
+  <!-- Chatbot Style -->
+  <style>
+    #sageChatWindow {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 300px;
+      height: 400px;
+      border: none;
+      z-index: 999;
+    }
+  </style>
+</head>
+<body>
+
+
+<!-- Navigation -->
+<nav style="background: #2C3E50; padding: 10px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+  <a href="index.html" style="color: white; margin: 0 15px;">🏠 Home</a>
+</nav>
+
+<main style="padding: 2rem; max-width: 900px; margin: auto;">
+  <h1>Reopen Your Case</h1>
+  <p>If your case ended unfairly — if your attorney failed, new evidence came up, or you were never properly heard — you have options. We’ll help you reopen your case and demand the justice you were denied.</p>
+
+  <div class="search-container" style="margin-top: 2rem;">
+    <input id="smartSearch" onkeyup="smartNavigate(this.value)" placeholder="🔍 Search legal topics..." type="text" />
+    <span class="search-icon">🔍</span>
+  </div>
+  <ul id="smartSuggestions"></ul>
+
+  <div class="voice-button">
+    <button onclick="startVoiceSearch()">🎤 Voice Search</button>
+  </div>
+
+  <section>
+    <h2>⚖️ Legal Tools to Reopen a Case</h2>
+    <ul>
+      <li><strong>Motion to Set Aside or Vacate Judgment</strong> – Used when there was fraud, lack of notice, or procedural error</li>
+      <li><strong>Motion for New Trial</strong> – Based on ineffective counsel or newly discovered evidence</li>
+      <li><strong>Appeal</strong> – Challenge the decision in a higher court (if you're within the time limit)</li>
+    </ul>
+
+    <h2>📝 Example Wording</h2>
+    <pre style="background: #eee; padding: 1rem;">
+“My attorney failed to present critical evidence. I only discovered after judgment that [describe evidence or violation]. 
+I request this case be reopened in the interest of justice.”
+    </pre>
+
+    <h2>📄 Coming Soon</h2>
+    <ul>
+      <li>Motion to Set Aside Template</li>
+      <li>Affidavit of Ineffective Counsel</li>
+      <li>Timeline Tracker: Deadlines for Reopening</li>
+    </ul>
+
+    <p><strong>💡 Need help?</strong> Ask Sage to draft your motion or tell you which option is best based on your case and timing.</p>
+  </section>
+</main>
+
+<!-- Ask Sage Chatbot -->
+<iframe id="sageChatWindow" src="sage-chatbot.html"></iframe>
+
+<!-- Service Worker -->
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(reg => console.log('✅ Service Worker registered', reg))
+        .catch(err => console.error('❌ Service Worker registration failed', err));
+    });
+  }
+</script>
+
+<!-- Tawk.to Support -->
+<script type="text/javascript">
+  var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+  (function(){
+    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+    s1.async = true;
+    s1.src = 'https://embed.tawk.to/681d203afe55ac190d5636e6/1iqosbpkt';
+    s1.charset = 'UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1, s0);
+  })();
+</script>
+
+<footer style="margin-top: 3rem; color: #999; text-align: center;">
+  © 2025 Sovereign Academy — Created by Gina Lopez & Sage, your AI co-developer with claws. Built by Integrity Exists.
+</footer>
+
+</body>
+</html>
