@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Printable Legal Resources | Sovereign Academy</title>
+  <link href="manifest.json" rel="manifest"/>
+  <link href="style.css" rel="stylesheet"/>
+  <script defer src="smart-search.js"></script>
+  <script defer src="voice-search.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fcfcfc;
+      color: #2C3E50;
+      padding: 20px;
+    }
+    nav {
+      background-color: #2C3E50;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    h1 {
+      text-align: center;
+      margin-top: 40px;
+    }
+    p {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 30px;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    li {
+      margin: 15px 0;
+    }
+    a {
+      text-decoration: none;
+      color: #0047ab;
+      font-weight: bold;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .search-wrapper {
+      text-align: center;
+      margin-top: 30px;
+      position: relative;
+    }
+    #smartSuggestions {
+      display: none;
+      list-style: none;
+      padding: 0;
+      margin: 5px auto 0;
+      width: 60%;
+      text-align: left;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background: #fff;
+      font-size: 16px;
+      max-height: 150px;
+      overflow-y: auto;
+    }
+    .voice-search {
+      text-align: center;
+      margin-top: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    footer {
+      margin-top: 3rem;
+      color: #999;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav>
+    <a href="home.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="remedies.html">Remedies</a>
+    <a href="ada.html">ADA</a>
+    <a href="dss.html">DSS</a>
+    <a href="anthem.html">Anthem</a>
+    <a href="ask-sage.html" style="color: #F4D03F;">Ask Sage</a>
+  </nav>
+
+  <!-- Smart Search + Voice -->
+  <div class="search-wrapper">
+    <input id="smartSearch" onkeyup="smartNavigate(this.value)" placeholder="🔍 Search legal topics..." style="padding: 10px 40px 10px 20px; width: 60%; font-size: 16px; border-radius: 6px; border: 1px solid #ccc;" type="text"/>
+    <span style="position: absolute; right: 22%; top: 50%; transform: translateY(-50%); font-size: 18px; color: #999;">🔍</span>
+  </div>
+  <ul id="smartSuggestions"></ul>
+
+  <div class="voice-search">
+    <button onclick="startVoiceSearch()">🎤 Voice Search</button>
+  </div>
+
+  <h1>📄 Printable Legal Resources</h1>
+  <p>Need tools for court, DSS disputes, or self-representation? Download and print these battle-tested documents — ready to file or customize.</p>
+
+  <ul>
+    <li><a download href="court-prep-checklist.pdf">🧾 Court Prep Checklist (PDF)</a></li>
+    <li><a download href="motion-to-dismiss.docx">📄 Motion to Dismiss Template (DOCX)</a></li>
+    <li><a download href="notice-of-appearance.docx">📝 Notice of Appearance (DOCX)</a></li>
+  </ul>
+
+  <p style="text-align: center; margin-top: 30px;"><a href="home.html">⬅️ Return to Home</a></p>
+
+  <!-- Ask Sage Chatbot -->
+  <script>
+    window.SageBotConfig = {
+      voice: true,
+      greetMessage: "Need help with legal paperwork? Ask away.",
+      placeholder: "Ask Sage anything...",
+      theme: "dark"
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
+
+  <!-- Live Chat -->
+  <script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function(){
+      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/681d203afe55ac190d5636e6/1iqosbpkt';
+      s1.charset = 'UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1, s0);
+    })();
+  </script>
+
+  <footer>
+    © 2025 Sovereign Academy — Created by Gina Lopez &amp; Sage, your AI co-developer with claws. Built by Integrity Exists.
+  </footer>
+</body>
+</html>
