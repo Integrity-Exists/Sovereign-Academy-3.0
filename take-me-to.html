@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Take Me To... - Sovereign Academy</title>
+
+  <link rel="manifest" href="manifest.json"/>
+  <link rel="stylesheet" href="style.css"/>
+
+  <style>
+    :root {
+      --primary-color: #2C3E50;
+      --accent-color: #ECF0F1;
+    }
+
+    body {
+      background-color: var(--accent-color);
+      color: var(--primary-color);
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    nav {
+      background: var(--primary-color);
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .link-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      max-width: 800px;
+      margin: auto;
+      margin-top: 2rem;
+    }
+
+    .link-tile {
+      background-color: #fff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      text-decoration: none;
+      color: var(--primary-color);
+      font-weight: bold;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .link-tile:hover {
+      transform: translateY(-4px);
+      background: #f4f4f4;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      color: var(--primary-color);
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">🏠 Home</a>
+  <a href="about.html">About</a>
+  <a href="remedies.html">Remedies</a>
+  <a href="ada.html">ADA</a>
+  <a href="dss.html">DSS</a>
+  <a href="anthem.html">Anthem</a>
+  <a href="ask-sage.html">Ask Sage</a>
+</nav>
+
+<h1>🚀 Take Me To...</h1>
+<p>Select where you need to go right now. Your legal journey, your way.</p>
+
+<div class="link-grid">
+  <a class="link-tile" href="dss-defense.html">🔒 DSS / CPS Defense</a>
+  <a class="link-tile" href="court-prep.html">👨‍⚖️ Courtroom Prep</a>
+  <a class="link-tile" href="ask-sage.html">🧠 Ask Sage</a>
+  <a class="link-tile" href="remedies.html">📚 Legal Remedies</a>
+  <a class="link-tile" href="ada.html">♿ ADA Rights</a>
+  <a class="link-tile" href="llc-overview.html">💼 Start My LLC</a>
+  <a class="link-tile" href="know-your-rights.html">🚨 Know My Rights</a>
+  <a class="link-tile" href="veterans.html">🎖️ Veterans Support</a>
+</div>
+
+<footer>
+  © 2025 Sovereign Academy — Created by Gina Lopez & Sage, your AI co-developer with claws. 🦁
+</footer>
+
+<!-- Scripts -->
+<script src="smart-search.js"></script>
+<script src="voice-search.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js');
+  }
+</script>
+
+<!-- Ask Sage Chatbot -->
+<script>
+  window.SageBotConfig = {
+    voice: true,
+    greetMessage: "Where do you want to go next? I’ll guide you.",
+    placeholder: "Ask Sage anything legal...",
+    theme: "dark"
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
+
+<!-- Tawk.to Chat -->
+<script type="text/javascript">
+  var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+  (function(){
+    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+    s1.async = true;
+    s1.src = 'https://embed.tawk.to/681d203afe55ac190d5636e6/1iqosbpkt';
+    s1.charset = 'UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1, s0);
+  })();
+</script>
+
+</body>
+</html>
