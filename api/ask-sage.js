@@ -46,7 +46,7 @@ Always provide practical, actionable advice while reminding users you're not a l
         "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`
       },
       body: JSON.stringify({
-        model: "gpt-3.5 turbo",
+        model: "gpt-3.5-turbo",
         messages: [
           { role: "system", content: systemPrompt },
           { role: "user", content: prompt }
