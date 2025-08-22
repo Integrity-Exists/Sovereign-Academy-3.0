@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="theme-color" content="#2C3E50"/>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <title>Welcome to Sovereign Academy</title>
+  <meta name="description" content="If you've been silenced, ignored, or mistreated in court — Sovereign Academy is your weapon. Know your rights. Reclaim your power." />
+  <meta name="keywords" content="legal help, AI lawyer, DSS, CPS, custody, traffic stop rights, self-representation">
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="icons/icon-192x192.png" type="image/png"/>
+  <link rel="apple-touch-icon" href="icons/icon-512x512.png"/>
+  <script defer src="smart-search.js"></script>
+  <script defer src="voice-search.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background: #ECF0F1;
+      color: #2C3E50;
+      margin: 0;
+    }
+    nav {
+      background-color: #2C3E50;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    nav a {
+      color: #F4D03F;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+    .welcome-container {
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+      margin-top: 3rem;
+    }
+    .button-group {
+      margin-top: 30px;
+    }
+    .button {
+      display: inline-block;
+      padding: 12px 24px;
+      margin: 8px;
+      background: #2C3E50;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      color: #999;
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">🏠 Home</a>
+    <a href="about.html">About</a>
+    <a href="remedies.html">Remedies</a>
+    <a href="ada.html">ADA</a>
+    <a href="dss.html">DSS</a>
+    <a href="anthem.html">Anthem</a>
+    <a href="ask-sage.html">Ask Sage</a>
+  </nav>
+
+  <div class="welcome-container">
+    <h1>Welcome to Sovereign Academy</h1>
+    <p><strong>This is your legal weapon.</strong> If you’ve ever been shut down by DSS, ignored in court, or treated like your voice doesn’t matter — this app was built for you.</p>
+    <h2>Here’s what you can do:</h2>
+    <ul>
+      <li>⚖️ Ask Sage, your 24/7 AI co-counsel</li>
+      <li>📄 Download legal motions and forms</li>
+      <li>🚔 Learn your rights in traffic stops, DSS visits, and custody battles</li>
+    </ul>
+    <p><strong>You are not helpless. You are Sovereign.</strong> Let’s begin.</p>
+    <div class="button-group">
+      <a class="button" href="ask-sage.html">Launch Ask Sage</a>
+      <a class="button" href="traffic.html">Know Your Rights</a>
+      <a class="button" href="feedback.html">Give Feedback</a>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Sovereign Academy — Created by Gina Lopez &amp; Sage, your AI co-developer with claws. Built by Integrity Exists.
+  </footer>
+
+  <script>
+    window.SageBotConfig = {
+      voice: true,
+      greetMessage: "Welcome to Sovereign Academy! Ready to fight back against injustice? I'm here to help.",
+      placeholder: "Ask Sage anything legal...",
+      theme: "dark"
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
+
+  <script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function(){
+      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/681d203afe55ac190d5636e6/1iqosbpkt';
+      s1.charset = 'UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1, s0);
+    })();
+  </script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js');
+    }
+  </script>
+</body>
+</html>
