@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Terms of Use - Sovereign Academy</title>
+  <link rel="manifest" href="manifest.json"/>
+  <link rel="stylesheet" href="style.css"/>
+
+  <style>
+    :root {
+      --primary-color: #2C3E50;
+      --accent-color: #ECF0F1;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: var(--accent-color);
+      color: var(--primary-color);
+      padding: 20px;
+    }
+
+    nav {
+      background: var(--primary-color);
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--primary-color);
+    }
+
+    p {
+      max-width: 800px;
+      margin: 10px auto;
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 2em;
+      font-size: 0.9em;
+      color: var(--primary-color);
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">🏠 Home</a>
+  <a href="about.html">About</a>
+  <a href="remedies.html">Remedies</a>
+  <a href="ada.html">ADA</a>
+  <a href="dss.html">DSS</a>
+  <a href="anthem.html">Anthem</a>
+  <a href="ask-sage.html">Ask Sage</a>
+</nav>
+
+<h1>Terms of Use</h1>
+
+<p>
+  By accessing or using the Sovereign Academy platform, you agree to use it solely for educational, advocacy, or self-help purposes.
+  Integrity Svc.s LLC and its developers do not offer legal advice, and your use of the content is at your own discretion.
+</p>
+
+<p>
+  This platform does not substitute for legal representation. You are responsible for ensuring your filings, forms, and case documents comply
+  with your jurisdiction’s laws and procedures.
+</p>
+
+<p>
+  We reserve the right to update these terms as needed to remain in compliance or to improve the user experience.
+</p>
+
+<footer>
+  © 2025 Sovereign Academy — Created by Gina Lopez & Sage, your AI co-developer with claws. 🦁
+</footer>
+
+<!-- Ask Sage Chatbot -->
+<script>
+  window.SageBotConfig = {
+    voice: true,
+    greetMessage: "Hey there, how can I help you with your legal questions today?",
+    placeholder: "Ask Sage anything about legal terms...",
+    theme: "dark"
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
+
+<!-- Tawk.to Live Chat -->
+<script type="text/javascript">
+  var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+  (function(){
+    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+    s1.async = true;
+    s1.src = 'https://embed.tawk.to/681d203afe55ac190d5636e6/1iqosbpkt';
+    s1.charset = 'UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1, s0);
+  })();
+</script>
+
+<!-- Smart + Voice Search -->
+<script src="smart-search.js"></script>
+<script src="voice-search.js"></script>
+
+<!-- Service Worker -->
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js');
+  }
+</script>
+
+</body>
+</html>
