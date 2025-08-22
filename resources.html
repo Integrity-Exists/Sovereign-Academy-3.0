@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Legal Resources - Sovereign Academy</title>
+  <meta name="description" content="Download legal templates, affidavits, and motions to represent yourself with confidence."/>
+  <meta name="keywords" content="legal templates, pro se motions, affidavits, legal forms, printable legal tools"/>
+  <link rel="manifest" href="manifest.json"/>
+  <link rel="stylesheet" href="style.css"/>
+  <script defer src="smart-search.js"></script>
+  <script defer src="voice-search.js"></script>
+  <script defer src="sagebot.js"></script>
+  <style>
+    #sageChatWindow {
+      display: none;
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      width: 300px;
+      max-height: 400px;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+      z-index: 1000;
+    }
+
+    #sageChatWindow iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    #sageChatBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #2C3E50;
+      color: white;
+      padding: 12px 18px;
+      border: none;
+      border-radius: 50px;
+      font-size: 16px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav style="background: #2C3E50; padding: 10px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+  <a href="index.html" style="color: white; margin: 0 15px;">🏠 Home</a>
+</nav>
+
+<main style="padding: 2rem; max-width: 900px; margin: auto;">
+  <h1>📂 Legal Resources You Can Print</h1>
+  <p>These tools are designed to help you represent yourself confidently. All downloads are free. Customize them to fit your case, then file with the Clerk or court as needed.</p>
+
+  <div class="search-container" style="margin-top: 2rem;">
+    <input id="smartSearch" onkeyup="smartNavigate(this.value)" placeholder="🔍 Search legal topics..." type="text" />
+    <span class="search-icon">🔍</span>
+  </div>
+  <ul id="smartSuggestions"></ul>
+
+  <div class="voice-button">
+    <button onclick="startVoiceSearch()">🎤 Voice Search</button>
+  </div>
+
+  <section>
+    <h2>📝 Motions & Forms</h2>
+    <ul>
+      <li><a href="#">Motion to Remove GAL</a></li>
+      <li><a href="#">Request for Continuance</a></li>
+      <li><a href="#">Motion to Reopen Case</a></li>
+      <li><a href="#">ADA Accommodation Request</a></li>
+    </ul>
+
+    <h2>📄 Affidavit Templates</h2>
+    <ul>
+      <li><a href="#">Affidavit of Truth</a></li>
+      <li><a href="#">Affidavit of Service</a></li>
+      <li><a href="#">Affidavit of Ineffective Counsel</a></li>
+    </ul>
+
+    <h2>📞 Scripts</h2>
+    <ul>
+      <li><a href="#">Calling the Clerk: What to Say</a></li>
+      <li><a href="#">Talking to DSS Without Giving Up Rights</a></li>
+    </ul>
+
+    <p>💬 Can’t find what you need? Ask Sage to draft it with you.</p>
+  </section>
+</main>
+
+<!-- Ask Sage Chatbot -->
+<div id="sageChatWindow">
+  <iframe src="sage-chatbot.html"></iframe>
+</div>
+<button id="sageChatBtn" onclick="document.getElementById('sageChatWindow').style.display='block'">
+  💬 Ask Sage
+</button>
+
+<!-- Tawk.to Live Chat -->
+<script type="text/javascript">
+  var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+  (function(){
+    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+    s1.async = true;
+    s1.src = 'https://embed.tawk.to/681d203afe55ac190d5636e6/1iqosbpkt';
+    s1.charset = 'UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1, s0);
+  })();
+</script>
+
+<footer style="margin-top: 3rem; color: #999; text-align: center;">
+  © 2025 Sovereign Academy — Created by Gina Lopez & Sage, your AI co-developer with claws. Built by Integrity Exists.
+</footer>
+
+</body>
+</html>
