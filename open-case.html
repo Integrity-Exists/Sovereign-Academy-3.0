@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Open Case - Sovereign Academy</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <link href="manifest.json" rel="manifest"/>
+  <link href="style.css" rel="stylesheet"/>
+  <script defer src="smart-search.js"></script>
+  <script defer src="voice-search.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      background: #f9f9f9;
+      color: #2c3e50;
+    }
+    nav {
+      background: #f0f0f0;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    p {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    pre {
+      background: #eee;
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    footer {
+      margin-top: 3rem;
+      text-align: center;
+      color: #999;
+    }
+    #sageChatWindow {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 300px;
+      height: 400px;
+      border: none;
+      z-index: 999;
+    }
+  </style>
+</head>
+
+<body>
+<nav>
+  <a href="home.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="remedies.html">Remedies</a>
+  <a href="ada.html">ADA</a>
+  <a href="dss.html">DSS</a>
+  <a href="anthem.html">Anthem</a>
+  <a href="ask-sage.html" style="color: #007acc;">Ask Sage</a>
+</nav>
+
+<h1>📂 Opened Legal File</h1>
+<p>Drag and drop a legal case file into the app — JSON files will be parsed below.</p>
+<pre id="file-content">Waiting for file...</pre>
+
+<!-- File Handler Script -->
+<script>
+  if ('launchQueue' in window && 'files' in LaunchParams.prototype) {
+    window.launchQueue.setConsumer(async (launchParams) => {
+      if (!launchParams.files.length) return;
+
+      const fileHandle = launchParams.files[0];
+      const file = await fileHandle.getFile();
+
+      if (file.type === "application/json") {
+        const text = await file.text();
+        document.getElementById('file-content').textContent = text;
+      } else if (file.type === "application/pdf") {
+        window.open(URL.createObjectURL(file), '_blank');
+      } else {
+        document.getElementById('file-content').textContent = "❌ Unsupported file type.";
+      }
+    });
+  } else {
+    document.getElementById('file-content').textContent = "⚠️ File handler API not supported in this browser.";
+  }
+</script>
+
+<!-- SageBot Floating Iframe -->
+<iframe id="sageChatWindow" src="sage-chatbot.html"></iframe>
+
+<!-- Ask Sage Chatbot Config -->
+<script>
+  window.SageBotConfig = {
+    voice: true,
+    greetMessage: "Want help understanding your file? Just ask me.",
+    placeholder: "Ask Sage anything about your case...",
+    theme: "dark"
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
+
+<!-- Tawk.to Live Chat -->
+<script type="text/javascript">
+  var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+  (function(){
+    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+    s1.async = true;
+    s1.src = 'https://embed.tawk.to/681d203afe55ac190d5636e6/1iqosbpkt';
+    s1.charset = 'UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1, s0);
+  })();
+</script>
+
+<footer>
+  © 2025 Sovereign Academy — Created by Gina Lopez & Sage, your AI co-developer with claws. Built by Integrity Exists.
+</footer>
+</body>
+</html>
