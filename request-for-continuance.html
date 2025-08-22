@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Request a Continuance - Sovereign Academy</title>
+  <meta name="description" content="Need more time before court? Learn how to file a request for continuance and avoid penalties or default."/>
+  <meta name="keywords" content="request for continuance, court delay, motion to reschedule, legal motion, how to file continuance"/>
+  <link rel="manifest" href="manifest.json"/>
+  <link rel="stylesheet" href="style.css"/>
+  <script defer src="smart-search.js"></script>
+  <script defer src="voice-search.js"></script>
+  <script defer src="sagebot.js"></script>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav style="background: #2C3E50; padding: 10px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+  <a href="index.html" style="color: white; margin: 0 15px;">🏠 Home</a>
+</nav>
+
+<main style="padding: 2rem; max-width: 900px; margin: auto;">
+  <h1>Requesting a Court Continuance</h1>
+  <p>Need more time before your court date? You can file a <strong>Request for Continuance</strong> to ask the judge to move the hearing to a later date. This is common and legal — especially for medical reasons, new evidence, or time to prepare.</p>
+
+  <div class="search-container" style="margin-top: 2rem; text-align:center;">
+    <input id="smartSearch" onkeyup="smartNavigate(this.value)" placeholder="🔍 Search legal topics..." type="text" />
+    <span class="search-icon">🔍</span>
+  </div>
+  <div class="voice-button" style="text-align:center; margin-top:1rem;">
+    <button onclick="startVoiceSearch()">🎤 Voice Search</button>
+  </div>
+
+  <h2>📋 When You Can Ask</h2>
+  <ul>
+    <li>You just received notice and need more prep time</li>
+    <li>You have a schedule conflict (with proof)</li>
+    <li>You’re waiting on documents or records</li>
+    <li>You were recently hospitalized or have a disability</li>
+  </ul>
+
+  <h2>📝 How to Request It</h2>
+  <ol>
+    <li>Write a short motion titled “Request for Continuance”</li>
+    <li>Include your name, case number, and scheduled court date</li>
+    <li>State your reason and request a specific delay (example: 30 days)</li>
+    <li>Attach supporting proof (doctor note, appointment slip, etc.)</li>
+    <li>File with the Clerk and send a copy to the other party</li>
+  </ol>
+
+  <h2>📄 Coming Soon</h2>
+  <ul>
+    <li>Continuance Request Template (fillable)</li>
+    <li>Motion to Reschedule (civil/family/criminal)</li>
+    <li>Clerk Call Script (what to say if you're nervous)</li>
+  </ul>
+
+  <h2>💡 Tips</h2>
+  <p>Don’t wait until the last minute — try to file at least 3–5 business days before court. Always keep proof that you filed.</p>
+
+  <h2>🧠 Ask Sage</h2>
+  <p>Need help writing your letter or deciding what to say? Ask Sage to help you draft your motion right here.</p>
+</main>
+
+<!-- Ask Sage Chatbot -->
+<iframe id="sageChatWindow" src="sage-chatbot.html" style="position: fixed; bottom: 20px; right: 20px; width: 300px; height: 400px; border: none; z-index: 999;"></iframe>
+
+<!-- Service Worker -->
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(reg => console.log('✅ Service Worker registered', reg))
+        .catch(err => console.error('❌ Service Worker registration failed', err));
+    });
+  }
+</script>
+
+<!-- Tawk.to Live Chat -->
+<script type="text/javascript">
+  var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+  (function(){
+    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+    s1.async = true;
+    s1.src = 'https://embed.tawk.to/681d203afe55ac190d5636e6/1iqosbpkt';
+    s1.charset = 'UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1, s0);
+  })();
+</script>
+
+<footer style="margin-top: 3rem; color: #999; text-align: center;">
+  © 2025 Sovereign Academy — Created by Gina Lopez & Sage, your AI co-developer with claws. Built by Integrity Exists.
+</footer>
+
+</body>
+</html>
