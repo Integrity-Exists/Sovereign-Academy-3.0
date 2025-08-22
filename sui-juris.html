@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sovereign Academy - Sui Juris Center</title>
+
+  <!-- Core Links -->
+  <link rel="manifest" href="manifest.json"/>
+  <link rel="stylesheet" href="style.css"/>
+
+  <style>
+    :root {
+      --primary-color: #2C3E50;
+      --secondary-color: #F4D03F;
+      --accent-color: #ECF0F1;
+    }
+    body {
+      background-color: var(--accent-color);
+      color: var(--primary-color);
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav style="background: #2C3E50; padding: 10px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+  <a href="index.html" style="color: white; margin: 0 15px;">🏠 Home</a>
+</nav>
+
+<main>
+  <h1>Sui Juris &amp; Pro Se Center</h1>
+  <section>
+    <h2>What is Sui Juris?</h2>
+    <p>Sui Juris means representing yourself in court without an attorney. It empowers individuals to assert their legal rights independently, using their own knowledge and preparation.</p>
+
+    <h2>Self-Representation Resources:</h2>
+    <ul>
+      <li>How to File a Motion (coming soon!)</li>
+      <li>Sample Motion Template (coming soon!)</li>
+      <li>Steps to Prepare for Your Hearing</li>
+    </ul>
+
+    <h2>Downloadable Templates</h2>
+    <a download href="motion-to-dismiss.docx">Download Motion to Dismiss Template (DOC)</a><br/>
+    <a download href="notice-of-appearance.docx">Download Notice of Appearance Template (DOC)</a>
+  </section>
+
+  <p>Learn how to represent yourself in court, file motions, and assert your rights as a sovereign individual. Resources and downloadable templates coming soon.</p>
+
+  <div style="text-align: center; margin-top: 40px; position: relative;">
+    <input id="smartSearch" onkeyup="smartNavigate(this.value)" placeholder="🔍 Search legal topics..." style="padding: 10px 40px 10px 20px; width: 60%; font-size: 16px; border-radius: 6px; border: 1px solid #ccc;" type="text"/>
+    <span style="position: absolute; right: 22%; top: 50%; transform: translateY(-50%); font-size: 18px; color: #999;">🔍</span>
+    <ul id="smartSuggestions" style="list-style: none; padding: 0; margin: 5px auto 0; width: 60%; text-align: left; display: none; border: 1px solid #ccc; border-radius: 6px; background: #fff; font-size: 16px; max-height: 150px; overflow-y: auto;"></ul>
+
+    <div style="text-align: center; margin-top: 10px;">
+      <button onclick="startVoiceSearch()" style="padding: 10px 20px; font-size: 16px; border-radius: 6px; cursor: pointer;">
+        🎤 Voice Search
+      </button>
+    </div>
+  </div>
+</main>
+
+<footer style="text-align: center; margin-top: 40px; color: var(--primary-color);">
+  © 2025 Sovereign Academy — Gina Lopez &amp; Sage, your AI co-developer with claws. 🦁
+</footer>
+
+<!-- Scripts -->
+<script src="smart-search.js"></script>
+<script src="voice-search.js"></script>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js');
+  }
+</script>
+
+<!-- Ask Sage Chatbot -->
+<script>
+  window.SageBotConfig = {
+    voice: true,
+    greetMessage: "Need help going Sui Juris? I'm ready to walk you through it.",
+    placeholder: "Ask Sage about representing yourself...",
+    theme: "dark"
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
+
+<!-- Tawk.to Chat -->
+<script type="text/javascript">
+  var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+  (function(){
+    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+    s1.async = true;
+    s1.src = 'https://embed.tawk.to/681d203afe55ac190d5636e6/1iqosbpkt';
+    s1.charset = 'UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1, s0);
+  })();
+</script>
+
+</body>
+</html>
