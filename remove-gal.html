@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Remove a Guardian ad Litem (GAL) – Sovereign Academy</title>
+  <meta name="description" content="Learn how to remove a biased or unethical GAL from your custody case. We give you the steps, language, and confidence to stand up."/>
+  <meta name="keywords" content="remove GAL, guardian ad litem misconduct, GAL bias, GAL removal, family court injustice"/>
+  <link rel="manifest" href="manifest.json"/>
+  <link rel="stylesheet" href="style.css"/>
+  <script src="smart-search.js"></script>
+</head>
+<body>
+
+
+<!-- Navigation -->
+<nav style="background: #2C3E50; padding: 10px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+  <a href="index.html" style="color: white; margin: 0 15px;">🏠 Home</a>
+</nav>
+
+<main style="padding: 2rem; max-width: 900px; margin: auto;">
+  <h1>🔥 Remove a Biased or Unethical GAL</h1>
+  <p>If your Guardian ad Litem is doing more harm than good, you have legal tools to fight back. They are *not above the law* — and we’ll show you how to hold them accountable.</p>
+
+  <div class="search-container" style="margin-top: 2rem;">
+    <input id="smartSearch" onkeyup="smartNavigate(this.value)" placeholder="🔍 Search legal topics..." type="text" />
+    <span class="search-icon">🔍</span>
+  </div>
+  <ul id="smartSuggestions"></ul>
+
+  <div class="voice-button">
+    <button onclick="startVoiceSearch()">🎤 Voice Search</button>
+  </div>
+
+  <section>
+    <h2>🚩 Reasons to Remove a GAL</h2>
+    <ul>
+      <li>Clear conflict of interest (represented another party previously)</li>
+      <li>Refusing to interview both parents</li>
+      <li>Withholding evidence</li>
+      <li>Making false statements or showing obvious bias</li>
+      <li>Failing to visit the child or provide neutral reporting</li>
+    </ul>
+
+    <h2>📄 What to File</h2>
+    <ol>
+      <li><strong>Motion to Remove Guardian ad Litem</strong> – cite specific reasons and include evidence</li>
+      <li><strong>Affidavit</strong> – your sworn statement showing why the GAL must be removed</li>
+      <li><strong>Request a hearing</strong> – demand to be heard before further damage is done</li>
+    </ol>
+
+    <p style="margin-top: 1.5rem;"><strong>💬 Need help writing it?</strong> Ask Sage to generate your motion with the exact legal language.</p>
+
+    <h3>🔧 Coming Soon:</h3>
+    <ul>
+      <li>Auto-filled motion to remove GAL</li>
+      <li>Complaint form for licensing boards</li>
+      <li>Real stories of GAL abuse and how they were removed</li>
+    </ul>
+  </section>
+</main>
+
+<!-- Ask Sage Chatbot -->
+<iframe id="sageChatWindow" src="sage-chatbot.html"></iframe>
+
+<!-- Voice & Smart Search -->
+<script src="voice-search.js"></script>
+
+<!-- Service Worker -->
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(reg => console.log('✅ Service Worker registered', reg))
+        .catch(err => console.error('❌ Service Worker registration failed', err));
+    });
+  }
+</script>
+
+<!-- Tawk.to Live Support -->
+<script type="text/javascript">
+  var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+  (function(){
+    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+    s1.async = true;
+    s1.src = 'https://embed.tawk.to/681d203afe55ac190d5636e6/1iqosbpkt';
+    s1.charset = 'UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1, s0);
+  })();
+</script>
+
+<footer style="margin-top: 3rem; color: #999; text-align: center;">
+  © 2025 Sovereign Academy — Created by Gina Lopez & Sage, your AI co-developer with claws. Built by Integrity Exists.
+</footer>
+
+</body>
+</html>
