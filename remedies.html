@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Legal Remedies for Incarcerated Individuals – Sovereign Academy</title>
+
+  <!-- Core assets -->
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="smart-search.js"></script>
+  <script defer src="voice-search.js"></script>
+  <script defer src="sagebot.js"></script>
+
+  <!-- Meta -->
+  <meta name="description" content="Understand legal tools available to prisoners and their families. Explore motions, sentence reductions, habeas petitions, and civil rights claims.">
+  <meta name="keywords" content="prisoner rights, habeas corpus, compassionate release, sentence reduction, incarcerated legal help">
+  <meta property="og:title" content="Legal Remedies for Incarcerated Individuals - Sovereign Academy">
+  <meta property="og:description" content="Tools to challenge unlawful confinement, reduce sentences, and assert rights inside.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Remedies for Incarcerated People - Sovereign Academy">
+  <meta name="twitter:description" content="Legal help for those behind bars — motions, petitions, and civil rights claims.">
+  <link rel="icon" href="icons/icon-192x192.png" type="image/png" />
+  <link rel="apple-touch-icon" href="icons/icon-512x512.png" />
+
+  <style>
+    #sageChatBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #2c3e50;
+      color: #fff;
+      padding: 12px 18px;
+      border: none;
+      border-radius: 50px;
+      font-size: 16px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+    #sageChatWindow {
+      display: none;
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      width: 300px;
+      max-height: 400px;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+      z-index: 1000;
+    }
+    #sageChatWindow iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .search-container {
+      position: relative;
+      text-align: center;
+      margin-top: 40px;
+    }
+    #smartSearch {
+      padding: 10px 40px 10px 20px;
+      width: 60%;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    .search-icon {
+      position: absolute;
+      right: 22%;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 18px;
+      color: #999;
+    }
+  </style>
+</head>
+
+<body>
+<!-- Navigation -->
+<nav style="background: #2C3E50; padding: 10px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+  <a href="index.html" style="color: white; margin: 0 15px;">🏠 Home</a>
+</nav>
+
+  <main style="max-width: 800px; margin: 40px auto; padding: 20px;">
+    <h1>🩹 Legal Remedies for Incarcerated Individuals</h1>
+    <p>If you or a loved one is incarcerated, there are legal tools that may help reduce sentences, challenge unlawful confinement, or seek justice through the courts.</p>
+
+    <h2>🔓 Sentence Reduction Options</h2>
+    <ul>
+      <li><strong>Compassionate Release:</strong> For serious medical conditions or family hardship.</li>
+      <li><strong>Motion for Sentence Modification:</strong> Ask the court to reduce the term.</li>
+      <li><strong>Good Time Credit:</strong> Request recalculation for early release eligibility.</li>
+    </ul>
+
+    <h2>📜 Habeas Corpus Petitions</h2>
+    <p>Use a habeas petition to challenge unlawful detention, ineffective assistance of counsel, or due process violations. These are often filed in state or federal court depending on your conviction status.</p>
+
+    <h2>⚖️ Other Legal Tools</h2>
+    <ul>
+      <li>Motion to Vacate Judgment</li>
+      <li>Post-Conviction Relief (PCR)</li>
+      <li>Ineffective Assistance of Counsel claims</li>
+      <li>Appeals or Sentence Reconsideration</li>
+    </ul>
+
+    <p>You can also file civil claims for inhumane treatment, ADA violations, or retaliation under §1983 if your constitutional rights are violated inside.</p>
+
+    <p>If you need help building a motion, ask Sage below — or visit the <a href="printable-resources.html">Printable Tools</a> section for templates.</p>
+  </main>
+
+  <!-- Sage Chatbot -->
+  <div id="sageChatWindow">
+    <iframe src="sage-chatbot.html"></iframe>
+  </div>
+  <button id="sageChatBtn" onclick="document.getElementById('sageChatWindow').style.display='block'">
+    💬 Ask Sage
+  </button>
+
+  <!-- Disclaimer Footer -->
+  <div style="background: #f8d7da; color: #721c24; padding: 15px; margin-top: 50px; border-top: 2px solid #f5c6cb; text-align: center; font-size: 14px;">
+    <strong>⚠️ Legal Disclaimer:</strong> Sovereign Academy is not a law firm. This page is for education only. Always consult a licensed attorney before filing motions or petitions.
+  </div>
+</body>
+</html>
