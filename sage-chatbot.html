@@ -1,0 +1,27 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8" /> 
+<title>Ask Sage</title> 
+<style> 
+body { background: #000; color: #0f0; font-family: sans-serif; } 
+#chat-log { max-height: 300px; overflow-y: auto; padding: 1rem; } 
+.message { margin: 0.5rem 0; } 
+.user { color: #0ff; } 
+.sage { color: #ff0; } 
+</style> 
+</head> 
+<body> 
+<div id="chat-wrapper"> 
+<div id="chat-header">�� Ask Sage</div> 
+<div id="chat-log"> 
+<div class="message sage">Hello! What legal question can I help with today?</div> </div> 
+<form id="sage-chat-form"> 
+<div id="chat-input"> 
+<input id="user-input" type="text" placeholder="Type your legal question..." /> <button type="submit">➤</button> 
+</div> 
+</form> 
+</div> 
+<script src="sagebot.js"></script> 
+</body> 
+</html>
