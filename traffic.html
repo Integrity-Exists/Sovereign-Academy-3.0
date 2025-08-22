@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="theme-color" content="#2C3E50"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="description" content="Know your rights during traffic stops. Sovereign Academy teaches you what to say, what not to do, and how to protect yourself."/>
+
+  <title>Traffic Stop Rights – Sovereign Academy</title>
+  <link rel="manifest" href="manifest.json"/>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="icon" type="image/png" href="icons/icon-192x192.png"/>
+  <link rel="apple-touch-icon" href="icons/icon-512x512.png"/>
+
+  <style>
+    :root {
+      --primary-color: #2C3E50;
+      --secondary-color: #F4D03F;
+      --accent-color: #ECF0F1;
+    }
+
+    body {
+      background-color: var(--accent-color);
+      color: var(--primary-color);
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    nav {
+      background-color: var(--primary-color);
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    ol, ul {
+      padding-left: 20px;
+    }
+
+    blockquote {
+      background: #fff3cd;
+      border-left: 5px solid #f1c40f;
+      margin: 20px 0;
+      padding: 15px;
+      font-style: italic;
+    }
+
+    strong {
+      color: #000;
+    }
+
+    .search-container {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    #smartSearch {
+      padding: 10px 20px;
+      width: 60%;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    .voice-btn {
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+      background-color: var(--primary-color);
+      color: #fff;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">🏠 Home</a>
+  <a href="about.html">About</a>
+  <a href="remedies.html">Remedies</a>
+  <a href="ada.html">ADA</a>
+  <a href="dss.html">DSS</a>
+  <a href="anthem.html">Anthem</a>
+  <a href="ask-sage.html">Ask Sage</a>
+</nav>
+
+<main>
+  <h1>Know Your Rights During Traffic Stops</h1>
+
+  <p><strong>🚨 If You’re Pulled Over:</strong></p>
+  <ol>
+    <li>Stay calm. Turn off the engine. Keep hands visible on the wheel.</li>
+    <li>Roll down your window slightly and ask:<br/>
+      <em>“Am I being detained, or am I free to go?”</em></li>
+    <li>Do NOT consent to searches. Say:<br/>
+      <em>“I do not consent to any searches.”</em></li>
+    <li>You can record — and in most states, it's fully legal. Say:<br/>
+      <em>“For my safety and yours, I am recording this interaction.”</em></li>
+  </ol>
+
+  <p><strong>🦴 K9 Search Tip:</strong> Officers CANNOT delay a stop just to bring in a drug dog. The U.S. Supreme Court ruled this in <em>Rodriguez v. United States</em>, 575 U.S. 348 (2015).</p>
+
+  <p><strong>✋ You Do NOT Have to:</strong></p>
+  <ul>
+    <li>Let them search your vehicle unless they have a warrant or probable cause</li>
+    <li>Answer questions like “Where are you going?”</li>
+    <li>Step out of the car unless ordered</li>
+  </ul>
+
+  <p><strong>🗣️ If You Are Detained or Arrested:</strong></p>
+  <blockquote>“I’m invoking my Fifth Amendment right to remain silent. I want a lawyer.”</blockquote>
+
+  <p><strong>⚖️ Tip from Sage:</strong> You do NOT have to be rude. Just be firm. Let the facts, not emotion, drive your case. Ask Sage inside the app for more support if you’re facing charges.</p>
+</main>
+
+<div class="search-container">
+  <input id="smartSearch" onkeyup="smartNavigate(this.value)" placeholder="🔍 Search legal topics..." type="text"/>
+  <br/>
+  <button class="voice-btn" onclick="startVoiceSearch()">🎤 Voice Search</button>
+</div>
+
+<footer style="margin-top: 3rem; text-align: center; color: var(--primary-color);">
+  © 2025 Sovereign Academy — Created by Gina Lopez &amp; Sage, your AI co-developer with claws. Built by Integrity Exists.
+</footer>
+
+<!-- Scripts -->
+<script src="smart-search.js"></script>
+<script src="voice-search.js"></script>
+
+<!-- Tawk.to Live Chat -->
+<script type="text/javascript">
+  var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+  (function(){
+    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+    s1.async = true;
+    s1.src = 'https://embed.tawk.to/681d203afe55ac190d5636e6/1iqosbpkt';
+    s1.charset = 'UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1, s0);
+  })();
+</script>
+
+<!-- Ask Sage Chatbot -->
+<script>
+  window.SageBotConfig = {
+    voice: true,
+    greetMessage: "Need help handling a traffic stop? I'm right here with the facts.",
+    placeholder: "Ask Sage about your rights...",
+    theme: "dark"
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
+
+<!-- Service Worker -->
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js');
+  }
+</script>
+
+</body>
+</html>
