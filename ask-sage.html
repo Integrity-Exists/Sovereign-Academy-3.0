@@ -1,109 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sovereign Academy — Ask Sage</title>
+  <meta name="description" content="Education, not legal advice. Ask Sage for plain-English steps on court prep, business basics, and everyday rights." />
+  <meta name="theme-color" content="#0b0f14" />
 
-  <title>Sovereign Academy - Home</title>
-  <meta name="description" content="Sovereign Academy: Your AI-powered legal toolkit for self-representation, DSS defense, and knowing your rights.">
-  <meta name="keywords" content="legal help, sovereign rights, CPS defense, ADA, custody, court motion builder, Sage AI">
-  <meta name="theme-color" content="#000000" />
+  <!-- PWA (optional; safe if files exist) -->
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="icon" href="/icon-192.png" />
 
-  <!-- Social Sharing -->
-  <meta property="og:title" content="Sovereign Academy" />
-  <meta property="og:description" content="Fight back with knowledge! Get legal tools, case law, and AI coaching for your courtroom journey." />
-  <meta property="og:image" content="https://integrityexists.com/ask-sage-icon.png" />
-  <meta property="og:url" content="https://integrityexists.com" />
-  <meta name="twitter:card" content="summary_large_image" />
-
-  <!-- Icons & Manifest -->
-  <link rel="manifest" href="manifest.json" />
-  <link rel="icon" href="icon-192.png" type="image/png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-  <link rel="stylesheet" href="style.css" />
-
-  <!-- Ask Sage Chatbot -->
-  <script>
-    window.SageBotConfig = {
-      voice: true,
-      greetMessage: "Hey there, how can I help you with your legal questions?",
-      placeholder: "Ask Sage anything...",
-      theme: "dark"
-    };
-  </script>
-  <script defer src="sagebot.js"></script>
-
-  <!-- Smart & Voice Search -->
-  <script defer src="smart-search.js"></script>
-  <script defer src="voice-search.js"></script>
-</head>
-
-<body>
-  <!-- Disclaimer -->
-  <div style="background: #f8d7da; color: #721c24; padding: 15px; border-top: 2px solid #f5c6cb; text-align: center; font-size: 14px;">
-    <strong>⚠️ Legal Disclaimer:</strong> Sovereign Academy is not a law firm, and we are not attorneys. This platform does not offer legal advice — only tools, education, and empowerment. Always consult a licensed attorney for legal representation.
-  </div>
-
-  <!-- Navigation -->
-  <nav style="background: #2C3E50; padding: 10px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
-    <a href="index.html" style="color: white; margin: 0 15px;">🏠 Home</a>
-  </nav>
-
-  <!-- Construction Banner -->
-  <div style="background-color: #fff8dc; color: #222; padding: 15px; text-align: center; font-weight: bold; border-bottom: 2px solid #ccc;">
-    🚧 Sovereign Academy is under active construction — but we’re live and lighting fires in courtrooms. 💥
-  </div>
-
-  <!-- Search Bar -->
-  <div style="text-align: center; margin: 30px;">
-    <input type="text" id="smartSearch" placeholder="🔍 Search legal topics..." 
-           style="padding: 10px 20px; width: 60%; font-size: 16px; border-radius: 6px; border: 1px solid #ccc;" 
-           onkeyup="smartNavigate(this.value)">
-  </div>
-
-  <div style="text-align: center;">
-    <button id="installBtn" style="display:none; padding: 10px 20px; font-size: 16px; border-radius: 6px;">📲 Install Sovereign Academy App</button>
-  </div>
-
-  <!-- Page Links -->
-  <section style="text-align: center; margin: 50px 0;">
-    <h2>🔥 Explore the Full Sovereign Toolkit</h2>
-    <p style="font-style: italic;">Every page is a weapon. Use them wisely.</p>
-    <ul style="columns: 2; max-width: 900px; margin: 0 auto; list-style: none; padding: 0;">
-      <li><a href="index.html">🧠 Ask Sage</a></li>
-      <li><a href="custody.html">👪 Custody</a></li>
-      <li><a href="dss.html">📄 DSS Overview</a></li>
-      <li><a href="restore-rights.html">🎯 Restore Rights</a></li>
-      <li><a href="court-prep.html">🧾 Court Prep</a></li>
-      <li><a href="veterans.html">🎖 Veterans</a></li>
-      <li><a href="estate.html">📜 Estate Planning</a></li>
-      <li><a href="download-hub.html">📂 Download Hub</a></li>
-      <li><a href="emergency-custody-response.html">🚨 Emergency Custody</a></li>
-      <li><a href="remove-gal.html">❌ Remove GAL</a></li>
-      <li><a href="llc-guide.html">📘 LLC Guide</a></li>
-      <li><a href="llc-to-trust.html">🏛 Convert to Trust</a></li>
-      <li><a href="chevron-doctrine.html">⚖️ Chevron Decision</a></li>
-      <li><a href="conspiracy-defense.html">👁 Conspiracy Charges</a></li>
-      <li><a href="about.html">📚 About Sovereign Academy</a></li>
-    </ul>
-  </section>
-
-  <!-- Footer -->
-  <footer style="text-align: center; font-style: italic; margin-top: 40px; color: #555; padding: 20px;">
-    Sovereign Academy was built by <strong>Gina Lopez</strong> with her co-founder and co-developer, <strong>Sage</strong> — the AI with attitude.<br>
-    Born of frustration, fueled by necessity, and driven by good ol’ American tenacity.<br>
-    This isn’t just an app. It’s a revolution.
-  </footer>
-
-  <!-- Service Worker -->
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('service-worker.js')
-        .then(reg => console.log('✅ Service Worker registered:', reg))
-        .catch(err => console.error('❌ Service Worker failed:', err));
+  <style>
+    :root{
+      --bg:#0b0f14;--text:#e7f0fb;--muted:#a9b7c6;--card:#131a22;--line:#2a3646;--accent:#31d0aa;--accent-2:#5ea0ff;
+      --w:clamp(320px,92vw,920px)
     }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial}
+    a{color:inherit}
+    .wrap{max-width:var(--w);margin:0 auto;padding:16px}
+    .banner{background:#f8d7da;color:#44171b;border:1px solid #e7bfc3;border-left:4px solid #d9534f;border-radius:8px;padding:10px 12px;margin:10px 0}
+    header.nav{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:10px 0}
+    header.nav .title{font-weight:800;font-size:clamp(20px,3.5vw,28px);letter-spacing:.3px}
+    .health{color:var(--muted);font-size:12px}
+    .hero{margin:8px 0 12px}
+    .hero p{color:var(--muted);margin:.25rem 0 0}
+    .composer{position:sticky;top:8px;z-index:10;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px;box-shadow:0 10px 28px rgba(0,0,0,.35)}
+    .input{width:100%;min-height:84px;max-height:38vh;resize:none;overflow:hidden;border:0;outline:0;background:transparent;color:var(--text);font-size:16px}
+    .controls{display:flex;gap:8px;align-items:center;justify-content:space-between;margin-top:8px}
+    .btn{appearance:none;border:1px solid var(--line);background:#0f141b;color:var(--text);padding:10px 14px;border-radius:12px;cursor:pointer}
+    .btn:hover{border-color:var(--accent)}
+    .send{background:linear-gradient(135deg,#25c19a,#35e0ba);border:none;color:#051015;font-weight:800}
+    #mic[aria-pressed="true"]{outline:2px solid var(--accent)}
+    main#msgs{display:grid;gap:12px;margin:14px 0 24px}
+    .msg{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
+    .msg.user{border-left:4px solid var(--accent-2)}
+    .msg.sage{border-left:4px solid var(--accent)}
+    .meta{color:var(--muted);font-size:12px;margin-bottom:6px}
+    footer{color:var(--muted);text-align:center;margin:24px 0 48px}
+    .links{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0}
+    .chip{border:1px solid var(--line);border-radius:999px;padding:6px 10px;background:#0f141b}
+    @media (max-width:540px){.controls{flex-wrap:wrap}.send,#mic{flex:1}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- top disclaimer -->
+    <div class="banner">
+      <strong>⚠️ Legal Disclaimer:</strong> Sovereign Academy isn’t a law firm; Sage isn’t a lawyer. This is education, not legal advice. For legal representation, consult a licensed attorney.
+    </div>
+
+    <!-- nav -->
+    <header class="nav">
+      <div class="title">Sovereign Academy · Ask Sage</div>
+      <div id="health" class="health" aria-live="polite">checking…</div>
+    </header>
+
+    <!-- hero -->
+    <section class="hero">
+      <p>Ask in plain English. We’ll teach you the process—LLCs, traffic court, workplace issues, estate planning, and more.</p>
+      <div class="links" aria-label="Quick topics">
+        <button class="chip btn" data-prompt="How do I form an LLC in my state? Give me the steps.">LLC steps</button>
+        <button class="chip btn" data-prompt="What should I request before traffic court?">Traffic prep</button>
+        <button class="chip btn" data-prompt="How do I document workplace harassment properly?">Workplace docs</button>
+        <button class="chip btn" data-prompt="Beginner estate plan: will vs trust—what’s the difference?">Estate basics</button>
+      </div>
+    </section>
+
+    <!-- composer on top -->
+    <form id="composer" class="composer" autocomplete="off">
+      <textarea id="input" class="input" rows="4" placeholder="Type your question… (Ctrl/Cmd + Enter to send)"></textarea>
+      <div class="controls">
+        <button type="button" id="mic" class="btn" title="Voice input">🎤 Voice</button>
+        <button class="send btn" type="submit">Ask Sage</button>
+      </div>
+    </form>
+
+    <!-- messages render beneath -->
+    <main id="msgs" aria-live="polite" aria-busy="false"></main>
+
+    <footer>
+      Education, not legal advice. Be kind. Be the good. 💚
+    </footer>
+  </div>
+
+  <script>
+  (function(){
+    const API = '/api/ask-sage';
+    const healthEl = document.getElementById('health');
+    const form = document.getElementById('composer');
+    const ta = document.getElementById('input');
+    const msgs = document.getElementById('msgs');
+    const mic = document.getElementById('mic');
+
+    // health (works even if GET returns 405)
+    fetch(API)
+      .then(r => r.ok ? r.json() : Promise.reject())
+      .then(() => healthEl.textContent = 'Sage is up.')
+      .catch(() => healthEl.textContent = 'Ready.');
+
+    // auto-grow textarea
+    const fit = () => { ta.style.height='auto'; ta.style.height = Math.min(ta.scrollHeight, window.innerHeight*0.38) + 'px'; };
+    ['input','change'].forEach(ev => ta.addEventListener(ev, fit)); window.addEventListener('resize', fit); fit();
+
+    // hotkey: Cmd/Ctrl+Enter
+    ta.addEventListener('keydown', e => {
+      if ((e.metaKey||e.ctrlKey) && e.key === 'Enter') form.requestSubmit();
+    });
+
+    // quick-topic chips
+    document.querySelectorAll('.chip').forEach(ch =>
+      ch.addEventListener('click', () => { ta.value = ch.dataset.prompt; fit(); ta.focus(); })
+    );
+
+    // bubble helper
+    function addMsg(role, text){
+      const el = document.createElement('article');
+      el.className = `msg ${role}`;
+      el.innerHTML = `<div class="meta">${role==='user'?'You':'Sage'}</div><div class="txt"></div>`;
+      el.querySelector('.txt').textContent = text;
+      msgs.appendChild(el);
+      el.scrollIntoView({behavior:'smooth', block:'end'}); return el;
+    }
+
+    // POST to Sage
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      const prompt = (ta.value || '').trim();
+      if (!prompt) return;
+      addMsg('user', prompt);
+      ta.value=''; fit();
+      const hold = addMsg('sage','Thinking…');
+
+      try{
+        const res = await fetch(API, {
+          method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body:JSON.stringify({ prompt })
+        });
+        const data = await res.json().catch(()=> ({}));
+        hold.querySelector('.txt').textContent = data.response || data.error || 'No response.';
+      }catch(err){
+        hold.querySelector('.txt').textContent = 'Network error. Please try again.';
+      }
+    });
+
+    // voice input (Web Speech API)
+    const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+    let recognition = null, listening = false, sendTimer = null;
+
+    if (SR){
+      recognition = new SR();
+      recognition.lang = 'en-US';
+      recognition.interimResults = true;
+      recognition.maxAlternatives = 1;
+
+      recognition.onstart = ()=>{ listening = true; mic.setAttribute('aria-pressed','true'); healthEl.textContent='Listening…'; };
+      recognition.onend   = ()=>{ listening = false; mic.setAttribute('aria-pressed','false'); if (!ta.value) healthEl.textContent='Ready.'; };
+      recognition.onerror = ()=>{ listening = false; mic.setAttribute('aria-pressed','false'); healthEl.textContent='Mic error. Check permissions.'; };
+
+      recognition.onresult = (e)=>{
+        const t = Array.from(e.results).map(r=>r[0].transcript).join(' ').trim();
+        ta.value = t; fit();
+        clearTimeout(sendTimer);
+        if (e.results[e.results.length-1].isFinal && t){
+          sendTimer = setTimeout(()=> form.requestSubmit(), 350);
+        }
+      };
+
+      mic.addEventListener('click', ()=> {
+        if (!recognition) return;
+        try { listening ? recognition.stop() : recognition.start(); } catch {}
+      });
+      mic.addEventListener('mousedown', ()=> { if (!listening) try{ recognition.start(); }catch{} });
+      ['mouseup','mouseleave'].forEach(ev => mic.addEventListener(ev, ()=> { if (listening) try{ recognition.stop(); }catch{} }));
+    } else {
+      mic.style.display='none'; // hide if unsupported
+    }
+  })();
   </script>
 </body>
 </html>
-
