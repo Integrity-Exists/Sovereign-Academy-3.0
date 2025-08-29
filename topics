@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>All Topics · Sovereign Academy</title>
+<link rel="icon" href="/icon-192.png">
+<style>
+  :root{--bg:#000;--card:#111;--line:#0f0;--text:#0f0;--muted:#9f9}
+  body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 'Courier New',monospace}
+  .wrap{max-width:1100px;margin:0 auto;padding:16px}
+  header{display:flex;justify-content:space-between;align-items:center;margin:6px 0 12px}
+  a{color:var(--text);text-decoration:none}
+  a:hover{text-shadow:0 0 5px #0f0}
+  .search{display:flex;gap:8px;margin:10px 0}
+  .search input{flex:1;padding:10px 12px;border-radius:8px;border:1px solid var(--line);background:#000;color:var(--text)}
+  .grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));margin:12px 0 30px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px}
+  .card h3{margin:0 0 6px;font-size:16px}
+  .muted{color:var(--muted);font-size:12px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a href="/">&larr; Back</a>
+    <h1 style="margin:0">All Topics</h1>
+  </header>
+
+  <div class="search">
+    <input id="q" type="search" placeholder="Filter topics… (court, trust, DSS, traffic)">
+  </div>
+
+  <section id="grid" class="grid" aria-live="polite"></section>
+  <p class="muted">Education, not legal advice. Pages update regularly.</p>
+</div>
+
+<script>
+  // Matches your current repo files (only .html pages)
+  const TOPICS = [
+    { t:'Ask Sage (Home)',              p:'/' ,                                 d:'Chat with Sage',           e:'🧠' },
+    { t:'About',                        p:'about.html',                         d:'Who we are',               e:'📚' },
+    { t:'ADA Complaint',                p:'ada-complaint.html',                 d:'Accessibility complaints',  e:'♿' },
+    { t:'Administrative Remedy',        p:'admin-remedy.html',                  d:'Agency remedies',          e:'🧾' },
+    { t:'Anthem',                       p:'anthem.html',                        d:'Anthem resources',         e:'🎵' },
+    { t:'Arrested? Read this',          p:'arrested.html',                      d:'Immediate steps',          e:'🚓' },
+    { t:'Ask Sage (legacy page)',       p:'ask-sage.html',                      d:'Alternate chat shell',     e:'🧠' },
+    { t:'Chevron Decision',             p:'chevron-doctrine.html',              d:'What changed',             e:'⚖️' },
+    { t:'Civil Liberties',              p:'civil-liberties.html',               d:'Rights overview',          e:'🗽' },
+    { t:'Community',                    p:'community.html',                     d:'Get involved',             e:'🤝' },
+    { t:'Conspiracy Defense',           p:'conspiracy-defense.html',            d:'Strategy & evidence',      e:'👁' },
+    { t:'Contact',                      p:'contact.html',                       d:'Reach us',                 e:'✉️' },
+    { t:'Court Prep',                   p:'court-prep.html',                    d:'Discovery, exhibits',      e:'🧾' },
+    { t:'Courtroom Scripts',            p:'courtroom-scripts.html',             d:'Say it right',             e:'🎤' },
+    { t:'Custody Basics',               p:'custody.html',                       d:'Docs, timelines',          e:'👪' },
+    { t:'Dashboard',                    p:'dashboard.html',                     d:'Overview',                 e:'📊' },
+    { t:'Defend False Allegations',     p:'defend-false-allegations.html',      d:'Rebut & document',         e:'🛡️' },
+    { t:'Demand Discovery',             p:'demand-discovery.html',              d:'Get the evidence',         e:'📂' },
+    { t:'Download Hub',                 p:'download-hub.html',                  d:'Templates & checklists',   e:'📥' },
+    { t:'DSS / CPS Overview',           p:'dss.html',                           d:'Know the process',         e:'📄' },
+    { t:'DSS Defense',                  p:'dss-defense.html',                   d:'Push back legally',        e:'🛡️' },
+    { t:'DSS Strategy Tools',           p:'dss-stratagy-tools.html',            d:'Tools & tactics',          e:'🧰' },
+    { t:'Emergency Custody Response',   p:'emergency-custody-response.html',    d:'Immediate actions',        e:'🚨' },
+    { t:'Estate Planning',              p:'estate.html',                        d:'Will vs trust',            e:'📜' },
+    { t:'Evictions',                    p:'evictions.html',                     d:'Tenant/Landlord steps',    e:'🏚️' },
+    { t:'File Complaint (Judge/Attorney)', p:'file-complaint-judge-attorney.html', d:'Where/how to file',    e:'📝' },
+    { t:'Fix Your Case Timeline',       p:'fix-your-case-timeline.html',        d:'Organize & track',         e:'🗂️' },
+    { t:'How to Read the Docket',       p:'how-to-read-docket.html',            d:'Decode entries',           e:'📜' },
+    { t:'How to Serve Motions',         p:'how-to-serve-motions.html',          d:'Proper service',           e:'📮' },
+    { t:'Judicial Recusal',             p:'judicial-recusal.html',              d:'When to seek recusal',     e:'⚖️' },
+    { t:'Landlord Rights',              p:'landlord-rights.html',               d:'Know your rights',         e:'🏠' },
+    { t:'LLC Guide',                    p:'llc-guide.html',                     d:'Form & maintain',          e:'📘' },
+    { t:'LLC → Trust',                  p:'llc-to-trust.html',                  d:'Transfer membership',      e:'🏛' },
+    { t:'Missed Court',                 p:'missed-court.html',                  d:'What to do now',           e:'⏰' },
+    { t:'My Case',                      p:'my-case.html',                       d:'Collect everything',       e:'📁' },
+    { t:'Name Change',                  p:'name-change.html',                   d:'Steps & filings',          e:'🪪' },
+    { t:'Open Case',                    p:'open-case.html',                     d:'Start here',               e:'🟢' },
+    { t:'Printable Resources',          p:'printable-resources.html',           d:'Print-ready packs',        e:'🖨️' },
+    { t:'Privacy',                      p:'privacy.html',                       d:'How we handle data',       e:'🔒' },
+    { t:'Pro Se vs Sui Juris',          p:'pro-se-vs-sui-juris.html',           d:'What’s the diff?',         e:'📖' },
+    { t:'Records Requests',             p:'records.html',                       d:'FOIA/PA how-to',           e:'📑' },
+    { t:'Remedies',                     p:'remedies.html',                      d:'Paths to relief',          e:'🧭' },
+    { t:'Remove GAL',                   p:'remove-gal.html',                    d:'Challenge bias',           e:'❌' },
+    { t:'Reopen Your Case',             p:'reopen-your-case.html',              d:'Procedural steps',         e:'🔁' },
+    { t:'Request for Continuance',      p:'request-for-continuance.html',       d:'Sample + tips',            e:'⏳' },
+    { t:'Resources',                    p:'resources.html',                     d:'Helpful links',            e:'🔗' },
+    { t:'Restore Rights',               p:'restore-rights.html',                d:'Reinstatement paths',      e:'🎯' },
+    { t:'Sage Chat (alt shell)',        p:'sage-chatbot.html',                  d:'Iframe shell',             e:'💬' },
+    { t:'Smart Search',                 p:'smart-search.html',                  d:'Jump to a page',           e:'🔎' },
+    { t:'Sovereign',                    p:'sovereign.html',                     d:'Foundations',              e:'🏴' },
+    { t:'Sue CPS (Federal)',            p:'sue-cps-federal.html',               d:'When/where/how',           e:'🏛' },
+    { t:'Sui Juris',                    p:'sui-juris.html',                     d:'Operate in your name',     e:'📘' },
+    { t:'Take Me To…',                  p:'take-me-to.html',                    d:'Quick navigator',          e:'➡️' },
+    { t:'Terms of Use',                 p:'terms-of-use.html',                  d:'Read before using',        e:'📄' },
+    { t:'Traffic',                      p:'traffic.html',                       d:'Tickets & defenses',       e:'🚗' },
+    { t:'Veterans',                     p:'veterans.html',                      d:'VA claims & appeals',      e:'🎖' },
+    { t:'Welcome',                      p:'welcome.html',                       d:'Start here',               e:'👋' }
+  ];
+
+  const grid = document.getElementById('grid');
+  const q = document.getElementById('q');
+
+  function render(list){
+    grid.innerHTML = list.map(x => `
+      <a class="card" href="${x.p}">
+        <h3>${x.e} ${x.t}</h3>
+        <div class="muted">${x.d||''}</div>
+      </a>
+    `).join('');
+  }
+  function filter(){
+    const s=(q.value||'').toLowerCase().trim();
+    render(!s ? TOPICS : TOPICS.filter(x =>
+      x.t.toLowerCase().includes(s) || (x.d||'').toLowerCase().includes(s)
+    ));
+  }
+  q.addEventListener('input', filter);
+  render(TOPICS);
+</script>
+</body>
+</html>
