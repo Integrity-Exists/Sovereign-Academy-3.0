@@ -9,41 +9,23 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="manifest" href="manifest.json">
 
-  <style>
-    body{background:#000;color:#0f0;font-family:'Courier New',Courier,monospace;margin:0}
-    nav{background:#2C3E50;padding:10px;text-align:center}
-    nav a{color:#00FFCC;margin:0 15px;text-decoration:none;font-weight:bold}
-    nav a:hover{text-shadow:0 0 5px #00FFCC}
+<style>
+  .topics{max-width:min(980px,92vw);margin:10px auto 18px}
+  .chips{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:8px;
+    justify-items:center;
+  }
+  .chip{
+    display:inline-block;width:100%;text-align:center;
+    padding:8px 10px;border:1px solid #0f0;border-radius:999px;
+    background:#000;white-space:nowrap;overflow:hidden;text-overflow:ellipsis
+  }
+  @media (max-width:900px){ .chips{grid-template-columns:repeat(2,minmax(0,1fr));} }
+  @media (max-width:560px){ .chips{grid-template-columns:repeat(1,minmax(0,1fr));} }
+</style>
 
-    /* tighter layout + centered content */
-    .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
-    #sage-container{display:flex;flex-direction:column;align-items:center;padding:24px 0 12px;text-align:center}
-    h1{font-size:2rem;margin:0 0 .5rem;color:#0f0;text-shadow:0 0 10px #0f0}
-
-    /* responsive iframe */
-    iframe{width:min(980px,92vw);height:min(70vh,680px);border:2px solid #0f0;box-shadow:0 0 20px #0f0;border-radius:10px;background:#000}
-
-    .divider{border-top:2px solid #0f0;margin:24px auto 0;width:min(980px,92vw)}
-    section{background:#111;padding:24px 0}
-    h2{color:#fff;text-align:center;margin:0 0 12px}
-    ul{max-width:min(980px,92vw);margin:0 auto;padding:0;list-style:none;columns:2}
-    li{margin:10px 0}
-    a{color:#0f0;text-decoration:none}
-    a:hover{text-shadow:0 0 5px #0f0}
-    footer{text-align:center;color:#888;font-size:.9rem;padding:2rem 1rem}
-
-    /* quick topics chips */
-    .topics{max-width:min(980px,92vw);margin:10px auto 18px}
-    .chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
-    .chip{display:inline-block;padding:6px 10px;border:1px solid #0f0;border-radius:999px;background:#000}
-    .all-link{display:block;text-align:center;margin-top:8px;opacity:.9}
-
-    @media (max-width:720px){
-      iframe{height:60vh}
-      ul{columns:1}
-      h1{font-size:1.7rem}
-    }
-  </style>
 </head>
 
 <body>
@@ -56,20 +38,42 @@
     <div id="sage-container">
       <h1>🧠 Ask Sage</h1>
 
-      <!-- Quick Topics row -->
-      <section class="topics" aria-label="Quick topics">
-        <div class="chips">
-          <a class="chip" href="llc-guide.html">📘 LLC Guide</a>
-          <a class="chip" href="llc-to-trust.html">🏛 LLC → Trust</a>
-          <a class="chip" href="court-prep.html">🧾 Court Prep</a>
-          <a class="chip" href="emergency-custody-response.html">🚨 Emergency Custody</a>
-          <a class="chip" href="remove-gal.html">❌ Remove GAL</a>
-          <a class="chip" href="dss.html">📄 DSS/CPS</a>
-          <a class="chip" href="estate.html">📜 Estate</a>
-          <a class="chip" href="veterans.html">🎖 Veterans</a>
-        </div>
-        <a class="all-link" href="topics.html">📚 View all topics</a>
-      </section>
+ <section class="topics" aria-label="Quick topics">
+  <div class="chips">
+    <a class="chip" href="llc-guide.html">📘 LLC Guide</a>
+    <a class="chip" href="llc-to-trust.html">🏛 LLC → Trust</a>
+    <a class="chip" href="court-prep.html">🧾 Court Prep</a>
+    <a class="chip" href="courtroom-scripts.html">🎤 Courtroom Scripts</a>
+    <a class="chip" href="dss.html">📄 DSS / CPS</a>
+    <a class="chip" href="dss-defense.html">🛡️ DSS Defense</a>
+    <a class="chip" href="dss-stratagy-tools.html">🧰 DSS Strategy Tools</a>
+    <a class="chip" href="custody.html">👪 Custody</a>
+    <a class="chip" href="emergency-custody-response.html">🚨 Emergency Custody</a>
+    <a class="chip" href="remove-gal.html">❌ Remove GAL</a>
+    <a class="chip" href="restore-rights.html">🎯 Restore Rights</a>
+    <a class="chip" href="defend-false-allegations.html">🕵️‍♂️ False Allegations</a>
+    <a class="chip" href="demand-discovery.html">📂 Demand Discovery</a>
+    <a class="chip" href="how-to-serve-motions.html">📮 Serve Motions</a>
+    <a class="chip" href="request-for-continuance.html">⏳ Continuance</a>
+    <a class="chip" href="reopen-your-case.html">🔁 Reopen Case</a>
+    <a class="chip" href="judicial-recusal.html">⚖️ Judicial Recusal</a>
+    <a class="chip" href="how-to-read-docket.html">📜 Read the Docket</a>
+    <a class="chip" href="name-change.html">🪪 Name Change</a>
+    <a class="chip" href="traffic.html">🚗 Traffic</a>
+    <a class="chip" href="evictions.html">🏚️ Evictions</a>
+    <a class="chip" href="landlord-rights.html">🏠 Landlord Rights</a>
+    <a class="chip" href="records.html">📑 Records Requests</a>
+    <a class="chip" href="estate.html">📜 Estate Planning</a>
+    <a class="chip" href="veterans.html">🎖 Veterans</a>
+    <a class="chip" href="chevron-doctrine.html">⚖️ Chevron Decision</a>
+    <a class="chip" href="conspiracy-defense.html">👁 Conspiracy</a>
+    <a class="chip" href="sue-cps-federal.html">🏛 Sue CPS (Federal)</a>
+    <a class="chip" href="pro-se-vs-sui-juris.html">🧑‍⚖️ Pro Se vs Sui Juris</a>
+    <a class="chip" href="sui-juris.html">📘 Sui Juris</a>
+  </div>
+  <a class="all-link" href="topics.html" style="display:block;text-align:center;margin-top:10px;opacity:.9">📚 View all topics</a>
+</section>
+
 
       <iframe src="sage-chatbot.html" title="Ask Sage"></iframe>
     </div>
