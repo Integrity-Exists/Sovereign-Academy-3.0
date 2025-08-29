@@ -1,27 +1,52 @@
-<!DOCTYPE html> 
-<html lang="en"> 
-<head> 
-<meta charset="UTF-8" /> 
-<title>Ask Sage</title> 
-<style> 
-body { background: #000; color: #0f0; font-family: sans-serif; } 
-#chat-log { max-height: 300px; overflow-y: auto; padding: 1rem; } 
-.message { margin: 0.5rem 0; } 
-.user { color: #0ff; } 
-.sage { color: #ff0; } 
-</style> 
-</head> 
-<body> 
-<div id="chat-wrapper"> 
-<div id="chat-header">�� Ask Sage</div> 
-<div id="chat-log"> 
-<div class="message sage">Hello! What legal question can I help with today?</div> </div> 
-<form id="sage-chat-form"> 
-<div id="chat-input"> 
-<input id="user-input" type="text" placeholder="Type your legal question..." /> <button type="submit">➤</button> 
-</div> 
-</form> 
-</div> 
-<script src="sagebot.js"></script> 
-</body> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ask Sage</title>
+  <style>
+    :root { --bg:#000; --ink:#0f0; --accent:#0ff; --sage:#ff0; --line:#0f0; }
+    * { box-sizing: border-box }
+    body{ background:var(--bg); color:var(--ink); font:16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin:0; }
+    #chat-wrapper{ max-width:860px; margin:0 auto; padding:14px; }
+    #chat-header{ font-weight:700; letter-spacing:.3px; padding:10px 12px; border:1px solid var(--line); border-radius:10px; }
+    #sage-messages{ max-height:min(62vh,520px); overflow:auto; padding:12px; margin:12px 0; border:1px solid var(--line); border-radius:10px; background:#020; }
+    .sage-msg{ margin:.5rem 0; }
+    .sage-msg .meta{ font-size:12px; opacity:.8; margin-bottom:2px; }
+    .sage-msg.user .meta{ color:var(--accent); }
+    .sage-msg.sage .meta{ color:var(--sage); }
+    .sage-msg .txt{ white-space:pre-wrap; word-wrap:break-word; }
+    #sage-composer{ display:flex; gap:8px; align-items:flex-start; }
+    #sage-input{ flex:1; padding:10px; border:2px solid var(--line); border-radius:10px; background:#000; color:var(--ink); min-height:70px; }
+    .btn{ padding:10px 14px; border:1px solid var(--line); border-radius:10px; background:#000; color:var(--ink); cursor:pointer; }
+    .btn:hover{ box-shadow:0 0 8px var(--line); }
+    #sage-mic[aria-pressed="true"]{ border-color:#f33; box-shadow:0 0 8px #f33; }
+    @media (max-width:520px){ #sage-input{ min-height:56px } }
+  </style>
+</head>
+<body>
+  <div id="chat-wrapper">
+    <div id="chat-header">🧠 Ask Sage</div>
+
+    <!-- Messages -->
+    <main id="sage-messages" aria-live="polite">
+      <article class="sage-msg sage">
+        <div class="meta">Sage</div>
+        <div class="txt">Hello! What legal question can I help with today?</div>
+      </article>
+    </main>
+
+    <!-- Composer -->
+    <form id="sage-composer" autocomplete="off">
+      <textarea id="sage-input" placeholder="Type your legal question… (Cmd/Ctrl+Enter sends)"></textarea>
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <button type="button" id="sage-mic" class="btn" aria-pressed="false">🎤 Voice</button>
+        <button type="submit" class="btn">➤ Send</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- One script to rule them all -->
+  <script src="sagebot.js" defer></script>
+</body>
 </html>
