@@ -1,147 +1,338 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Start an LLC | Sovereign Academy</title>
-  <link href="manifest.json" rel="manifest"/>
-  <link href="styles.css" rel="stylesheet"/>
+  <meta name="theme-color" content="#0aff0a" />
+
+  <!-- App assets -->
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Scripts -->
   <script defer src="smart-search.js"></script>
   <script defer src="voice-search.js"></script>
   <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('service-worker.js')
-          .then(reg => console.log('Service Worker registered ✅', reg))
-          .catch(err => console.error('Service Worker registration failed ❌', err));
+    if ("serviceWorker" in navigator) {
+      addEventListener("load", () => {
+        navigator.serviceWorker
+          .register("service-worker.js")
+          .then((reg) => console.log("Service Worker registered ✅", reg))
+          .catch((err) => console.error("Service Worker registration failed ❌", err));
       });
     }
   </script>
+
+  <!-- Page-only styles (kept light so it works alongside styles.css) -->
   <style>
+    :root {
+      --bg: #000;
+      --fg: #e6ffe6;
+      --accent: #0aff0a; /* neon sovereign green */
+      --accent-2: #00e0ff; /* cyan for secondary */
+      --card: #0b0f12;
+      --muted: #9aa7a6;
+      --border: #1d252a;
+      --shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
+      --radius: 16px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    header.hero {
+      background: linear-gradient(180deg, #030508 0%, #0b0f12 100%);
+      border-bottom: 1px solid var(--border);
+      padding: clamp(24px, 5vw, 48px) 16px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .hero h1 {
+      margin: 0 0 8px;
+      font-size: clamp(28px, 4vw, 44px);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+      text-shadow: 0 0 12px rgba(10, 255, 10, 0.5);
+    }
+
+    .hero p {
+      margin: 0;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: 24px auto 80px;
+    }
+
+    /* Search */
+    .search-wrap {
+      text-align: center;
+      position: relative;
+      margin: 28px auto 16px;
+      width: min(820px, 92%);
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 14px 48px 14px 16px;
+      font-size: 16px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: #0b0f12;
+      color: var(--fg);
+      outline: none;
+      box-shadow: var(--shadow);
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: #0e1418;
+      color: var(--fg);
+      cursor: pointer;
+      transition: transform .06s ease, box-shadow .2s ease, border-color .2s ease;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: var(--shadow);
+    }
+    .btn:hover { transform: translateY(-1px); border-color: var(--accent); }
+    .btn.primary { background: #0a1f0a; border-color: #0d3b0d; }
+    .btn.primary .dot { background: var(--accent); box-shadow: 0 0 12px rgba(10,255,10,.65); }
+
+    .btn .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent-2); }
+
+    nav.topnav {
+      margin: 8px auto 28px;
+      width: min(1100px, 92%);
+      background: #0c1216;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      text-align: center;
+      padding: 10px 6px;
+      box-shadow: var(--shadow);
+    }
+    nav.topnav a { color: var(--fg); text-decoration: none; margin: 0 14px; }
+
+    /* Cards/Sections */
+    section.card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: clamp(16px, 2.5vw, 28px);
+      margin: 16px 0;
+      box-shadow: var(--shadow);
+    }
+
+    section.card h2 {
+      margin-top: 0;
+      font-size: clamp(20px, 2.4vw, 28px);
+      display: flex; align-items: center; gap: 10px;
+    }
+
+    .divider {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent) 35%, var(--accent-2) 65%, transparent);
+      border-radius: 2px;
+      margin: 28px 0;
+      opacity: .8;
+    }
+
+    .grid-cta {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-top: 12px;
+    }
+
+    /* Chat iframe */
     #sageChatWindow {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 300px;
-      height: 400px;
-      border: none;
+      bottom: 20px; right: 20px;
+      width: min(360px, 92vw); height: 480px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
       z-index: 999;
+      box-shadow: var(--shadow);
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      padding: 28px 16px 60px;
+      border-top: 1px solid var(--border);
+      background: #06090c;
+    }
+
+    .back-to-top {
+      position: fixed; inset-inline-end: 22px; inset-block-end: 22px;
+      translate: 0 64px; /* sits below chat */
+    }
+
+    @media (max-width: 640px) {
+      .hero h1 { letter-spacing: .6px; }
     }
   </style>
 </head>
+
 <body>
+  <header class="hero" role="banner">
+    <h1><span>Start Your LLC</span> the Sovereign Way</h1>
+    <p><em>Protect yourself. Build power. Own your business.</em></p>
+  </header>
 
-<header>
-  <h1>Start Your LLC the Sovereign Way</h1>
-  <p><em>Protect yourself. Build power. Own your business.</em></p>
-</header>
-
-<!-- Search Bar -->
-<div style="text-align: center; margin: 30px 0; position: relative;">
-  <input id="smartSearch" onkeyup="smartNavigate(this.value)" placeholder="🔍 Search legal topics..." style="padding: 10px 40px 10px 20px; width: 60%; font-size: 16px; border-radius: 6px; border: 1px solid #ccc;" type="text"/>
-  <span style="position: absolute; right: 22%; top: 50%; transform: translateY(-50%); font-size: 18px; color: #999;">🔍</span>
-  <div style="text-align: center; margin-top: 10px;">
-    <button onclick="startVoiceSearch()" style="padding: 10px 20px; font-size: 16px; border-radius: 6px; cursor: pointer;">
-      🎤 Voice Search
-    </button>
+  <!-- Search -->
+  <div class="search-wrap" role="search">
+    <label for="smartSearch" class="sr-only">Search legal topics</label>
+    <input id="smartSearch" class="search-input" type="text" placeholder="🔍 Search legal topics..." onkeyup="smartNavigate(this.value)" />
+    <span class="search-icon" aria-hidden>🔍</span>
+    <div style="margin-top: 10px;">
+      <button class="btn primary" onclick="startVoiceSearch()" aria-label="Start voice search">
+        <span class="dot"></span> 🎤 Voice Search
+      </button>
+    </div>
   </div>
-</div>
 
-<!-- Navigation -->
-<nav style="background: #2C3E50; padding: 10px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
-  <a href="index.html" style="color: white; margin: 0 15px;">🏠 Home</a>
-</nav>
+  <!-- Nav -->
+  <nav class="topnav" aria-label="Primary">
+    <a href="index.html">🏠 Home</a>
+  </nav>
 
-<!-- Main Content -->
-<main>
-  <section id="what-is-an-llc">
-    <h2>What’s an LLC (and why should you care)?</h2>
-    <p>
-      An <strong>LLC</strong> separates <strong>you</strong> from <strong>your business</strong>.
-      If your business gets sued or goes into debt, your personal assets are protected.
-    </p>
-    <ul>
-      <li>✔️ Easy to start</li>
-      <li>✔️ Easy to manage</li>
-      <li>✔️ Accepted by banks and the IRS</li>
-      <li>✔️ You control it 100%</li>
-    </ul>
-  </section>
+  <main class="container" id="content">
 
-  <section id="steps">
-    <h2>Step-by-Step: Start Your LLC (Nationwide)</h2>
-    <ol>
-      <li><strong>Pick Your Name:</strong> Check your state’s Secretary of State website.</li>
-      <li><strong>Registered Agent:</strong> Required in every state — can be you or a service.</li>
-      <li><strong>File Articles of Organization:</strong> Varies by state, fees range $50–$300.</li>
-      <li><strong>Get Your EIN:</strong> Free at <a href="https://irs.gov/ein">irs.gov/ein</a>.</li>
-      <li><strong>Write an Operating Agreement:</strong> Required in some states, recommended in all.</li>
-      <li><strong>Annual Report or Renewal:</strong> Most states require yearly filings and fees.</li>
-    </ol>
-  </section>
+    <section id="what-is-an-llc" class="card">
+      <h2>What’s an LLC (and why should you care)?</h2>
+      <p>
+        An <strong>LLC</strong> separates <strong>you</strong> from <strong>your business</strong>.
+        If your business gets sued or goes into debt, your personal assets are protected.
+      </p>
+      <ul>
+        <li>✔️ Easy to start</li>
+        <li>✔️ Easy to manage</li>
+        <li>✔️ Accepted by banks and the IRS</li>
+        <li>✔️ You control it 100%</li>
+      </ul>
+      <div class="divider" aria-hidden></div>
+      <div class="grid-cta" aria-label="Quick actions">
+        <a class="btn" href="#steps"><span class="dot"></span> See the 6 Steps</a>
+        <a class="btn" href="#downloads"><span class="dot"></span> Download Checklist (PDF)</a>
+        <a class="btn" href="#trust"><span class="dot"></span> Convert to Trust</a>
+      </div>
+    </section>
 
-  <section id="tips">
-    <h2>Pro Tips from the Field</h2>
-    <ul>
-      <li>✅ Keep personal and business money separate.</li>
-      <li>✅ Use a PO Box if you want privacy.</li>
-      <li>✅ Use smart naming: “Holdings,” “Group,” “Solutions,” etc.</li>
-    </ul>
-  </section>
+    <section id="steps" class="card">
+      <h2>Step-by-Step: Start Your LLC (Nationwide)</h2>
+      <ol>
+        <li><strong>Pick Your Name:</strong> Check your state’s Secretary of State website.</li>
+        <li><strong>Registered Agent:</strong> Required in every state — can be you or a service.</li>
+        <li><strong>File Articles of Organization:</strong> Varies by state, fees range $50–$300.</li>
+        <li><strong>Get Your EIN:</strong> Free at <a href="https://irs.gov/ein" target="_blank" rel="noopener">irs.gov/ein</a>.</li>
+        <li><strong>Write an Operating Agreement:</strong> Required in some states, recommended in all.</li>
+        <li><strong>Annual Report or Renewal:</strong> Most states require yearly filings and fees.</li>
+      </ol>
+      <div class="grid-cta" style="margin-top: 16px;">
+        <a class="btn primary" href="https://www.irs.gov/businesses/small-businesses-self-employed/employer-id-numbers" target="_blank" rel="noopener"><span class="dot"></span> Get EIN (IRS)</a>
+        <a class="btn" href="state-name-search.html"><span class="dot"></span> State Name Search</a>
+        <a class="btn" href="registered-agent-guide.html"><span class="dot"></span> Registered Agent Guide</a>
+        <a class="btn" href="articles-of-organization.html"><span class="dot"></span> File Articles: How-To</a>
+      </div>
+    </section>
 
-  <section id="trust">
-    <h2>Turn It Into a Trust Later</h2>
-    <p>
-      Once your LLC is live, you can transfer ownership into a <strong>revocable living trust</strong>
-      for asset protection and legacy planning. That guide is coming next.
-    </p>
-    <ul>
-      <li><a href="llc-to-trust.html">Convert LLC to Trust</a></li>
-    </ul>
-  </section>
+    <section id="tips" class="card">
+      <h2>Pro Tips from the Field</h2>
+      <ul>
+        <li>✅ Keep personal and business money separate.</li>
+        <li>✅ Use a PO Box if you want privacy.</li>
+        <li>✅ Use smart naming: “Holdings,” “Group,” “Solutions,” etc.</li>
+      </ul>
+    </section>
 
-  <section id="downloads">
-    <h2>Coming Soon: Downloads</h2>
-    <ul>
-      <li>📄 LLC Operating Agreement Template</li>
-      <li>📄 IRS EIN Walkthrough PDF</li>
-      <li>📄 State-by-State Filing Checklist</li>
-      <li>📄 Trust Assignment Template</li>
-    </ul>
-  </section>
-</main>
+    <section id="trust" class="card">
+      <h2>Turn It Into a Trust Later</h2>
+      <p>
+        Once your LLC is live, you can transfer ownership into a <strong>revocable living trust</strong>
+        for asset protection and legacy planning. That guide is coming next.
+      </p>
+      <ul>
+        <li><a href="llc-to-trust.html">Convert LLC to Trust</a></li>
+      </ul>
+    </section>
 
-<!-- Ask Sage Full Chat -->
-<iframe id="sageChatWindow" src="sage-chatbot.html"></iframe>
+    <section id="downloads" class="card">
+      <h2>Downloads</h2>
+      <ul>
+        <li>📄 <a href="downloads/llc-operating-agreement-template.pdf">LLC Operating Agreement Template</a></li>
+        <li>📄 <a href="downloads/irs-ein-walkthrough.pdf">IRS EIN Walkthrough PDF</a></li>
+        <li>📄 <a href="downloads/state-by-state-filing-checklist.pdf">State-by-State Filing Checklist</a></li>
+        <li>📄 <a href="downloads/trust-assignment-template.pdf">Trust Assignment Template</a></li>
+      </ul>
+      <div class="grid-cta" style="margin-top: 12px;">
+        <a class="btn primary" href="downloads/llc-checklist.pdf"><span class="dot"></span> Download: 1‑Page LLC Checklist</a>
+        <a class="btn" href="#content"><span class="dot"></span> Back to Top</a>
+      </div>
+    </section>
 
-<!-- Footer -->
-<footer>
-  <p>© Sovereign Academy | Built by Gina Lopez and Sage, your AI co-founder with claws. Empowered by IntegrityExists.</p>
-</footer>
+  </main>
 
-<!-- Ask Sage Config -->
-<script>
-  window.SageBotConfig = {
-    voice: true,
-    greetMessage: "Hey there, how can I help you with your legal questions today?",
-    placeholder: "Ask Sage anything...",
-    theme: "dark"
-  };
-</script>
-<script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
+  <!-- Ask Sage Full Chat -->
+  <iframe id="sageChatWindow" title="Ask Sage Chat" src="sage-chatbot.html" loading="lazy" allow="microphone; clipboard-read; clipboard-write"></iframe>
 
-<!-- Tawk.to Live Chat -->
-<script type="text/javascript">
-  var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-  (function(){
-    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-    s1.async = true;
-    s1.src = 'https://embed.tawk.to/681d203afe55ac190d5636e6/1iqosbpkt';
-    s1.charset = 'UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1, s0);
-  })();
-</script>
+  <!-- Back to Top floating button (sits below chat on mobile) -->
+  <a class="btn back-to-top" href="#content" aria-label="Back to top"><span class="dot"></span> ↑ Top</a>
 
+  <footer role="contentinfo">
+    <p>© Sovereign Academy — Built by Gina Lopez and Sage, your AI co‑founder with claws. Empowered by IntegrityExists.</p>
+  </footer>
+
+  <!-- Ask Sage Config -->
+  <script>
+    window.SageBotConfig = {
+      voice: true,
+      greetMessage: "Hey there, how can I help you with your legal questions today?",
+      placeholder: "Ask Sage anything...",
+      theme: "dark"
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
+
+  <!-- Tawk.to Live Chat -->
+  <script>
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function(){
+      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = "https://embed.tawk.to/681d203afe55ac190d5636e6/1iqosbpkt";
+      s1.charset = "UTF-8";
+      s1.setAttribute("crossorigin", "*");
+      s0.parentNode.insertBefore(s1, s0);
+    })();
+  </script>
+
+  <noscript><p style="text-align:center;color:#ffb3b3">JavaScript is required for Search, Voice, and Ask Sage features.</p></noscript>
 </body>
 </html>
