@@ -2,120 +2,184 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Court Prep Center | Sovereign Academy</title>
-  <meta name="description" content="Prep like a pro for your court date. Download printable checklists and learn what to bring, say, and expect." />
-  <meta name="keywords" content="court prep, legal checklist, self-representation, court day tips, legal documents, how to act in court" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Court Prep Center • Sovereign Academy</title>
+  <meta name="description" content="Prep like a pro for your court date. Printable checklists, what to bring, how to speak, and what to expect." />
+  <meta name="keywords" content="court prep, self-representation, checklist, how to act in court, evidence, pro se" />
   <meta name="theme-color" content="#0b0b0b" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta property="og:title" content="Court Prep Center - Sovereign Academy" />
-  <meta property="og:description" content="Print checklists, prep documents, and walk into court ready for battle — the Sovereign way." />
-  <meta name="twitter:card" content="summary" />
-
+  <!-- Keep offline while on GitHub Pages -->
   <meta name="sage-mode" content="offline" />
+
+  <!-- Core includes (standard across pages) -->
   <link rel="manifest" href="manifest.json" />
   <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="icons/icon-192x192.png" type="image/png" />
-  <link rel="apple-touch-icon" href="icons/icon-512x512.png" />
-
-  <!-- Smart & Voice Search -->
   <script defer src="smart-search.js"></script>
   <script defer src="voice-search.js"></script>
-
-  <!-- Ask Sage Chatbot Config -->
   <script>
-    window.SageBotConfig = {
-      voice: true,
-      greetMessage: "Need help preparing for court? I'm here.",
-      placeholder: "Ask Sage anything about court prep...",
-      theme: "dark"
-    };
+    // Service worker (consistent setup)
+    if ('serviceWorker' in navigator) {
+      addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(reg => console.log('SW registered ✅', reg))
+          .catch(err => console.error('SW failed ❌', err));
+      });
+    }
   </script>
-  <script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
-</head>
 
+  <style>
+    /* Page polish (keep main theme in styles.css) */
+    .hero { background: radial-gradient(1100px 540px at 70% -200px, rgba(0,255,140,0.12), transparent), #0b0b0b; color:#eafff2; text-align:center; padding: 3.5rem 1rem 2rem; border-bottom:1px solid rgba(0,255,140,0.15); }
+    .hero h1 { font-size: clamp(1.8rem, 5vw, 3rem); margin: 0 0 .5rem; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 1.25rem; }
+    nav.top { background:#111a1a; border-bottom:1px solid rgba(0,255,140,0.15); position: sticky; top:0; z-index:1000; }
+    nav.top .inner { display:flex; align-items:center; justify-content:space-between; gap:.75rem; padding:.6rem 1rem; }
+    nav.top a { color:#d7ffe6; text-decoration:none; font-weight:600; }
+    nav.top .links a { margin: 0 .5rem; opacity:.95; }
+
+    .grid { display:grid; gap:1rem; }
+    @media (min-width: 780px){ .grid.cols-3 { grid-template-columns: repeat(3, minmax(0,1fr)); } }
+    .card { background: rgba(255,255,255,0.02); border:1px solid rgba(0,255,140,0.12); border-radius:16px; padding:1rem 1rem 1.25rem; box-shadow: 0 6px 24px rgba(0,0,0,.25); }
+    .callout { border-left:4px solid #00e676; padding:.75rem 1rem; background:rgba(0,230,118,.06); border-radius:8px; }
+    .list-tight li { margin:.4rem 0; }
+    .btn { display:inline-block; padding:.6rem .9rem; border-radius:10px; border:1px solid rgba(0,255,140,.25); background:rgba(0,255,140,.06); color:#d7ffe6; text-decoration:none; font-weight:600; }
+    .btn.ghost { background:transparent; }
+
+    /* Floating Sage chat */
+    #sageChatWindow { position: fixed; bottom: 18px; right: 18px; width: 340px; height: 460px; border:none; z-index: 999; box-shadow: 0 10px 26px rgba(0,0,0,.55); border-radius:14px; overflow:hidden; }
+    @media (max-width: 880px){ #sageChatWindow{ width:min(92vw,420px); height:52vh; right:4vw; bottom:14px; } }
+
+    footer { margin-top:2rem; padding:2rem 1rem; border-top:1px solid rgba(0,255,140,.15); text-align:center; color:#c9ffdf; }
+  </style>
+</head>
 <body>
-  <!-- Top Navigation -->
+  <!-- Top Nav (Option A: no Topics) -->
   <nav class="top" aria-label="Primary">
     <div class="inner container" style="padding-left:1rem;padding-right:1rem;">
       <a href="index.html" class="brand">🦁 Sovereign Academy</a>
       <div class="links" role="navigation">
         <a href="download-hub.html">Download Hub</a>
         <a href="llc-overview.html">Start an LLC</a>
-        <a href="trust-conversion.html">Convert to Trust</a>
-        <a href="restore-rights.html">Restore Rights</a>
+        <a href="#docs">Docs</a>
       </div>
     </div>
   </nav>
 
   <!-- Hero -->
-  <header class="hero">
+  <header class="hero" role="banner">
     <div class="container">
+      <p style="opacity:.9; margin:.25rem 0 .75rem;">National • Self‑Representation • Practical & Printable</p>
       <h1>🧑‍⚖️ Court Prep Center</h1>
-      <p><em>Walk in prepared. Speak with confidence. Leave with power intact.</em></p>
-      <div style="margin-top:1.25rem; display:flex; gap:0.6rem; justify-content:center; flex-wrap:wrap;">
-        <input id="smartSearch" onkeyup="smartNavigate(this.value)" placeholder="Search legal topics…" type="search" style="padding: 12px 14px; min-width: 260px; width: min(740px, 72vw); border-radius: 10px; border: 1px solid rgba(0,255,140,0.25); background:#0f1313; color:#eafff2;" />
+      <p><em>Walk in calm, organized, and dangerous‑in‑a‑good‑way.</em></p>
+      <div style="margin-top: 1.1rem; display:flex; gap:.6rem; justify-content:center; flex-wrap:wrap;">
+        <label for="smartSearch" class="visually-hidden">Search legal topics</label>
+        <input id="smartSearch" onkeyup="smartNavigate(this.value)" placeholder="Search legal topics…" type="search" style="padding:12px 14px; min-width:260px; width:min(740px,72vw); border-radius:10px; border:1px solid rgba(0,255,140,.25); background:#0f1313; color:#eafff2;" />
         <button onclick="startVoiceSearch()" class="btn" aria-label="Start voice search">🎤 Voice</button>
       </div>
     </div>
   </header>
 
-  <!-- Main Content -->
-  <main id="content" class="container" style="max-width:900px;">
-    <section class="card">
-      <h2>📝 Before Court</h2>
-      <ul>
-        <li>Gather and organize all evidence and paperwork.</li>
-        <li>Prepare a short outline of key points you want to make.</li>
-        <li>Practice speaking clearly and calmly.</li>
+  <main id="content" class="container grid" style="grid-template-columns: 1fr; gap:1.25rem;">
+    <!-- What to bring / printables -->
+    <section class="card" id="docs" aria-labelledby="bring-h2">
+      <h2 id="bring-h2">What to bring</h2>
+      <ul class="list-tight">
+        <li>📁 Evidence binder with tabs: <em>Exhibits, Timeline, Witnesses, Law/Rules, Orders</em></li>
+        <li>🗂️ 3–5 extra copies of key documents for judge/other side/your notes</li>
+        <li>🧾 Proof of service / delivery receipts for anything you filed or sent</li>
+        <li>📝 One‑page issue outline + relief you’re asking for (plain language)</li>
+        <li>🕒 Calendar, hearing notice, and prior orders</li>
+        <li>🪪 Photo ID; cash/card for copies/records</li>
       </ul>
+      <div style="display:flex; gap:.6rem; flex-wrap:wrap; margin-top:.6rem;">
+        <a class="btn" href="#" onclick="alert('Template coming from Download Hub');return false;">⬇️ Court‑Day Checklist (PDF)</a>
+        <a class="btn" href="download-hub.html">⬇️ Evidence Binder Tabs (PDF) → Hub</a>
+        <a class="btn ghost" href="download-hub.html">Open Download Hub →</a>
+      </div>
+      <div class="callout" style="margin-top:.75rem;">
+        <strong>Tip:</strong> Put your most important exhibits up front; label pages; add sticky flags where you’ll cite.
+      </div>
     </section>
 
-    <section class="card">
-      <h2>🧾 Day of Court Checklist</h2>
-      <a class="btn" href="court-prep-checklist.pdf" download>📄 Download Checklist (PDF)</a>
-      <ul>
-        <li>Dress professionally and arrive early.</li>
-        <li>Bring all necessary documents, copies, and notes.</li>
-        <li>Listen carefully and address the judge respectfully.</li>
-      </ul>
+    <!-- Before / Day Of / After -->
+    <section class="card" aria-labelledby="flow-h2">
+      <h2 id="flow-h2">Your flow: before • day of • after</h2>
+      <div class="grid cols-3">
+        <div>
+          <h3>Before</h3>
+          <ul class="list-tight">
+            <li>Draft a 60‑second opening: <em>issue → facts → ask</em>.</li>
+            <li>Practice: calm voice, slow pace, short sentences.</li>
+            <li>Rehearse exhibit call‑outs: “Your Honor, Exhibit A…”</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Day of</h3>
+          <ul class="list-tight">
+            <li>Arrive 30–45 minutes early; silence phone.</li>
+            <li>Address court: “Your Honor,” stand to speak.</li>
+            <li>Answer only what’s asked; don’t argue with opposing counsel.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>After</h3>
+          <ul class="list-tight">
+            <li>Get a signed copy of any order before leaving.</li>
+            <li>Calendar next deadlines immediately.</li>
+            <li>Send courtesy copies as required and file proof of service.</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
-    <section class="card">
-      <h2>📤 After Court</h2>
-      <p>Follow up on any required actions from the court. Always request a signed copy of any orders issued.</p>
-      <p style="margin-top: 20px;"><em>More prep tools coming soon — including printable walkthroughs, what to expect, and how to stay focused in court.</em></p>
+    <!-- Quick scripts -->
+    <section class="card" aria-labelledby="scripts-h2">
+      <h2 id="scripts-h2">One‑liners you can use</h2>
+      <ul class="list-tight">
+        <li><em>Opening:</em> “Your Honor, this is a request for <strong>[relief]</strong> because <strong>[key facts]</strong>. I’ll be brief.”</li>
+        <li><em>Exhibit:</em> “Your Honor, I’m offering Exhibit A, a <strong>[document]</strong> dated <strong>[date]</strong>.”</li>
+        <li><em>Objection (scope):</em> “Objection, beyond the scope of the question.”</li>
+        <li><em>Objection (hearsay):</em> “Objection, hearsay.”</li>
+        <li><em>Close:</em> “For these reasons, I ask the Court to grant <strong>[relief]</strong>.”</li>
+      </ul>
     </section>
 
     <!-- Related Guides -->
-    <section id="related" class="card">
-      <h2>Related Guides</h2>
-      <ul>
+    <section class="card" aria-labelledby="related-h2">
+      <h2 id="related-h2">Related guides</h2>
+      <ul class="list-tight">
         <li><a href="llc-overview.html">Start an LLC</a></li>
-        <li><a href="trust-conversion.html">Convert LLC to a Trust</a></li>
-        <li><a href="restore-rights.html">Restore Your Rights</a></li>
+        <li><a href="index.html">Ask Sage (Home)</a></li>
+        <li><a href="download-hub.html">Download Hub</a></li>
       </ul>
     </section>
   </main>
 
-  <!-- Floating Sage Chat -->
+  <!-- Floating Ask Sage (iframe) -->
   <iframe id="sageChatWindow" title="Ask Sage Chat" src="sage-chatbot.html"></iframe>
 
-  <!-- Footer -->
   <footer>
-    © Sovereign Academy — Built by Gina Lopez & Sage (the AI with claws). Not legal advice, for education only.
+    © Sovereign Academy — Built by Gina Lopez & Sage (your AI with claws). Education only; not legal advice.
   </footer>
 
-  <!-- Tawk.to Live Chat -->
-  <script type="text/javascript">
+  <!-- Ask Sage Config -->
+  <script>
+    window.SageBotConfig = {
+      voice: true,
+      greetMessage: "Need help preparing for court? I’m here.",
+      placeholder: "Ask Sage anything about court prep, evidence, or scripts…",
+      theme: "dark"
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
+
+  <!-- Optional: Tawk.to (kept if you want both) -->
+  <script>
+    // If you want to run only Sage, you can remove this block.
     var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
     (function(){
-      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-      s1.async = true;
-      s1.src = 'https://embed.tawk.to/681d203afe55ac190d5636e6/1iqosbpkt';
-      s1.charset = 'UTF-8';
-      s1.setAttribute('crossorigin','*');
-      s0.parentNode.insertBefore(s1, s0);
+      var s1 = document.createElement('script'), s0 = document.getElementsByTagName('script')[0];
+      s1.async = true; s1.src = 'https://embed.tawk.to/681d203afe55ac190d5636e6/1iqosbpkt';
+      s1.charset = 'UTF-8'; s1.setAttribute('crossorigin','*'); s0.parentNode.insertBefore(s1, s0);
     })();
   </script>
 </body>
