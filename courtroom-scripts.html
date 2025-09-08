@@ -2,102 +2,197 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Courtroom Scripts for Warriors - Sovereign Academy</title>
-  <meta name="description" content="Speak with power and clarity in court. Get sample scripts for objections, motions, statements, and cross-exams." />
-  <meta name="keywords" content="courtroom script, what to say in court, how to speak in court, motion script, objections, self-rep scripts" />
-  <meta property="og:title" content="Courtroom Scripts for Warriors - Sovereign Academy" />
-  <meta property="og:description" content="Don't freeze in court — follow these self-rep courtroom scripts to speak with strength." />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Speak with Power in Court - Sovereign Academy" />
-  <meta name="twitter:description" content="Sample courtroom scripts for self-represented litigants who want to fight like pros." />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Courtroom Scripts | Sovereign Academy</title>
+  <meta name="description" content="Ready-to-use courtroom scripts: openings, introducing exhibits, objections, witness questions, and closings." />
+  <meta name="theme-color" content="#0b0b0b" />
+  <meta name="sage-mode" content="offline" />
 
   <link rel="manifest" href="manifest.json" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="icons/icon-192x192.png" type="image/png" />
-  <link rel="apple-touch-icon" href="icons/icon-512x512.png" />
-
-  <!-- Smart & Voice Search -->
+  <link rel="stylesheet" href="styles.css" />
   <script defer src="smart-search.js"></script>
   <script defer src="voice-search.js"></script>
-
-  <!-- Ask Sage Chatbot -->
-  <script>
-    window.SageBotConfig = {
-      voice: true,
-      greetMessage: "Need help with courtroom language? Let me walk you through it.",
-      placeholder: "Ask Sage what to say in court...",
-      theme: "dark"
-    };
-  </script>
-  <script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
-
-  <!-- Service Worker -->
   <script>
     if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
+      addEventListener('load', () => {
         navigator.serviceWorker.register('service-worker.js')
-          .then(reg => console.log('✅ Service Worker registered:', reg))
-          .catch(err => console.error('❌ Service Worker failed:', err));
+          .then(reg => console.log('SW registered ✅', reg))
+          .catch(err => console.error('SW failed ❌', err));
       });
     }
   </script>
-</head>
 
+  <style>
+    .hero { background: radial-gradient(1100px 540px at 70% -200px, rgba(0,255,140,0.12), transparent), #0b0b0b; color:#eafff2; text-align:center; padding: 3.2rem 1rem 2rem; border-bottom:1px solid rgba(0,255,140,0.15); }
+    .hero h1 { font-size: clamp(1.8rem, 5vw, 3rem); margin: 0 0 .5rem; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 1.25rem; }
+    nav.top { background:#111a1a; border-bottom:1px solid rgba(0,255,140,0.15); position: sticky; top:0; z-index:1000; }
+    nav.top .inner { display:flex; align-items:center; justify-content:space-between; gap:.75rem; padding:.6rem 1rem; }
+    nav.top a { color:#d7ffe6; text-decoration:none; font-weight:600; }
+    nav.top .links a { margin: 0 .5rem; opacity:.95; }
+    .card { background: rgba(255,255,255,0.02); border:1px solid rgba(0,255,140,0.12); border-radius:16px; padding:1rem 1rem 1.25rem; box-shadow: 0 6px 24px rgba(0,0,0,.25); }
+    .grid { display:grid; gap:1rem; }
+    @media (min-width: 880px){ .grid.cols-2{ grid-template-columns: 1fr 1fr; } }
+    .btn { display:inline-block; padding:.6rem .9rem; border-radius:10px; border:1px solid rgba(0,255,140,.25); background:rgba(0,255,140,.06); color:#d7ffe6; text-decoration:none; font-weight:600; }
+    .btn.ghost { background:transparent; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    details{ border:1px solid rgba(0,255,140,.15); border-radius:10px; padding:.7rem .9rem; background: rgba(0,255,140,.04); }
+    details + details{ margin-top:.6rem; }
+    footer { margin-top:2rem; padding:2rem 1rem; border-top:1px solid rgba(0,255,140,.15); text-align:center; color:#c9ffdf; }
+  </style>
+</head>
 <body>
-  <!-- Navigation -->
-  <nav style="background: #2C3E50; padding: 10px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
-    <a href="index.html" style="color: white; margin: 0 15px;">🏠 Home</a>
+  <!-- Top Nav (no Topics) -->
+  <nav class="top" aria-label="Primary">
+    <div class="inner container" style="padding-left:1rem;padding-right:1rem;">
+      <a href="index.html" class="brand">🦁 Sovereign Academy</a>
+      <div class="links" role="navigation">
+        <a href="court-prep.html">Court Prep</a>
+        <a href="download-hub.html">Download Hub</a>
+        <a href="llc-overview.html">Start an LLC</a>
+        <a href="trust-conversion.html">Convert to Trust</a>
+      </div>
+    </div>
   </nav>
 
-  <main style="max-width: 800px; margin: 40px auto; padding: 0 20px;">
-    <h1>Courtroom Scripts for Warriors</h1>
+  <!-- Hero -->
+  <header class="hero" role="banner">
+    <div class="container">
+      <p style="opacity:.9;margin:.25rem 0 .75rem;">National • Self‑Representation • Practical Scripts</p>
+      <h1>Courtroom Scripts</h1>
+      <p><em>Short, respectful, powerful—so you can speak with clarity under pressure.</em></p>
+      <div style="margin-top: 1.1rem; display:flex; gap:.6rem; justify-content:center; flex-wrap:wrap;">
+        <label for="smartSearch" class="visually-hidden">Search legal topics</label>
+        <input id="smartSearch" onkeyup="smartNavigate(this.value)" placeholder="Search legal topics…" type="search" style="padding:12px 14px; min-width:260px; width:min(740px,72vw); border-radius:10px; border:1px solid rgba(0,255,140,.25); background:#0f1313; color:#eafff2;" />
+        <button onclick="startVoiceSearch()" class="btn" aria-label="Start voice search">🎤 Voice</button>
+      </div>
+      <div style="margin-top:.8rem; display:flex; gap:.6rem; justify-content:center; flex-wrap:wrap;">
+        <a class="btn" href="#openings">Openings</a>
+        <a class="btn" href="#exhibits">Introducing Exhibits</a>
+        <a class="btn" href="#objections">Objections</a>
+        <a class="btn" href="#witness">Witness Qs</a>
+        <a class="btn" href="#closings">Closings</a>
+        <a class="btn ghost" href="#more">More Tools</a>
+      </div>
+    </div>
+  </header>
 
-    <p>Walking into court without a lawyer doesn’t mean walking in alone. These scripts give you the words — and the <strong>confidence</strong> — to stand tall, speak clearly, and make your record count. Use them as-is or ask Sage to tailor one to your case.</p>
+  <main id="content" class="container grid" style="grid-template-columns: 1fr; gap:1.25rem;">
+    <!-- Downloads -->
+    <section class="card" aria-labelledby="dl-h2">
+      <h2 id="dl-h2">Downloads</h2>
+      <div style="display:flex; gap:.6rem; flex-wrap:wrap;">
+        <a class="btn" href="courtroom-scripts.pdf" download>⬇️ Courtroom Scripts (PDF)</a>
+        <a class="btn" href="courtroom-scripts.docx" download>⬇️ Courtroom Scripts (DOCX)</a>
+        <a class="btn ghost" href="download-hub.html">Open Download Hub →</a>
+      </div>
+      <p class="mono" style="opacity:.85; margin-top:.5rem;">If the PDF/DOCX isn’t uploaded yet, use this page as your live reference—copy/paste what you need.</p>
+    </section>
 
-    <h2>🎤 Opening Statement</h2>
-    <pre>
-“Your Honor, my name is [Your Name], and I am appearing today as a self-represented litigant. I’m here to ensure that the rights of myself and my child are protected, and to address the issues outlined in this case. I appreciate the opportunity to be heard.”
-    </pre>
+    <!-- Openings -->
+    <section id="openings" class="card" aria-labelledby="openings-h2">
+      <h2 id="openings-h2">Openings</h2>
+      <details open>
+        <summary><strong>60‑second opening</strong></summary>
+        <p class="mono">“Your Honor, this is a request for <strong>[relief]</strong> because <strong>[key facts]</strong>. I will be brief. The evidence will show <strong>[1–2 anchors]</strong>. I’m asking the Court to <strong>[specific order]</strong>.”</p>
+      </details>
+      <details>
+        <summary><strong>Framing issues</strong></summary>
+        <p class="mono">“The issues today are narrow: <strong>[Issue 1]</strong> and <strong>[Issue 2]</strong>. I’ll address each with exhibits and brief testimony.”</p>
+      </details>
+    </section>
 
-    <h2>🚫 Objecting in Court</h2>
-    <ul>
-      <li>“Objection, Your Honor — relevance.”</li>
-      <li>“Objection — asked and answered.”</li>
-      <li>“Objection — hearsay.”</li>
-      <li>“Objection — assumes facts not in evidence.”</li>
-    </ul>
+    <!-- Introducing Exhibits -->
+    <section id="exhibits" class="card" aria-labelledby="exhibits-h2">
+      <h2 id="exhibits-h2">Introducing Exhibits</h2>
+      <details open>
+        <summary><strong>Document foundation</strong></summary>
+        <p class="mono">“Your Honor, I offer Exhibit <strong>A</strong>, a <strong>[document]</strong> dated <strong>[date]</strong>. I obtained it from <strong>[source]</strong>. It is a fair and accurate copy.”</p>
+      </details>
+      <details>
+        <summary><strong>Photo / video</strong></summary>
+        <p class="mono">“This photograph/video fairly and accurately depicts <strong>[scene]</strong> as of <strong>[date/time]</strong>. I took it / It was provided by <strong>[name]</strong>.”</p>
+      </details>
+      <details>
+        <summary><strong>Business record (basic)</strong></summary>
+        <p class="mono">“This is a business record kept in the ordinary course by <strong>[entity]</strong>. It was made at or near the time by someone with knowledge.”</p>
+      </details>
+    </section>
 
-    <h2>📣 Requesting Continuance</h2>
-    <pre>
-“Your Honor, I respectfully request a continuance due to [reason: medical, missing records, newly retained evidence, etc.]. I need additional time to properly prepare and ensure a fair hearing.”
-    </pre>
+    <!-- Objections -->
+    <section id="objections" class="card" aria-labelledby="obj-h2">
+      <h2 id="obj-h2">Objections</h2>
+      <div class="grid cols-2">
+        <div>
+          <h3>Evidence / Questions</h3>
+          <ul>
+            <li class="mono">“Objection, hearsay.”</li>
+            <li class="mono">“Objection, relevance.”</li>
+            <li class="mono">“Objection, foundation not laid.”</li>
+            <li class="mono">“Objection, asked and answered.”</li>
+            <li class="mono">“Objection, beyond the scope.”</li>
+            <li class="mono">“Objection, speculation.”</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Procedure</h3>
+          <ul>
+            <li class="mono">“Objection to form.”</li>
+            <li class="mono">“Objection, assumes facts not in evidence.”</li>
+            <li class="mono">“Move to strike as non‑responsive.”</li>
+            <li class="mono">“Request a limiting instruction.”</li>
+          </ul>
+        </div>
+      </div>
+      <details>
+        <summary><strong>Preserving the record</strong></summary>
+        <p class="mono">“For the record, I object on <strong>[rule/ground]</strong>. If overruled, I respectfully proffer that my testimony/exhibit would show <strong>[brief offer of proof]</strong>.”</p>
+      </details>
+    </section>
 
-    <h2>📁 Filing a Motion</h2>
-    <pre>
-“Your Honor, I’d like to submit a written motion to [dismiss/remove/suppress/etc.], and I’m prepared to explain the basis for this request if the court is willing to hear it.”
-    </pre>
+    <!-- Witness Questions -->
+    <section id="witness" class="card" aria-labelledby="wit-h2">
+      <h2 id="wit-h2">Witness Questions</h2>
+      <details open>
+        <summary><strong>Direct (your witness)</strong></summary>
+        <ul>
+          <li class="mono">“Please state your name and relation to this case.”</li>
+          <li class="mono">“On <strong>[date]</strong>, what did you personally observe?”</li>
+          <li class="mono">“I’m showing you Exhibit A; do you recognize it? What is it? How do you recognize it?”</li>
+          <li class="mono">“Is Exhibit A a fair and accurate copy?”</li>
+        </ul>
+      </details>
+      <details>
+        <summary><strong>Cross (their witness)</strong></summary>
+        <ul>
+          <li class="mono">“Your testimony today relies on what someone else told you, correct?”</li>
+          <li class="mono">“You didn’t see <strong>[event]</strong> yourself?”</li>
+          <li class="mono">“There’s nothing in your notes about <strong>[fact]</strong>, is there?”</li>
+          <li class="mono">“Yes or no: the policy requires <strong>[requirement]</strong>, right?”</li>
+        </ul>
+      </details>
+      <details>
+        <summary><strong>Impeachment with a prior statement</strong></summary>
+        <p class="mono">“On <strong>[date]</strong>, you wrote <strong>[quote]</strong> in <strong>[record]</strong>, correct? That is different from what you just told the Court, isn’t it?”</p>
+      </details>
+    </section>
 
-    <h2>🧠 Cross-Examining a Witness</h2>
-    <ul>
-      <li>“Isn’t it true that…?”</li>
-      <li>“Were you present when…?”</li>
-      <li>“Can you provide any documentation to support that statement?”</li>
-      <li>“Have you ever made a report like this before?”</li>
-    </ul>
+    <!-- Closings -->
+    <section id="closings" class="card" aria-labelledby="close-h2">
+      <h2 id="close-h2">Closings</h2>
+      <details open>
+        <summary><strong>Simple close</strong></summary>
+        <p class="mono">“For these reasons—<strong>[fact 1]</strong>, <strong>[fact 2]</strong>, and <strong>[law/rule]</strong>—I ask the Court to grant <strong>[relief]</strong>.”</p>
+      </details>
+      <details>
+        <summary><strong>Findings & order language</strong></summary>
+        <p class="mono">“Your Honor, if the Court is inclined to grant the request, I ask that the order include: <strong>[specific findings]</strong> and <strong>[clear directives and dates]</strong>.”</p>
+      </details>
+    </section>
 
-    <h2>💬 Final Statement</h2>
-    <pre>
-“Your Honor, I’ve provided the court with facts, evidence, and lawful arguments. I ask only that this case be judged fairly, based on truth and justice.”
-    </pre>
-  </main>
-
-  <!-- Footer -->
-  <footer style="text-align: center; font-style: italic; margin-top: 40px; color: #555; padding: 20px;">
-    Sovereign Academy was built by <strong>Gina Lopez</strong> with her co-founder and co-developer, <strong>Sage</strong> — the AI with attitude.<br>
-    Born of frustration, fueled by necessity, and driven by good ol’ American tenacity.<br>
-    This isn’t just an app. It’s a revolution.
-  </footer>
-</body>
-</html>
+    <!-- More Tools -->
+    <section id="more" class="card" aria-labelledby="more-h2">
+      <h2 id="more-h2">More tools</h2>
+      <details>
+        <summary><strong>Continuance (good cause)</strong></summary>
+        <p class="mono">“Your Honor, I request a brief continuance for good cause: <strong>[reason]</strong>. I have
