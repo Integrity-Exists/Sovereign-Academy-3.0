@@ -2,102 +2,294 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Convert LLC to a Trust | National Guide</title>
-  <meta name="description" content="A national step-by-step guide to converting your LLC into a revocable living trust for asset protection and legacy planning." />
+  <meta name="description" content="A national step-by-step guide to moving your LLC ownership into a revocable living trust for privacy, probate avoidance, and legacy planning." />
+  <!-- Keep this while on GitHub Pages to avoid live API calls -->
+  <meta name="sage-mode" content="offline" />
+
+  <!-- PWA / Core includes (keep consistent on every page) -->
   <link rel="manifest" href="manifest.json" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="styles.css" />
   <script defer src="smart-search.js"></script>
   <script defer src="voice-search.js"></script>
+  <script>
+    // Minimal SW registration (consistent with other pages)
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(reg => console.log('Service Worker registered ✅', reg))
+          .catch(err => console.error('Service Worker registration failed ❌', err));
+      });
+    }
+  </script>
+
   <style>
+    /* Page-specific polish (kept small; main theme in styles.css) */
+    .hero {
+      background: radial-gradient(1200px 600px at 70% -200px, rgba(0,255,140,0.12), transparent), #0b0b0b;
+      color: #e6ffe6;
+      padding: 4rem 1rem 2rem;
+      text-align: center;
+      border-bottom: 1px solid rgba(0,255,140,0.15);
+    }
+    .hero h1 {
+      font-size: clamp(1.8rem, 4.5vw, 3rem);
+      letter-spacing: 0.3px;
+      margin: 0 0 0.5rem;
+    }
+    .hero p { opacity: 0.9; margin: 0; }
+
+    .container { max-width: 1000px; margin: 0 auto; padding: 1.25rem; }
+
+    .pill {
+      display: inline-block; font-size: 0.9rem; padding: 0.35rem 0.7rem; border-radius: 999px;
+      border: 1px solid rgba(0,255,140,0.25); background: rgba(0,255,140,0.06);
+    }
+
+    .grid { display: grid; gap: 1rem; }
+    @media (min-width: 780px){ .grid.cols-3 { grid-template-columns: repeat(3, minmax(0,1fr)); } }
+
+    .card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(0,255,140,0.12);
+      border-radius: 16px;
+      padding: 1rem 1rem 1.2rem;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.25);
+    }
+
+    .callout {
+      border-left: 4px solid #00e676; padding: 0.75rem 1rem; background: rgba(0,230,118,0.06);
+      border-radius: 8px; margin: 1rem 0;
+    }
+
+    .step {
+      display: grid; grid-template-columns: auto 1fr; gap: 0.9rem; align-items: start; margin: 0.6rem 0;
+    }
+    .step .num {
+      width: 34px; height: 34px; border-radius: 999px; display: grid; place-items: center; font-weight: 700;
+      background: rgba(0,255,140,0.1); border: 1px solid rgba(0,255,140,0.25);
+    }
+
+    nav.top {
+      background: #111a1a; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(0,255,140,0.15);
+    }
+    nav.top .inner { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; padding: 0.6rem 1rem; }
+    nav.top a { color: #d7ffe6; text-decoration: none; font-weight: 600; }
+    nav.top .links a { margin: 0 0.5rem; opacity: 0.9; }
+
+    .toc { position: sticky; top: 64px; }
+    .toc a { display: block; padding: 0.25rem 0; opacity: 0.85; text-decoration: none; }
+    .toc a:hover { opacity: 1; text-decoration: underline; }
+
+    footer {
+      margin-top: 2rem; padding: 2rem 1rem; border-top: 1px solid rgba(0,255,140,0.15); text-align: center; color: #c9ffdf;
+    }
+
+    /* Chat window, responsive */
     #sageChatWindow {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 300px;
-      height: 400px;
-      border: none;
-      z-index: 999;
+      position: fixed; bottom: 18px; right: 18px; width: 340px; height: 440px; border: none; z-index: 999;
+      box-shadow: 0 10px 26px rgba(0,0,0,0.55); border-radius: 14px; overflow: hidden;
+    }
+    @media (max-width: 880px){
+      #sageChatWindow { width: min(92vw, 420px); height: 50vh; right: 4vw; bottom: 14px; }
     }
   </style>
 </head>
 <body>
-<!-- Navigation -->
-<nav style="background: #2C3E50; padding: 10px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
-  <a href="index.html" style="color: white; margin: 0 15px;">🏠 Home</a>
-</nav>
+  <!-- Top Nav -->
+  <nav class="top" aria-label="Primary">
+    <div class="inner container" style="padding-left:1rem;padding-right:1rem;">
+      <a href="index.html" class="brand">🦁 Sovereign Academy</a>
+      <div class="links" role="navigation">
+        <a href="topics.html">Topics</a>
+        <a href="download-hub.html">Download Hub</a>
+        <a href="llc-overview.html">Start an LLC</a>
+        <a href="#docs">Docs</a>
+      </div>
+    </div>
+  </nav>
 
-  <header>
-    <h1>Convert Your LLC to a Trust — National Guide</h1>
-    <p><em>Protect your assets. Plan your legacy. Stay in control.</em></p>
+  <!-- Hero -->
+  <header class="hero" role="banner">
+    <div class="container">
+      <p class="pill" aria-label="Guide scope">National Guide · Revocable Trusts · Disregarded LLCs</p>
+      <h1>Convert Your LLC to a Trust</h1>
+      <p><em>Protect privacy, avoid probate, and keep day‑to‑day control.</em></p>
+
+      <!-- Search & Voice -->
+      <div style="margin-top: 1.25rem; display:flex; gap:0.6rem; justify-content:center; flex-wrap:wrap;">
+        <label for="smartSearch" class="visually-hidden">Search legal topics</label>
+        <input id="smartSearch" onkeyup="smartNavigate(this.value)" placeholder="Search legal topics…" type="search" style="padding: 12px 14px; min-width: 260px; width: min(740px, 72vw); border-radius: 10px; border: 1px solid rgba(0,255,140,0.25); background:#0f1313; color:#eafff2;" />
+        <button onclick="startVoiceSearch()" class="btn" aria-label="Start voice search">🎤 Voice</button>
+      </div>
+    </div>
   </header>
 
-  <div style="text-align: center; margin: 30px 0; position: relative;">
-    <input id="smartSearch" onkeyup="smartNavigate(this.value)" placeholder="🔍 Search legal topics..." style="padding: 10px 40px 10px 20px; width: 60%; font-size: 16px; border-radius: 6px; border: 1px solid #ccc;" type="text" />
-    <span style="position: absolute; right: 22%; top: 50%; transform: translateY(-50%); font-size: 18px; color: #999;">🔍</span>
-    <div style="text-align: center; margin-top: 10px;">
-      <button onclick="startVoiceSearch()" style="padding: 10px 20px; font-size: 16px; border-radius: 6px; cursor: pointer;">
-        🎤 Voice Search
-      </button>
+  <main id="content" class="container" style="display:grid; grid-template-columns: 1fr; gap: 1.5rem;">
+    <div class="grid" style="grid-template-columns: 1fr; gap: 1.5rem;">
+      <!-- Why -->
+      <section id="why" class="card" aria-labelledby="why-h2">
+        <h2 id="why-h2">Why move your LLC into a trust?</h2>
+        <div class="grid cols-3" style="margin-top:0.6rem;">
+          <div>
+            <h3>Probate avoidance</h3>
+            <p>Trust ownership lets your heirs receive your company without court delays and filings.</p>
+          </div>
+          <div>
+            <h3>Privacy</h3>
+            <p>Trust agreements are private; you can keep member names off public filings in many cases.</p>
+          </div>
+          <div>
+            <h3>Continuity</h3>
+            <p>Smooth succession planning and multi‑generational control without interrupting operations.</p>
+          </div>
+        </div>
+        <div class="callout" role="note">
+          <strong>Heads‑up:</strong> This guide assumes a <em>revocable, grantor</em> living trust and a single‑member or tightly held LLC. If your LLC has multiple members, outside investors, lender covenants, or transfer restrictions, grab consents before transferring interests.
+        </div>
+      </section>
+
+      <!-- Steps -->
+      <section id="steps" class="card" aria-labelledby="steps-h2">
+        <h2 id="steps-h2">Steps (works in most states)</h2>
+        <div class="step"><div class="num">1</div><div>
+          <strong>Create (or confirm) your Revocable Living Trust.</strong>
+          Name yourself Grantor and usually Trustee; name successor trustee(s) and beneficiaries. Keep a signed, notarized copy.
+        </div></div>
+        <div class="step"><div class="num">2</div><div>
+          <strong>Assign your LLC membership interest to the trust.</strong>
+          Use an <em>Assignment of LLC Interest</em> naming the trust as new owner. Date, sign, and keep with your minute book.
+        </div></div>
+        <div class="step"><div class="num">3</div><div>
+          <strong>Update the Operating Agreement.</strong>
+          Amend members section to reflect the trust as member. If there are co‑members, add their written consent if required.
+        </div></div>
+        <div class="step"><div class="num">4</div><div>
+          <strong>Update records with banks & counterparties.</strong>
+          Provide the bank a <em>Certification/Abstract of Trust</em> and new <em>beneficial ownership</em> info. Vendors/insurers may ask for the amendment or certificate.
+        </div></div>
+        <div class="step"><div class="num">5</div><div>
+          <strong>IRS & EIN notes.</strong>
+          For a typical <em>revocable grantor trust</em> owning a disregarded single‑member LLC, the EIN usually <em>stays the same</em>. Taxes continue under the grantor’s SSN/return. (If your structure is different—non‑grantor trust, multi‑member partnership, S‑corp election—confirm with a tax pro.)
+        </div></div>
+        <div class="step"><div class="num">6</div><div>
+          <strong>Optional public notice.</strong>
+          Some states permit (or you may choose) a brief filing or amendment to public records for clarity. Not required in many jurisdictions but sometimes useful for third parties.
+        </div></div>
+        <div class="callout" role="note">
+          <strong>Result:</strong> Day‑to‑day ops and tax treatment typically stay the same. You’ve just moved the <em>membership interest</em> into your trust for privacy and probate avoidance.
+        </div>
+      </section>
+
+      <!-- Documents -->
+      <section id="docs" class="card" aria-labelledby="docs-h2">
+        <h2 id="docs-h2">Documents you’ll need</h2>
+        <ul>
+          <li>Revocable Living Trust (or Certification/Abstract of Trust)</li>
+          <li>Assignment of LLC Membership Interest to Trust</li>
+          <li>Operating Agreement Amendment (Members/Ownership section)</li>
+          <li>Bank Beneficial Ownership/Certification updates</li>
+          <li>(Optional) State filing or public statement of change</li>
+        </ul>
+        <div style="display:flex; gap:0.6rem; flex-wrap:wrap; margin-top:0.6rem;">
+          <a class="btn" href="#" download>⬇️ Assignment Template (DOCX)</a>
+          <a class="btn" href="#" download>⬇️ OA Amendment (DOCX)</a>
+          <a class="btn" href="#" download>⬇️ Trust Certificate (DOCX)</a>
+          <a class="btn ghost" href="download-hub.html">Open Download Hub →</a>
+        </div>
+      </section>
+
+      <!-- Checklist -->
+      <section id="checklist" class="card" aria-labelledby="checklist-h2">
+        <h2 id="checklist-h2">Quick checklist</h2>
+        <ul>
+          <li>Review OA transfer/consent rules before assigning interests</li>
+          <li>Collect signatures + notarize where required</li>
+          <li>Update minute book / company records</li>
+          <li>Give bank a Trust Certificate + BOI update if requested</li>
+          <li>Tell insurer(s) about the ownership change</li>
+          <li>Confirm tax status unchanged (most revocable/grantor cases)</li>
+        </ul>
+      </section>
+
+      <!-- State notes / pitfalls -->
+      <section id="states" class="card" aria-labelledby="states-h2">
+        <h2 id="states-h2">State notes & pitfalls</h2>
+        <details>
+          <summary><strong>Property‑owning LLCs</strong> (title & transfer taxes)</summary>
+          <p>If the LLC holds real estate, you are moving <em>membership interests</em>, not the deed. Some states/counties may still scrutinize this for transfer/recordation taxes—check local rules and lender due‑on‑sale clauses.</p>
+        </details>
+        <details>
+          <summary><strong>Multi‑member LLCs</strong> (consent)</summary>
+          <p>Operating Agreements often require other members’ written consent before any transfer to a trust. Get it in writing and keep with company records.</p>
+        </details>
+        <details>
+          <summary><strong>Lenders & leases</strong> (notice clauses)</summary>
+          <p>Loan agreements, commercial leases, and vendor contracts may require notice of ownership changes. Send a short notice letter with your Trust Certificate.</p>
+        </details>
+        <details>
+          <summary><strong>BOI / FinCEN</strong> (beneficial ownership)</summary>
+          <p>FinCEN BOI reporting is in effect. Changes in control/ownership may require an updated report. Check if your situation triggers an update and file on time.</p>
+        </details>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq" class="card" aria-labelledby="faq-h2">
+        <h2 id="faq-h2">FAQ</h2>
+        <details>
+          <summary>Do I need a new EIN for the LLC?</summary>
+          <p>Usually no for revocable grantor trust + single‑member disregarded LLC. If you change tax classification or move to a non‑grantor trust, you might—check with a tax professional.</p>
+        </details>
+        <details>
+          <summary>Will my day‑to‑day operations change?</summary>
+          <p>No. You are changing <em>ownership on paper</em> (who owns the membership interest), not how the LLC operates.</p>
+        </details>
+        <details>
+          <summary>Can my trust be the manager too?</summary>
+          <p>Yes, your OA can name the trustee as manager or keep you as manager in your personal capacity. Keep signatures consistent with titles.</p>
+        </details>
+      </section>
     </div>
-  </div>
 
-  <main style="max-width: 800px; margin: auto; padding: 20px;">
-    <section>
-      <h2>Why Convert an LLC to a Trust?</h2>
-      <ul>
-        <li>✅ Asset protection against lawsuits and probate</li>
-        <li>✅ Privacy — trusts are not recorded like LLCs</li>
-        <li>✅ Avoid delays and costs of probate court</li>
-        <li>✅ Allows for multigenerational planning</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Steps to Convert LLC to Trust (Applies in All States)</h2>
-      <ol>
-        <li><strong>Create a Revocable Living Trust:</strong> You (the Grantor) appoint a Trustee and list yourself as initial beneficiary.</li>
-        <li><strong>Draft a Trust Assignment Form:</strong> This transfers your LLC membership interest into your trust.</li>
-        <li><strong>Amend the LLC Operating Agreement:</strong> Note that the trust is the new member. Keep a signed record.</li>
-        <li><strong>Notify the IRS and Banks:</strong> Update EIN and bank records to reflect the trust as owner.</li>
-        <li><strong>Record a Statement (optional):</strong> Some states allow a public statement of ownership change for clarity.</li>
-      </ol>
-    </section>
-
-    <section>
-      <h2>Documents You’ll Need</h2>
-      <ul>
-        <li>📄 Revocable Living Trust Template</li>
-        <li>📄 LLC Assignment to Trust Form</li>
-        <li>📄 Operating Agreement Amendment Sample</li>
-        <li>📄 Instructions for IRS EIN update</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Final Notes</h2>
-      <p>
-        This process does not change how your LLC is taxed or operated day-to-day — it simply places ownership into your trust.
-        For most people, it’s the <strong>ultimate form of control + protection</strong>.
-      </p>
-    </section>
+    <!-- Sticky TOC on larger screens -->
+    <aside class="toc" aria-label="On this page" style="display:none;">
+      <nav>
+        <strong>On this page</strong>
+        <a href="#why">Why</a>
+        <a href="#steps">Steps</a>
+        <a href="#docs">Docs</a>
+        <a href="#checklist">Checklist</a>
+        <a href="#states">State notes</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </aside>
   </main>
 
-  <iframe id="sageChatWindow" src="sage-chatbot.html"></iframe>
+  <!-- Floating Ask Sage (iframe version) -->
+  <iframe id="sageChatWindow" title="Ask Sage Chat" src="sage-chatbot.html"></iframe>
 
   <footer>
-    <p>© Sovereign Academy — Built by Gina Lopez & Sage, your AI co-developer with claws. Powered by people who’ve lived it.</p>
+    © Sovereign Academy — Built by Gina Lopez & Sage (your AI with claws). For education only; not legal or tax advice.
   </footer>
 
-  <!-- Ask Sage Chatbot -->
+  <!-- Ask Sage Config (kept for iframe or future inline) -->
   <script>
     window.SageBotConfig = {
       voice: true,
-      greetMessage: "Hey there, how can I help you with your legal questions today?",
-      placeholder: "Ask Sage anything about trusts, LLCs, or asset protection...",
+      greetMessage: "I’m here. Ask anything about trusts, LLCs, or BOI.",
+      placeholder: "Ask Sage about assignments, OA amendments, BOI, or banks…",
       theme: "dark"
     };
   </script>
   <script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
+
+  <script>
+    // Tiny enhancement: show sticky TOC only on wide screens
+    const toc = document.querySelector('.toc');
+    const mq = window.matchMedia('(min-width: 1100px)');
+    function toggleTOC(e){ toc.style.display = e.matches ? 'block' : 'none'; }
+    toggleTOC(mq); mq.addEventListener('change', toggleTOC);
+  </script>
 </body>
 </html>
