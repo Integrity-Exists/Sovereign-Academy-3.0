@@ -2,140 +2,221 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DSS Strategy Tools - Sovereign Academy</title>
-  <meta name="description" content="Interactive tools to generate DSS defense strategies, document plans, and know your rights on the spot." />
-  <meta name="keywords" content="DSS tools, CPS strategy planner, self-representation, court prep, DSS defense tools" />
-  <meta property="og:title" content="DSS Strategy Tools - Sovereign Academy" />
-  <meta property="og:description" content="Generate strategy plans and access printable tools to protect your rights." />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="DSS Strategy Tools - Sovereign Academy" />
-  <meta name="twitter:description" content="Generate a plan and stand up to CPS with clarity." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DSS Strategy Tools • Sovereign Academy</title>
+  <meta name="description" content="Interactive tools to generate DSS/CPS defense strategies, emails, and motion templates. Build a plan, then download and print." />
+  <meta name="theme-color" content="#0b0b0b" />
+  <meta name="sage-mode" content="offline" />
+
+  <!-- Core includes (standardized) -->
   <link rel="manifest" href="manifest.json" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="styles.css" />
   <script defer src="smart-search.js"></script>
   <script defer src="voice-search.js"></script>
   <script>
     if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
+      addEventListener('load', () => {
         navigator.serviceWorker.register('service-worker.js')
-          .then(reg => console.log('Service Worker registered ✅', reg))
-          .catch(err => console.error('Service Worker registration failed ❌', err));
+          .then(reg => console.log('SW registered ✅', reg))
+          .catch(err => console.error('SW failed ❌', err));
       });
     }
   </script>
+
+  <style>
+    .hero { background: radial-gradient(1100px 540px at 70% -200px, rgba(0,255,140,0.12), transparent), #0b0b0b; color:#eafff2; text-align:center; padding: 3.2rem 1rem 2rem; border-bottom:1px solid rgba(0,255,140,0.15); }
+    .hero h1 { font-size: clamp(1.8rem, 5vw, 3rem); margin: 0 0 .5rem; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 1.25rem; }
+    nav.top { background:#111a1a; border-bottom:1px solid rgba(0,255,140,0.15); position: sticky; top:0; z-index:1000; }
+    nav.top .inner { display:flex; align-items:center; justify-content:space-between; gap:.75rem; padding:.6rem 1rem; }
+    nav.top a { color:#d7ffe6; text-decoration:none; font-weight:600; }
+    nav.top .links a { margin: 0 .5rem; opacity:.95; }
+    .card { background: rgba(255,255,255,0.02); border:1px solid rgba(0,255,140,0.12); border-radius:16px; padding:1rem 1rem 1.25rem; box-shadow: 0 6px 24px rgba(0,0,0,.25); }
+    .grid { display:grid; gap:1rem; }
+    @media (min-width: 880px){ .grid.cols-2{ grid-template-columns: 1fr 1fr; } }
+    .btn { display:inline-block; padding:.6rem .9rem; border-radius:10px; border:1px solid rgba(0,255,140,.25); background:rgba(0,255,140,.06); color:#d7ffe6; text-decoration:none; font-weight:600; }
+    .btn.ghost { background:transparent; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    .pill { display:inline-block; font-size:.9rem; padding:.35rem .7rem; border-radius:999px; border:1px solid rgba(0,255,140,.25); background:rgba(0,255,140,.06); }
+    .muted { opacity:.85; }
+    footer { margin-top:2rem; padding:2rem 1rem; border-top:1px solid rgba(0,255,140,.15); text-align:center; color:#c9ffdf; }
+
+    /* Floating Sage chat */
+    #sageChatWindow { position: fixed; bottom: 18px; right: 18px; width: 340px; height: 460px; border:none; z-index: 999; box-shadow: 0 10px 26px rgba(0,0,0,.55); border-radius:14px; overflow:hidden; }
+    @media (max-width: 880px){ #sageChatWindow{ width:min(92vw,420px); height:52vh; right:4vw; bottom:14px; } }
+  </style>
 </head>
 <body>
-  <!-- Navigation -->
-<nav style="background: #2C3E50; padding: 10px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
-  <a href="index.html" style="color: white; margin: 0 15px;">🏠 Home</a>
-</nav>
+  <!-- Top Nav (standard, no Topics) -->
+  <nav class="top" aria-label="Primary">
+    <div class="inner container" style="padding-left:1rem;padding-right:1rem;">
+      <a href="index.html" class="brand">🦁 Sovereign Academy</a>
+      <div class="links" role="navigation">
+        <a href="dss-defense.html">DSS & CPS Defense</a>
+        <a href="download-hub.html">Download Hub</a>
+        <a href="court-prep.html">Court Prep</a>
+        <a href="courtroom-scripts.html">Courtroom Scripts</a>
+      </div>
+    </div>
+  </nav>
 
+  <!-- Hero -->
+  <header class="hero" role="banner">
+    <div class="container">
+      <p class="pill">Interactive • Rights‑Forward • Printables</p>
+      <h1>DSS Strategy Tools</h1>
+      <p class="muted"><em>Generate a plan, keep everything in writing, and pull the right template fast.</em></p>
+      <div style="margin-top:.8rem; display:flex; gap:.6rem; justify-content:center; flex-wrap:wrap;">
+        <a class="btn" href="#builder">Plan Builder</a>
+        <a class="btn" href="#templates">Templates</a>
+        <a class="btn" href="#door">Door Script</a>
+        <a class="btn" href="#rights">Know Your Rights</a>
+      </div>
+    </div>
+  </header>
 
-  <div class="container">
-    <h1>DSS Defense Strategy Tools</h1>
-
-    <div class="form-section">
-      <h2>Generate PDF Strategy Plan</h2>
-      <form id="strategyForm">
-        <label for="case">Case Type</label>
-        <select id="case" required>
-          <option value="CPS">CPS</option>
-          <option value="Kinship Custody">Kinship Custody</option>
-          <option value="Foster Parent">Foster Parent</option>
-          <option value="Reunification">Reunification</option>
-        </select>
-        <label for="goal">Main Goal</label>
-        <input id="goal" type="text" required />
-        <label for="barriers">Main Barriers</label>
-        <textarea id="barriers" rows="4" required></textarea>
-        <button type="submit">Create My Plan (PDF)</button>
+  <main id="content" class="container grid" style="grid-template-columns: 1fr; gap:1.25rem;">
+    <!-- Plan Builder -->
+    <section id="builder" class="card" aria-labelledby="builder-h2">
+      <h2 id="builder-h2">Generate your strategy plan</h2>
+      <p class="muted">Fill this out, then <strong>Download</strong> or <strong>Print</strong> your plan. Keep a copy in your binder and email a recap to create a paper trail.</p>
+      <form id="strategyForm" style="display:grid; gap:.6rem; max-width:720px;">
+        <label>Case Type
+          <select id="case" required>
+            <option value="CPS">CPS</option>
+            <option value="Kinship Custody">Kinship Custody</option>
+            <option value="Foster Parent">Foster Parent</option>
+            <option value="Reunification">Reunification</option>
+          </select>
+        </label>
+        <label>Main Goal
+          <input id="goal" type="text" placeholder="e.g., Dismiss unfounded allegations" required />
+        </label>
+        <label>Main Barriers
+          <textarea id="barriers" rows="4" placeholder="e.g., Hearsay report, missed service, no access to records" required></textarea>
+        </label>
+        <label>Key Evidence / Exhibits
+          <textarea id="evidence" rows="3" placeholder="e.g., School attendance, medical notes, screenshots"></textarea>
+        </label>
+        <div style="display:flex; gap:.6rem; flex-wrap:wrap;">
+          <button class="btn" type="submit">⬇️ Download Plan (.txt)</button>
+          <button class="btn" type="button" id="printPlan">🖨 Print Plan</button>
+          <a class="btn ghost" href="#templates">Jump to Templates →</a>
+        </div>
+        <p id="pdfStatus" class="muted" aria-live="polite"></p>
       </form>
-      <div class="results" id="pdfStatus"></div>
-    </div>
+    </section>
 
-    <div class="dashboard-section">
-      <h2>Live Case Tracker</h2>
-      <p><em>Feature coming soon:</em> Visual dashboard of most common DSS conflict types and strategic recommendations.</p>
-    </div>
+    <!-- Templates -->
+    <section id="templates" class="card" aria-labelledby="tpl-h2">
+      <h2 id="tpl-h2">Templates (DOCX)</h2>
+      <p class="muted">Files live in your <span class="mono">flagship/</span> folder. Upload there to avoid 404s.</p>
+      <ul>
+        <li><a class="btn" href="flagship/dss-demand-records.docx" download>⬇️ DSS / CPS Records Demand</a></li>
+        <li><a class="btn" href="flagship/dss-recap-email.docx" download>⬇️ Same‑Day Recap Email</a></li>
+        <li><a class="btn" href="flagship/motion-to-compel-docs.docx" download>⬇️ Motion to Compel Docs</a></li>
+        <li><a class="btn" href="flagship/motion-to-dismiss-insufficient-evidence.docx" download>⬇️ Motion to Dismiss</a></li>
+        <li><a class="btn" href="flagship/motion-to-exclude-hearsay.docx" download>⬇️ Motion to Exclude Hearsay</a></li>
+        <li><a class="btn" href="flagship/motion-for-ada-accommodations.docx" download>⬇️ Motion for ADA Accommodations</a></li>
+        <li><a class="btn ghost" href="download-hub.html">Open Download Hub →</a></li>
+      </ul>
+    </section>
 
-    <hr />
-    <h2>What to Do If DSS Shows Up</h2>
-    <ol>
-      <li><strong>Stay calm</strong> and do not allow entry without a warrant.</li>
-      <li><strong>Ask for identification</strong> and request their business card.</li>
-      <li><strong>Do not answer questions</strong> without legal representation.</li>
-      <li><strong>Document everything</strong>: who came, what time, what was said.</li>
-      <li><strong>Politely refuse entry</strong> unless they present a valid court order or there’s a clear emergency.</li>
-    </ol>
+    <!-- Door Script -->
+    <section id="door" class="card" aria-labelledby="door-h2">
+      <h2 id="door-h2">When DSS/CPS knocks (door script)</h2>
+      <p class="mono">“I respect your work. I’m happy to cooperate <em>in writing</em>. Please leave your business card and written allegations. I will respond promptly.”</p>
+      <ul>
+        <li>If they insist on entry: <span class="mono">“Do you have a court order or emergency? If so, may I see it?”</span> Absent that, you can generally decline entry.</li>
+        <li>Offer a <strong>scheduled</strong> meeting with a witness present.</li>
+        <li>Never sign anything you do not understand; request time to review.</li>
+      </ul>
+    </section>
 
-    <hr />
-    <h2>📄 Tools You Can Use</h2>
-    <ul>
-      <li><a download href="motion-to-dismiss.docx">📄 Motion to Dismiss Template (DOCX)</a></li>
-      <li><a download href="notice-of-appearance.docx">🗘️ Notice of Appearance (DOCX)</a></li>
-      <li><a download href="court-prep-checklist.pdf">📟 Court Prep Checklist (PDF)</a></li>
-    </ul>
-    <p><a href="printable-resources.html">🖨 View More Printable Legal Resources</a></p>
+    <!-- Rights -->
+    <section id="rights" class="card" aria-labelledby="rights-h2">
+      <h2 id="rights-h2">Know your rights (quick hits)</h2>
+      <ul>
+        <li><strong>Get it in writing:</strong> Ask for allegations, statutes, and policy basis in writing.</li>
+        <li><strong>Narrow interviews:</strong> Short, scheduled, witness present; record where lawful.</li>
+        <li><strong>Paper trail:</strong> Send same‑day recap emails; keep a timeline and copies.</li>
+        <li><strong>No surprise safety plans:</strong> Request time to review; avoid waiving rights under pressure.</li>
+      </ul>
+    </section>
 
-    <hr />
-    <h2>⚖️ Know Your Rights</h2>
-    <ul>
-      <li><strong>📜 Right to remain silent:</strong> You do NOT have to answer questions or sign anything without a lawyer.</li>
-      <li><strong>🏠 Right to privacy:</strong> DSS cannot enter your home without a court order or emergency.</li>
-      <li><strong>👩‍⚖️ Right to legal counsel:</strong> You can request a public defender or legal aid.</li>
-      <li><strong>📸 Right to record:</strong> In Virginia, you may legally record your own conversations — document everything.</li>
-      <li><strong>🛑 You can say NO:</strong> Refuse drug tests, interviews, or inspections unless ordered by a judge.</li>
-    </ul>
-    <p><em>When in doubt, Ask Sage. Better informed than intimidated.</em></p>
-  </div>
+    <!-- Related -->
+    <section class="card" aria-labelledby="related-h2">
+      <h2 id="related-h2">Related guides</h2>
+      <ul>
+        <li><a href="dss-defense.html">DSS & CPS Defense</a></li>
+        <li><a href="court-prep.html">Court Prep Center</a></li>
+        <li><a href="courtroom-scripts.html">Courtroom Scripts</a></li>
+        <li><a href="download-hub.html">Download Hub</a></li>
+      </ul>
+    </section>
+  </main>
 
-  <iframe id="sageChatWindow" src="sage-chatbot.html"></iframe>
+  <!-- Floating Ask Sage (iframe) -->
+  <iframe id="sageChatWindow" title="Ask Sage Chat" src="sage-chatbot.html"></iframe>
 
   <footer>
-    <p>© 2025 Sovereign Academy — Created by Gina Lopez & Sage, your AI co-developer with claws. Built by Integrity Exists.</p>
+    © Sovereign Academy — Built by Gina Lopez & Sage (your AI with claws). Education only; not legal advice.
   </footer>
 
-  <!-- Ask Sage Chatbot -->
   <script>
+    // Ask Sage config
     window.SageBotConfig = {
       voice: true,
-      greetMessage: "Hey there, how can I help you with your legal questions today?",
-      placeholder: "Ask Sage anything...",
+      greetMessage: "Tell me what DSS/CPS sent you and I’ll help you respond.",
+      placeholder: "Describe your situation—I'll draft the email or motion…",
       theme: "dark"
     };
   </script>
   <script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
 
   <script>
-    document.getElementById("strategyForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      const caseType = document.getElementById("case").value;
-      const goal = document.getElementById("goal").value;
-      const barriers = document.getElementById("barriers").value;
-      const summary = `DSS Strategy Plan:\n\nCase Type: ${caseType}\nGoal: ${goal}\nBarriers:\n${barriers}`;
-      const blob = new Blob([summary], { type: "text/plain" });
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement("a");
-      link.href = url;
-      link.download = "DSS_Strategy_Plan.txt";
-      link.click();
-      document.getElementById("pdfStatus").textContent = "✅ Your strategy plan is ready to download!";
-    });
-  </script>
+    // Plan builder: download .txt and printable window
+    const form = document.getElementById('strategyForm');
+    const statusEl = document.getElementById('pdfStatus');
+    const printBtn = document.getElementById('printPlan');
 
-  <!-- Tawk.to Chat Widget -->
-  <script type="text/javascript">
-    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-    (function(){
-      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-      s1.async = true;
-      s1.src = 'https://embed.tawk.to/681d203afe55ac190d5636e6/1iqosbpkt';
-      s1.charset = 'UTF-8';
-      s1.setAttribute('crossorigin','*');
-      s0.parentNode.insertBefore(s1, s0);
-    })();
+    function buildSummary() {
+      const caseType = document.getElementById('case').value;
+      const goal = document.getElementById('goal').value.trim();
+      const barriers = document.getElementById('barriers').value.trim();
+      const evidence = document.getElementById('evidence').value.trim();
+      return (
+        `DSS Strategy Plan\n\n`+
+        `Case Type: ${caseType}\n`+
+        `Goal: ${goal}\n\n`+
+        `Barriers:\n${barriers}\n\n`+
+        `Key Evidence / Exhibits:\n${evidence}\n\n`+
+        `Next 3 Actions:\n1) Request allegations and statutes in writing.\n2) Send same‑day recap email (use template).\n3) Calendar deadlines and prepare exhibits.`
+      );
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const summary = buildSummary();
+      const blob = new Blob([summary], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'DSS_Strategy_Plan.txt';
+      link.click();
+      statusEl.textContent = '✅ Your strategy plan is ready to download!';
+    });
+
+    printBtn.addEventListener('click', () => {
+      const summary = buildSummary().replaceAll('\n','<br>');
+      const w = window.open('', '_blank');
+      w.document.write(`<!DOCTYPE html><html><head><title>Print Plan</title><meta charset='utf-8'>`+
+        `<style>body{font:12pt/1.4 Georgia,serif;padding:18mm;} h1{margin:0 0 6pt;} hr{margin:10pt 0;} </style></head>`+
+        `<body><h1>DSS Strategy Plan</h1><hr><div>${summary}</div></body></html>`);
+      w.document.close();
+      w.focus();
+      w.print();
+    });
   </script>
 </body>
 </html>
