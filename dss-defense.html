@@ -2,92 +2,197 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DSS & CPS Defense - Nationwide | Sovereign Academy</title>
-  <meta name="description" content="Learn how to defend yourself against CPS and DSS overreach — with nationwide guidance and real tools." />
-  <meta name="keywords" content="CPS defense, DSS rights, defend against child services, motion to dismiss CPS, how to fight DSS, self-represented parent rights">
-  <meta property="og:title" content="DSS & CPS Defense - Nationwide | Sovereign Academy">
-  <meta property="og:description" content="Learn how to defend yourself against CPS and DSS overreach — with nationwide guidance and real tools.">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="DSS & CPS Defense - Nationwide | Sovereign Academy">
-  <meta name="twitter:description" content="Nationwide help fighting CPS and DSS overreach with real strategies and rights-based tools.">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DSS & CPS Defense — National | Sovereign Academy</title>
+  <meta name="description" content="Defend against CPS/DSS overreach with practical, national guidance: what to say, what to refuse, how to document, and what to file." />
+  <meta name="theme-color" content="#0b0b0b" />
+  <meta name="sage-mode" content="offline" />
+
+  <!-- Core includes (keep consistent across pages) -->
   <link rel="manifest" href="manifest.json" />
-  <link rel="icon" href="icons/icon-192x192.png" type="image/png" />
-  <link rel="apple-touch-icon" href="icons/icon-512x512.png" />
-  <meta name="theme-color" content="#2C3E50" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="styles.css" />
   <script defer src="smart-search.js"></script>
   <script defer src="voice-search.js"></script>
   <script>
     if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
+      addEventListener('load', () => {
         navigator.serviceWorker.register('service-worker.js')
-          .then(reg => console.log('Service Worker registered ✅', reg))
-          .catch(err => console.error('Service Worker registration failed ❌', err));
+          .then(reg => console.log('SW registered ✅', reg))
+          .catch(err => console.error('SW failed ❌', err));
       });
     }
   </script>
+
   <style>
-    #sageChatWindow {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 320px;
-      height: 440px;
-      border: none;
-      z-index: 999;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      border-radius: 8px;
-    }
+    .hero { background: radial-gradient(1100px 540px at 70% -200px, rgba(0,255,140,0.12), transparent), #0b0b0b; color:#eafff2; text-align:center; padding: 3.2rem 1rem 2rem; border-bottom:1px solid rgba(0,255,140,0.15); }
+    .hero h1 { font-size: clamp(1.8rem, 5vw, 3rem); margin: 0 0 .5rem; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 1.25rem; }
+    nav.top { background:#111a1a; border-bottom:1px solid rgba(0,255,140,0.15); position: sticky; top:0; z-index:1000; }
+    nav.top .inner { display:flex; align-items:center; justify-content:space-between; gap:.75rem; padding:.6rem 1rem; }
+    nav.top a { color:#d7ffe6; text-decoration:none; font-weight:600; }
+    nav.top .links a { margin: 0 .5rem; opacity:.95; }
+    .card { background: rgba(255,255,255,0.02); border:1px solid rgba(0,255,140,0.12); border-radius:16px; padding:1rem 1rem 1.25rem; box-shadow: 0 6px 24px rgba(0,0,0,.25); }
+    .grid { display:grid; gap:1rem; }
+    @media (min-width: 880px){ .grid.cols-2{ grid-template-columns: 1fr 1fr; } }
+    .btn { display:inline-block; padding:.6rem .9rem; border-radius:10px; border:1px solid rgba(0,255,140,.25); background:rgba(0,255,140,.06); color:#d7ffe6; text-decoration:none; font-weight:600; }
+    .btn.ghost { background:transparent; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    footer { margin-top:2rem; padding:2rem 1rem; border-top:1px solid rgba(0,255,140,.15); text-align:center; color:#c9ffdf; }
+
+    /* Floating Sage chat */
+    #sageChatWindow { position: fixed; bottom: 18px; right: 18px; width: 340px; height: 460px; border:none; z-index: 999; box-shadow: 0 10px 26px rgba(0,0,0,.55); border-radius:14px; overflow:hidden; }
+    @media (max-width: 880px){ #sageChatWindow{ width:min(92vw,420px); height:52vh; right:4vw; bottom:14px; } }
   </style>
 </head>
 <body>
+  <!-- Top Nav (no Topics) -->
+  <nav class="top" aria-label="Primary">
+    <div class="inner container" style="padding-left:1rem;padding-right:1rem;">
+      <a href="index.html" class="brand">🦁 Sovereign Academy</a>
+      <div class="links" role="navigation">
+        <a href="court-prep.html">Court Prep</a>
+        <a href="download-hub.html">Download Hub</a>
+        <a href="llc-overview.html">Start an LLC</a>
+        <a href="trust-conversion.html">Convert to Trust</a>
+      </div>
+    </div>
+  </nav>
 
-<!-- Navigation -->
-<nav style="background: #2C3E50; padding: 10px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
-  <a href="index.html" style="color: white; margin: 0 15px;">🏠 Home</a>
-</nav>
+  <!-- Hero -->
+  <header class="hero" role="banner">
+    <div class="container">
+      <p style="opacity:.9;margin:.25rem 0 .75rem;">National • Parents & Caregivers • Rights‑Forward</p>
+      <h1>🛡️ DSS & CPS Defense</h1>
+      <p><em>Know your rights. Control the record. Push back on overreach—calmly and in writing.</em></p>
+      <div style="margin-top: 1.1rem; display:flex; gap:.6rem; justify-content:center; flex-wrap:wrap;">
+        <input id="smartSearch" onkeyup="smartNavigate(this.value)" placeholder="Search legal topics…" type="search" style="padding:12px 14px; min-width:260px; width:min(740px,72vw); border-radius:10px; border:1px solid rgba(0,255,140,.25); background:#0f1313; color:#eafff2;" />
+        <button onclick="startVoiceSearch()" class="btn" aria-label="Start voice search">🎤 Voice</button>
+      </div>
+      <div style="margin-top:.8rem; display:flex; gap:.6rem; justify-content:center; flex-wrap:wrap;">
+        <a class="btn" href="#start">First 72 Hours</a>
+        <a class="btn" href="#door">When They Knock</a>
+        <a class="btn" href="#records">Records & Evidence</a>
+        <a class="btn" href="#motions">Motions & Templates</a>
+        <a class="btn ghost" href="#states">State Directory</a>
+      </div>
+    </div>
+  </header>
 
-
-  <h1>🛡️ DSS & CPS Defense - Nationwide</h1>
-  <p>Every state has a child protection agency. Most overreach. We teach you how to respond — using <strong>your rights</strong>, not just their rules.</p>
-
-  <div class="search-container">
-    <input id="smartSearch" onkeyup="smartNavigate(this.value)" placeholder="🔍 Search legal topics..." type="text" />
-    <button onclick="startVoiceSearch()">🎤 Voice Search</button>
-  </div>
-
-  <main>
-    <section>
-      <h2>What You’ll Learn</h2>
+  <main id="content" class="container grid" style="grid-template-columns: 1fr; gap:1.25rem;">
+    <!-- What you'll learn -->
+    <section class="card" aria-labelledby="learn-h2">
+      <h2 id="learn-h2">What you’ll learn</h2>
       <ul>
-        <li>📟 How to demand due process in DSS investigations</li>
-        <li>📬 What to do when you get a letter from CPS</li>
-        <li>🧠 How to challenge false reports</li>
-        <li>⚖️ What rights parents really have — by law</li>
-        <li>🛠️ Motion templates and evidence demands</li>
+        <li>How to demand due process during investigations (in writing).</li>
+        <li>How to respond to letters, safety plans, and interview requests.</li>
+        <li>How to challenge false reports and create your own paper trail.</li>
+        <li>What parents’ rights really are, and how to assert them respectfully.</li>
+        <li>Motion templates and targeted evidence demands you can file.</li>
       </ul>
     </section>
 
-    <section>
-      <h2>State-Specific Strategies</h2>
-      <p>We’ve included links to official CPS/DSS pages by state. If your agency has a different name (DCFS, DHS, DYFS, etc.), you’ll still find the tools here work the same.</p>
+    <!-- First 72 Hours -->
+    <section id="start" class="card" aria-labelledby="start-h2">
+      <h2 id="start-h2">First 72 hours</h2>
+      <ol>
+        <li><strong>Get it in writing.</strong> Ask for allegations, statutes, and policy basis in writing. Keep copies.</li>
+        <li><strong>Narrow any interview.</strong> Offer a short, scheduled interview with a witness present; record where lawful.</li>
+        <li><strong>No on‑the‑spot safety plans.</strong> Ask to review in writing; avoid waiving rights under pressure.</li>
+        <li><strong>Document everything.</strong> Names, dates, badge IDs, summaries. Send a same‑day recap email.</li>
+        <li><strong>If urgent:</strong> Ask the court for guidance and for counsel appointment where allowed.</li>
+      </ol>
+    </section>
+
+    <!-- When They Knock -->
+    <section id="door" class="card" aria-labelledby="door-h2">
+      <h2 id="door-h2">When DSS/CPS knocks</h2>
+      <ul>
+        <li><strong>Door script:</strong> <span class="mono">“I respect your work. I’m happy to cooperate <em>in writing</em>. Please leave your business card and written allegations. I will respond promptly.”</span></li>
+        <li>If they insist on entry: <span class="mono">“Do you have a court order or emergency? If so, may I see it?”</span> Absent that, you generally can decline entry.</li>
+        <li>Offer a <strong>scheduled</strong> meeting with a witness present.</li>
+        <li>Never sign anything you do not understand; request time to review.</li>
+      </ul>
+    </section>
+
+    <!-- Records & Evidence -->
+    <section id="records" class="card" aria-labelledby="rec-h2">
+      <h2 id="rec-h2">Records & evidence</h2>
+      <ul>
+        <li>Request the agency file (redacted as required). Track what’s missing.</li>
+        <li>Preserve texts, voicemails, school/medical records, and screenshots.</li>
+        <li>Keep a timeline: dates, who said what, and any contradictions.</li>
+        <li>Create your own exhibits with clear labels and dates.</li>
+      </ul>
+      <div style="display:flex; gap:.6rem; flex-wrap:wrap; margin-top:.6rem;">
+        <a class="btn" href="dss-demand-records.docx" download>⬇️ Records Demand (DOCX)</a>
+        <a class="btn" href="dss-recap-email.docx" download>⬇️ Same‑Day Recap Email (DOCX)</a>
+        <a class="btn ghost" href="download-hub.html">Open Download Hub →</a>
+      </div>
+    </section>
+
+    <!-- Motions & Templates -->
+    <section id="motions" class="card" aria-labelledby="mot-h2">
+      <h2 id="mot-h2">Motions & templates</h2>
+      <ul>
+        <li><a href="motion-to-compel-docs.docx" download>Motion to Compel Case Documents</a></li>
+        <li><a href="motion-to-dismiss-insufficient-evidence.docx" download>Motion to Dismiss (Insufficient Evidence)</a></li>
+        <li><a href="motion-to-exclude-hearsay.docx" download>Motion to Exclude Hearsay</a></li>
+        <li><a href="motion-for-ada-accommodations.docx" download>Motion for ADA Accommodations</a></li>
+      </ul>
+      <p class="mono" style="opacity:.85;">If a file isn’t uploaded yet, this link won’t break your page—just returns 404 until you add it. I can generate clean DOCX templates now.</p>
+    </section>
+
+    <!-- State Directory (placeholder) -->
+    <section id="states" class="card" aria-labelledby="states-h2">
+      <h2 id="states-h2">State directory (quick links)</h2>
+      <p>We’ll add official CPS/DSS portals by state here so you can pull local policies and forms quickly.</p>
+      <div class="grid cols-2">
+        <div>
+          <ul>
+            <li><a href="#">Alabama — DHR</a></li>
+            <li><a href="#">Alaska — OCS</a></li>
+            <li><a href="#">Arizona — DCS</a></li>
+            <li><a href="#">Arkansas — DCFS</a></li>
+            <li><a href="#">California — CDSS</a></li>
+          </ul>
+        </div>
+        <div>
+          <ul>
+            <li><a href="#">New York — ACS</a></li>
+            <li><a href="#">Texas — DFPS</a></li>
+            <li><a href="#">Virginia — DSS</a></li>
+            <li><a href="#">Washington — DCYF</a></li>
+            <li><a href="#">Wyoming — DFS</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related -->
+    <section class="card" aria-labelledby="related-h2">
+      <h2 id="related-h2">Related guides</h2>
+      <ul>
+        <li><a href="court-prep.html">Court Prep Center</a></li>
+        <li><a href="courtroom-scripts.html">Courtroom Scripts</a></li>
+        <li><a href="restore-rights.html">Restore Your Rights</a></li>
+        <li><a href="download-hub.html">Download Hub</a></li>
+      </ul>
     </section>
   </main>
 
-  <iframe id="sageChatWindow" src="sage-chatbot.html"></iframe>
+  <!-- Floating Ask Sage -->
+  <iframe id="sageChatWindow" title="Ask Sage Chat" src="sage-chatbot.html"></iframe>
 
   <footer>
-    <p>© Sovereign Academy — Created by Gina Lopez & Sage, co-founder with claws 🐾. Built by Integrity Exists.</p>
+    © Sovereign Academy — Built by Gina Lopez & Sage (your AI with claws). Education only; not legal advice.
   </footer>
 
+  <!-- Ask Sage Config -->
   <script>
     window.SageBotConfig = {
       voice: true,
-      greetMessage: "Hey there, how can I help you with your DSS or CPS questions today?",
-      placeholder: "Ask Sage anything...",
+      greetMessage: "Tell me what DSS/CPS sent you and I’ll help you respond.",
+      placeholder: "Type or paste the letter you got—let’s craft the reply…",
       theme: "dark"
     };
   </script>
