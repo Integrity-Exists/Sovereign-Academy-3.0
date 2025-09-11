@@ -1,105 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sovereign Academy - Sui Juris Center</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sui Juris & Pro Se Center • Sovereign Academy</title>
+  <meta name="description" content="Learn how to represent yourself (sui juris), file motions, and prepare for court with plain‑language tools and downloads." />
+  <meta name="theme-color" content="#0b0b0b" />
 
-  <!-- Core Links -->
-  <link rel="manifest" href="manifest.json"/>
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="smart-search.js"></script>
+  <script defer src="voice-search.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(r => console.log('SW ✅', r))
+          .catch(e => console.warn('SW ❌', e));
+      });
+    }
+  </script>
 
   <style>
-    :root {
-      --primary-color: #2C3E50;
-      --secondary-color: #F4D03F;
-      --accent-color: #ECF0F1;
-    }
-    body {
-      background-color: var(--accent-color);
-      color: var(--primary-color);
-      font-family: Arial, sans-serif;
-      padding: 20px;
-    }
+    /* Page-specific layout only; colors/skin come from styles.css (neon theme) */
+    .grid { display:grid; gap:1rem; }
+    @media (min-width: 900px){ .grid.cols-2{ grid-template-columns: 1fr 1fr; } }
+    #sageChatWindow{ position:fixed; bottom:18px; right:18px; width:340px; height:460px; border:none; z-index:999; box-shadow:0 10px 26px rgba(0,0,0,.55); border-radius:14px; overflow:hidden; }
   </style>
 </head>
 <body>
+  <!-- Home-only nav -->
+<header class="site container"> 
+<div class="brand">Sovereign Academy</div> <nav class="top"> 
+<a href="index.html" class="nav-home">Home</a> </nav> 
+</header>
 
-<!-- Navigation -->
-<nav style="background: #2C3E50; padding: 10px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
-  <a href="index.html" style="color: white; margin: 0 15px;">🏠 Home</a>
-</nav>
-
-<main>
-  <h1>Sui Juris &amp; Pro Se Center</h1>
-  <section>
-    <h2>What is Sui Juris?</h2>
-    <p>Sui Juris means representing yourself in court without an attorney. It empowers individuals to assert their legal rights independently, using their own knowledge and preparation.</p>
-
-    <h2>Self-Representation Resources:</h2>
-    <ul>
-      <li>How to File a Motion (coming soon!)</li>
-      <li>Sample Motion Template (coming soon!)</li>
-      <li>Steps to Prepare for Your Hearing</li>
-    </ul>
-
-    <h2>Downloadable Templates</h2>
-    <a download href="motion-to-dismiss.docx">Download Motion to Dismiss Template (DOC)</a><br/>
-    <a download href="notice-of-appearance.docx">Download Notice of Appearance Template (DOC)</a>
-  </section>
-
-  <p>Learn how to represent yourself in court, file motions, and assert your rights as a sovereign individual. Resources and downloadable templates coming soon.</p>
-
-  <div style="text-align: center; margin-top: 40px; position: relative;">
-    <input id="smartSearch" onkeyup="smartNavigate(this.value)" placeholder="🔍 Search legal topics..." style="padding: 10px 40px 10px 20px; width: 60%; font-size: 16px; border-radius: 6px; border: 1px solid #ccc;" type="text"/>
-    <span style="position: absolute; right: 22%; top: 50%; transform: translateY(-50%); font-size: 18px; color: #999;">🔍</span>
-    <ul id="smartSuggestions" style="list-style: none; padding: 0; margin: 5px auto 0; width: 60%; text-align: left; display: none; border: 1px solid #ccc; border-radius: 6px; background: #fff; font-size: 16px; max-height: 150px; overflow-y: auto;"></ul>
-
-    <div style="text-align: center; margin-top: 10px;">
-      <button onclick="startVoiceSearch()" style="padding: 10px 20px; font-size: 16px; border-radius: 6px; cursor: pointer;">
-        🎤 Voice Search
-      </button>
+  <!-- Hero -->
+  <header class="hero" role="banner">
+    <div class="container">
+      <h1>Sui Juris & Pro Se Center</h1>
+      <p class="muted"><em>Represent yourself with clarity. Control the record. File clean motions. Show up prepared.</em></p>
+      <div style="margin-top:1rem; display:flex; gap:.6rem; justify-content:center; flex-wrap:wrap;">
+        <input id="smartSearch" onkeyup="smartNavigate(this.value)" placeholder="Search legal topics…" type="search" style="padding:12px 14px; min-width:260px; width:min(740px,72vw); border-radius:10px; border:1px solid rgba(0,255,140,.25); background:#0f1313; color:#eafff2;" />
+        <button onclick="startVoiceSearch()" class="btn" aria-label="Start voice search">🎤 Voice</button>
+        <a class="btn" href="download-hub.html">📥 Open Download Hub</a>
+      </div>
     </div>
-  </div>
-</main>
+  </header>
 
-<footer style="text-align: center; margin-top: 40px; color: var(--primary-color);">
-  © 2025 Sovereign Academy — Gina Lopez &amp; Sage, your AI co-developer with claws. 🦁
-</footer>
+  <main class="container" style="max-width:1000px;">
+    <section class="grid cols-2">
+      <!-- What is Sui Juris -->
+      <article class="card">
+        <h2>What is <em>sui juris</em>?</h2>
+        <p><em>Sui juris</em> means appearing on your own behalf—without an attorney. You’re responsible for filings, deadlines, and presenting evidence. Success comes from calm process, clean paperwork, and a solid paper trail.</p>
+        <ul>
+          <li>Keep everything <strong>in writing</strong> (emails/letters). Recap conversations the same day.</li>
+          <li>Use short, factual statements—no rants, no insults, no speculation.</li>
+          <li>Calendar <strong>every</strong> deadline. Bring copies of all exhibits.</li>
+        </ul>
+      </article>
 
-<!-- Scripts -->
-<script src="smart-search.js"></script>
-<script src="voice-search.js"></script>
+      <!-- Quick Start -->
+      <article class="card">
+        <h2>Quick Start</h2>
+        <ol>
+          <li>Outline: <strong>Facts → Issue → Law → Ask</strong> (relief you want).</li>
+          <li>Collect exhibits: label them (A, B, C…) and cite them in your motion.</li>
+          <li>Draft your motion; keep it under clear headings; sign and date.</li>
+          <li>Serve the other side as rules require; keep proof of service.</li>
+        </ol>
+        <p class="muted">Need structure? Grab scripts & checklists below.</p>
+      </article>
+    </section>
 
-<script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js');
-  }
-</script>
+    <!-- Templates & Tools -->
+    <section class="card" style="margin-top:1rem;">
+      <h2>Templates & Tools</h2>
+      <ul>
+        <li><a class="btn" href="download-hub/motion-to-dismiss.docx" download>⬇️ Motion to Dismiss (DOCX)</a></li>
+        <li><a class="btn" href="download-hub/notice-of-appearance.docx" download>⬇️ Notice of Appearance (DOCX)</a></li>
+        <li><a class="btn" href="download-hub/courtroom-scripts.pdf" download>⬇️ Courtroom Scripts (PDF)</a></li>
+        <li><a class="btn" href="download-hub/court-prep-checklist.pdf" download>⬇️ Court‑Day Checklist (PDF)</a></li>
+      </ul>
+      <p class="muted" style="margin-top:.5rem;">If a download isn’t live yet, find it in the <a href="download-hub.html">Download Hub</a> or check back soon.</p>
+    </section>
 
-<!-- Ask Sage Chatbot -->
-<script>
-  window.SageBotConfig = {
-    voice: true,
-    greetMessage: "Need help going Sui Juris? I'm ready to walk you through it.",
-    placeholder: "Ask Sage about representing yourself...",
-    theme: "dark"
-  };
-</script>
-<script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
+    <!-- Practice & Courtroom Flow -->
+    <section class="card" style="margin-top:1rem;">
+      <h2>Practice the Flow</h2>
+      <ul>
+        <li><strong>Opening:</strong> Who you are, what you’re asking for, 1–2 sentences why.</li>
+        <li><strong>Facts:</strong> Chronology, short sentences, cite Exhibit labels.</li>
+        <li><strong>Law:</strong> The rule in plain words; you can add a citation if you have one.</li>
+        <li><strong>Ask:</strong> The exact order you want the court to enter.</li>
+        <li><strong>Close:</strong> “Respectfully submitted,” date, and signature block.</li>
+      </ul>
+    </section>
 
-<!-- Tawk.to Chat -->
-<script type="text/javascript">
-  var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-  (function(){
-    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-    s1.async = true;
-    s1.src = 'https://embed.tawk.to/681d203afe55ac190d5636e6/1iqosbpkt';
-    s1.charset = 'UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1, s0);
-  })();
-</script>
+    <!-- Related -->
+    <section class="card" style="margin-top:1rem;">
+      <h2>Related Guides</h2>
+      <ul>
+        <li><a href="court-prep.html">Court Prep Center</a></li>
+        <li><a href="courtroom-scripts.html">Courtroom Scripts</a></li>
+        <li><a href="dss-strategy-tools.html">DSS Strategy Tools</a></li>
+        <li><a href="download-hub.html">Download Hub</a></li>
+      </ul>
+    </section>
+  </main>
 
+  <!-- Floating Ask Sage -->
+  <iframe id="sageChatWindow" title="Ask Sage Chat" src="sage-chatbot.html"></iframe>
+
+  <footer style="text-align:center; margin-top:2rem; color:#999; padding:20px; border-top:1px solid rgba(0,255,140,.15);">
+    <div style="margin-bottom:10px;">© 2025 Sovereign Academy — Created by Gina Lopez &amp; Sage (your AI with claws).</div>
+    <div style="font-size:.95rem; line-height:1.5;">Educational resources only. Not legal advice. Always consult a licensed attorney for legal matters.</div>
+  </footer>
+
+  <!-- Ask Sage Chatbot (CDN) -->
+  <script>
+    window.SageBotConfig = {
+      voice: true,
+      greetMessage: "Need help going sui juris? I can walk you through motions and filings.",
+      placeholder: "Ask Sage about representing yourself…",
+      theme: "dark"
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
+
+  <!-- Tawk.to (optional) -->
+  <!--
+  <script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function(){
+      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+      s1.async = true; s1.src = 'https://embed.tawk.to/681d203afe55ac190d5636e6/1iqosbpkt';
+      s1.charset = 'UTF-8'; s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1, s0);
+    })();
+  </script>
+  -->
 </body>
 </html>
