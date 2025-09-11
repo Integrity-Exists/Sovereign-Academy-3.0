@@ -4,20 +4,115 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Your Civil Liberties - Sovereign Academy</title>
-  <meta name="description" content="Know your civil liberties and how to protect them. From speech to search and seizure — this is your power." />
+  <meta name="description" content="Know your civil liberties and how to protect them. From speech to search & seizure — this is your power." />
   <meta name="keywords" content="civil liberties, constitutional rights, 4th amendment, 1st amendment, due process, legal defense" />
   <meta property="og:title" content="Your Civil Liberties - Sovereign Academy" />
-  <meta property="og:description" content="Understand your rights — and how to fight when they’re violated." />
-  <meta name="twitter:card" content="summary" />
+  <meta property="og:description" content="Understand your rights — and how to respond when they’re challenged." />
+  <meta name="theme-color" content="#0b0b0b" />
 
   <link rel="manifest" href="manifest.json" />
-  <link rel="stylesheet" href="style.css" />
-
-  <!-- Smart & Voice Search -->
+  <link rel="stylesheet" href="styles.css" />
   <script defer src="smart-search.js"></script>
   <script defer src="voice-search.js"></script>
+</head>
+<body>
+<header class="site container"> 
+<div class="brand">Sovereign Academy</div> <nav class="top"> 
+<a href="index.html" class="nav-home">Home</a> </nav> 
+</header>
 
-  <!-- Ask Sage Chatbot -->
+  <!-- Hero -->
+  <header class="hero" role="banner" style="background:#0b0b0b;color:#eafff2;text-align:center;padding:2.6rem 1rem 1.8rem;border-bottom:1px solid rgba(0,255,140,.15);">
+    <div class="container" style="max-width:1000px;margin:0 auto;">
+      <h1 style="margin:0 0 .4rem;">🗽 Your Civil Liberties</h1>
+      <p style="opacity:.9;margin:0;"><em>These rights weren’t granted by government. The Constitution recognizes them to protect <strong>you</strong> from it.</em></p>
+      <div style="margin-top:1rem;display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;">
+        <input id="smartSearch" onkeyup="smartNavigate(this.value)" placeholder="Search legal topics…" type="search"
+               style="padding:12px 14px;min-width:260px;width:min(740px,72vw);border-radius:10px;border:1px solid rgba(0,255,140,.25);background:#0f1313;color:#eafff2;">
+        <button onclick="startVoiceSearch()" class="btn" aria-label="Start voice search"
+                style="padding:.6rem .9rem;border-radius:10px;border:1px solid rgba(0,255,140,.25);background:rgba(0,255,140,.06);color:#d7ffe6;">🎤 Voice</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="max-width:900px;margin:0 auto;padding:1.25rem;">
+    <section class="card" style="background:rgba(255,255,255,.02);border:1px solid rgba(0,255,140,.12);border-radius:16px;padding:1rem 1.1rem 1.2rem;box-shadow:0 6px 24px rgba(0,0,0,.25);">
+      <h2>🔓 First Amendment — Speech, Religion, Press, Assembly</h2>
+      <p>You can speak, publish, assemble, and worship within reasonable time, place, and manner limits.</p>
+      <ul>
+        <li class="mono">“Officer, I’m recording from a lawful distance.”</li>
+        <li class="mono">“Is there a specific law I’m violating?”</li>
+      </ul>
+    </section>
+
+    <section class="card" style="margin-top:1rem;background:rgba(255,255,255,.02);border:1px solid rgba(0,255,140,.12);border-radius:16px;padding:1rem 1.1rem 1.2rem;">
+      <h2>🛑 Fourth Amendment — Search & Seizure</h2>
+      <p>Protects against unreasonable searches. Warrants generally need probable cause and particularity. Some exceptions exist (consent, exigency, etc.).</p>
+      <ul>
+        <li class="mono">“Do you have a warrant? May I see it?”</li>
+        <li class="mono">“I do not consent to any searches.”</li>
+        <li class="mono">“Am I free to leave?”</li>
+      </ul>
+    </section>
+
+    <section class="card" style="margin-top:1rem;background:rgba(255,255,255,.02);border:1px solid rgba(0,255,140,.12);border-radius:16px;padding:1rem 1.1rem 1.2rem;">
+      <h2>🤐 Fifth Amendment — Silence & Due Process</h2>
+      <p>You can refuse to answer questions that may incriminate you. Use it respectfully and clearly.</p>
+      <ul>
+        <li class="mono">“I choose to remain silent.”</li>
+        <li class="mono">“I want to speak to an attorney.”</li>
+      </ul>
+    </section>
+
+    <section class="card" style="margin-top:1rem;background:rgba(255,255,255,.02);border:1px solid rgba(0,255,140,.12);border-radius:16px;padding:1rem 1.1rem 1.2rem;">
+      <h2>⚖️ Sixth Amendment — Criminal Procedure</h2>
+      <p>Speedy/public trial, impartial jury, counsel, confrontation, and compulsory process. If you’re charged, ask about counsel availability immediately.</p>
+      <ul>
+        <li class="mono">“I’d like counsel appointed if I qualify.”</li>
+      </ul>
+    </section>
+
+    <section class="card" style="margin-top:1rem;background:rgba(255,255,255,.02);border:1px solid rgba(0,255,140,.12);border-radius:16px;padding:1rem 1.1rem 1.2rem;">
+      <h2>🚫 Eighth Amendment — Excessive Bail & Punishment</h2>
+      <p>Forbids excessive bail/fines and cruel & unusual punishment. Bail must be reasonable relative to risk and the offense.</p>
+    </section>
+
+    <section class="card" style="margin-top:1rem;background:rgba(255,255,255,.02);border:1px solid rgba(0,255,140,.12);border-radius:16px;padding:1rem 1.1rem 1.2rem;">
+      <h2>⚖️ Fourteenth Amendment — Due Process & Equal Protection</h2>
+      <p>Applies many rights against states; guarantees fair process and equal protection under the laws.</p>
+    </section>
+
+    <section class="card" style="margin-top:1rem;background:rgba(255,255,255,.02);border:1px solid rgba(0,255,140,.12);border-radius:16px;padding:1rem 1.1rem 1.2rem;">
+      <h2>🧭 Quick Phrases (calm & respectful)</h2>
+      <ul>
+        <li class="mono">“I don’t consent to searches.”</li>
+        <li class="mono">“Am I being detained, or am I free to go?”</li>
+        <li class="mono">“I’m invoking my right to remain silent.”</li>
+        <li class="mono">“I’d like to speak to an attorney.”</li>
+      </ul>
+      <p class="mono" style="opacity:.85;margin-top:.5rem;">Note: State laws vary (e.g., stop-and-identify, recording rules). This page is educational, not legal advice.</p>
+    </section>
+
+    <section class="card" style="margin-top:1rem;background:rgba(255,255,255,.02);border:1px solid rgba(0,255,140,.12);border-radius:16px;padding:1rem 1.1rem 1.2rem;">
+      <h2>Related Tools</h2>
+      <ul>
+        <li><a href="courtroom-scripts.html">Courtroom Scripts</a></li>
+        <li><a href="court-prep.html">Court Prep Center</a></li>
+        <li><a href="download-hub.html">Download Hub</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer style="text-align:center;margin-top:2rem;color:#999;padding:20px;border-top:1px solid rgba(0,255,140,.15);">
+    <div style="margin-bottom:10px;">
+      &copy; 2025 Sovereign Academy — Created by Gina Lopez &amp; Sage (your AI with claws).
+    </div>
+    <div style="font-size:.95rem;line-height:1.5;">
+      Educational resources only. Not legal advice. Always consult a licensed attorney for legal matters.
+    </div>
+  </footer>
+
+  <!-- Ask Sage Chatbot (CDN) -->
   <script>
     window.SageBotConfig = {
       voice: true,
@@ -26,20 +121,18 @@
       theme: "dark"
     };
   </script>
-  <script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
-</head>
+  <script defer src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
 
-<body>
-  <!-- Navigation -->
-<header class="site container"> 
-<div class="brand">Sovereign Academy</div> <nav class="top"> 
-<a href="index.html" class="nav-home">Home</a> </nav> 
-</header>
-
-  <main style="padding: 40px; text-align: center;">
-    <h1 style="color: #c0392b;">🗽 Your Civil Liberties</h1>
-    <p style="font-size: 1.2rem;">These rights weren’t given by the government. They were recognized by the Constitution to protect <strong>you</strong> from it.</p>
-
-    <section style="margin-top: 2rem; text-align: left; max-width: 800px; margin-left: auto; margin-right: auto;">
-      <h2>🔓 First Amendment: Freedom of Speech, Religion, Press & Assembly</h2>
-      <p>You have the right to speak your truth, pray
+  <!-- (Optional) Tawk.to Live Chat -->
+  <!--
+  <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+      var s1=document.createElement("script"), s0=document.getElementsByTagName("script")[0];
+      s1.async=true; s1.src='https://embed.tawk.to/681d203afe55ac190d5636e6/1iqosbpkt';
+      s1.charset='UTF-8'; s1.setAttribute('crossorigin','*'); s0.parentNode.insertBefore(s1, s0);
+    })();
+  </script>
+  -->
+</body>
+</html>
