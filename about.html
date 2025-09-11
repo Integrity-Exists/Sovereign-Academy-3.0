@@ -32,11 +32,13 @@
 </head>
 <body>
 
-<header class="site container"> 
-<div class="brand">Sovereign Academy</div> <nav class="top"> 
-<a href="index.html" class="nav-home">Home</a> </nav> 
-</header>
- 
+  <!-- Home-only nav -->
+  <nav class="top" aria-label="Primary">
+    <div class="inner container" style="padding-left:1rem;padding-right:1rem;">
+      <a href="index.html" class="brand">🦁 Sovereign Academy</a>
+    </div>
+  </nav>
+
   <!-- Site notice -->
   <div role="status" style="background-color:#fff8dc; color:#444; padding:15px; text-align:center; font-weight:bold; border-bottom:2px solid #ccc;">
     🚧 Sovereign Academy is under active construction — but we're already live and ready to help! Check back often for new topics and tools. 💪
@@ -61,8 +63,15 @@
     </section>
   </main>
 
-  <footer style="text-align: center; margin-top: 3rem; color: #999;">
-    &copy; 2025 Sovereign Academy — Created by Gina Lopez &amp; Sage, your AI co-developer with claws. Built by Integrity Exists.
+  <footer style="text-align: center; margin-top: 3rem; color: #999; padding: 20px;">
+    <div style="margin-bottom:10px;">
+      &copy; 2025 Sovereign Academy — Created by Gina Lopez &amp; Sage, your AI co-developer with claws. Built by Integrity Exists.
+    </div>
+    <div class="footer-disclaimer" style="font-size: 0.95rem; line-height:1.5;">
+      Sovereign Academy and Ask Sage provide educational resources only.<br />
+      We are not attorneys and this is not legal advice.<br />
+      Always consult a licensed attorney for legal matters.
+    </div>
   </footer>
 
   <!-- Ask Sage Chatbot (CDN) -->
@@ -89,11 +98,4 @@
     })();
   </script>
 </body>
-  </div> 
-<div class="footer-disclaimer"> 
-Sovereign Academy and Ask Sage provide educational resources only.<br /> We are not attorneys and this is not legal advice.<br /> 
-Always consult a licensed attorney for legal matters. 
-</div>
-</footer>
-
 </html>
