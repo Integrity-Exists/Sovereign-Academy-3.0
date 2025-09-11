@@ -119,5 +119,68 @@ color: #0f0; /* neon green */
 nav.top a.nav-home:hover { 
 text-decoration: underline; 
 }
+/* === Neon Theme Patch (site-wide) === */
+:root{
+  --bg:#0b0b0b;
+  --bg-elev:rgba(255,255,255,.02);
+  --text:#eafff2;
+  --muted:#c9ffdf;
+  --line:rgba(0,255,140,.15);
+  --line-strong:rgba(0,255,140,.25);
+  --accent:#00ff8c;
+  --accent-weak:rgba(0,255,140,.06);
+  --input-bg:#0f1313;
+}
+
+html,body{background:var(--bg);color:var(--text);}
+
+/* links */
+a{color:var(--muted);text-decoration:none}
+a:hover{color:var(--text);text-decoration:underline}
+
+/* top nav (Home-only) */
+nav.top{background:#111a1a;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:1000}
+nav.top .brand, .brand{color:var(--muted);font-weight:700;text-decoration:none}
+nav.top .links{display:none !important;} /* hide extra nav links site-wide */
+
+/* hero */
+.hero{
+  background: radial-gradient(1100px 540px at 70% -200px, rgba(0,255,140,.12), transparent), var(--bg);
+  color:var(--text);
+  padding:3rem 1rem 2rem;
+  border-bottom:1px solid var(--line);
+  text-align:center;
+}
+
+/* cards */
+.card{
+  background:var(--bg-elev);
+  border:1px solid rgba(0,255,140,.12);
+  border-radius:16px;
+  padding:1rem 1.1rem 1.2rem;
+  box-shadow:0 6px 24px rgba(0,0,0,.25);
+}
+
+/* buttons & common download links */
+.btn, a.download-link, a[download]{
+  display:inline-block; padding:.6rem .9rem; border-radius:10px;
+  border:1px solid var(--line-strong); background:var(--accent-weak);
+  color:var(--muted); font-weight:600; text-decoration:none;
+}
+.btn:hover, a.download-link:hover, a[download]:hover{filter:brightness(1.05)}
+
+/* inputs */
+input[type="search"], input[type="text"], input[type="email"], select, textarea{
+  background:var(--input-bg); color:var(--text);
+  border:1px solid var(--line-strong); border-radius:10px;
+  padding:12px 14px;
+}
+
+/* footer */
+footer{border-top:1px solid var(--line);color:var(--muted);padding:20px;text-align:center}
+
+/* utility */
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.container{max-width:1000px;margin:0 auto;padding:1.25rem}
 
 
