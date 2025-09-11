@@ -1,12 +1,4 @@
-None selected
 
-Skip to content
-Using Gmail with screen readers
-Conversations
-35% of 100 GB used
-Terms · Privacy · Program Policies
-Last account activity: 29 minutes ago
-Details
 /* === Sovereign Academy: Freedom's Daughter Neon Justice Theme === */
 
 body {
@@ -109,7 +101,23 @@ footer {
 
   button {
     width: 100%;
-  }
+    header.site { 
+display: flex; 
+align-items: center; 
+justify-content: space-between; 
+padding: 14px 16px; 
+} 
+header.site .brand { 
+font-weight: 800; 
+letter-spacing: .5px; 
+} 
+nav.top a.nav-home { 
+text-decoration: none; 
+font-weight: 700; 
+color: #0f0; /* neon green */ 
+} 
+nav.top a.nav-home:hover { 
+text-decoration: underline; 
 }
-style.css
-Displaying style.css.
+
+
