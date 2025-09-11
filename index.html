@@ -1,147 +1,143 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#0b0b0b" />
-  <meta name="description" content="One‑time $5 lifetime access legal empowerment. Tools, scripts, and printables to help you fight back." />
-  <title>Sovereign Academy — Home</title>
-  <meta property="og:title" content="Sovereign Academy — Legal Tools that Hit" />
-  <meta property="og:description" content="Plain‑language tools, motion templates, and courtroom scripts. Built by Gina Lopez & Sage." />
-  <meta property="og:type" content="website" />
-  
-  <link rel="manifest" href="manifest.json" />
-  <link rel="stylesheet" href="styles.css" />
-  <script defer src="smart-search.js"></script>
-  <script defer src="voice-search.js"></script>
-  <script>
-    if ('serviceWorker' in navigator) {
-      addEventListener('load', () => {
-        navigator.serviceWorker.register('service-worker.js')
-          .then(reg => console.log('SW registered ✅', reg))
-          .catch(err => console.error('SW failed ❌', err));
-      });
-    }
-  </script>
-
-  <style>
-    /* Page-specific polish to match our neon theme */
-    .hero { background: radial-gradient(1100px 540px at 70% -200px, rgba(0,255,140,0.12), transparent), #0b0b0b; color:#eafff2; text-align:center; padding: 3.2rem 1rem 2.2rem; border-bottom:1px solid rgba(0,255,140,0.15); }
-    .hero h1 { font-size: clamp(1.9rem, 5vw, 3.1rem); margin: 0 0 .4rem; }
-    .container { max-width: 1100px; margin: 0 auto; padding: 1.25rem; }
-    nav.top { background:#111a1a; border-bottom:1px solid rgba(0,255,140,0.15); position: sticky; top:0; z-index:1000; }
-    nav.top .inner { display:flex; align-items:center; justify-content:space-between; gap:.75rem; padding:.6rem 1rem; }
-    nav.top a { color:#d7ffe6; text-decoration:none; font-weight:700; }
-
-    .cta-row { margin-top: 1rem; display:flex; gap:.6rem; justify-content:center; flex-wrap:wrap; }
-    .btn { display:inline-block; padding:.65rem .95rem; border-radius:10px; border:1px solid rgba(0,255,140,.25); background:rgba(0,255,140,.06); color:#d7ffe6; text-decoration:none; font-weight:600; }
-
-    .tiles { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:1rem; margin-top:1.25rem; }
-    .tile { position:relative; background: rgba(255,255,255,0.02); border:1px solid rgba(0,255,140,0.12); border-radius:16px; padding:1rem 1rem 1.1rem; box-shadow: 0 6px 24px rgba(0,0,0,.25); }
-    .tile h3 { margin:.15rem 0 .35rem; font-size:1.1rem; color:#eafff2; }
-    .tile p { margin:0; opacity:.85; }
-    .tile a { text-decoration:none; color:inherit; display:block; }
-    .tile .soon { position:absolute; top:10px; right:10px; font-size:.8rem; padding:.2rem .5rem; border-radius:999px; border:1px solid rgba(255,255,255,.25); background:rgba(255,255,255,.08); display:none; }
-    .tile[data-missing="true"] { opacity:.55; filter:saturate(.6); }
-    .tile[data-missing="true"] .soon { display:inline-block; }
-
-    footer { margin-top:2rem; padding:2rem 1rem; border-top:1px solid rgba(0,255,140,.15); text-align:center; color:#c9ffdf; }
-  </style>
-</head>
-<body>
-  <!-- Top Nav (Home only) -->
-  <nav class="top" aria-label="Primary">
-    <div class="inner container" style="padding-left:1rem;padding-right:1rem;">
-      <a href="index.html" class="brand">🦁 Sovereign Academy</a>
-    </div>
-  </nav>
-
-  <!-- Hero -->
-  <header class="hero" role="banner">
-    <div class="container">
-      <p style="opacity:.9;margin:.25rem 0 .75rem;">One‑time $5 • Lifetime Access • No Subscriptions</p>
-      <h1>Real help. Real tools. No legal BS.</h1>
-      <p><em>Plain‑language guides, courtroom scripts, and downloads that actually help you win.</em></p>
-      <div class="cta-row">
-        <input id="smartSearch" onkeyup="smartNavigate(this.value)" placeholder="Search legal topics…" type="search" style="padding:12px 14px; min-width:260px; width:min(740px,72vw); border-radius:10px; border:1px solid rgba(0,255,140,.25); background:#0f1313; color:#eafff2;" />
-        <button onclick="startVoiceSearch()" class="btn" aria-label="Start voice search">🎤 Voice</button>
-      </div>
-      <div class="cta-row">
-        <a class="btn" href="dss-defense.html">Start with DSS & CPS Defense</a>
-        <a class="btn" href="download-hub.html">Open Download Hub</a>
-      </div>
-    </div>
-  </header>
-
-  <!-- Tiles -->
-  <main class="container">
-    <div class="tiles" id="tiles">
-      <article class="tile">
-        <a href="dss-defense.html"><h3>🛡️ DSS & CPS Defense</h3><p>Know your rights, control the record, push back calmly.</p></a>
-        <span class="soon">coming soon</span>
-      </article>
-      <article class="tile">
-        <a href="dss-strategy-tools.html"><h3>🧰 DSS Strategy Tools</h3><p>Plan builder + DOCX templates wired to your Download Hub.</p></a>
-        <span class="soon">coming soon</span>
-      </article>
-      <article class="tile">
-        <a href="court-prep.html"><h3>🧑‍⚖️ Court Prep Center</h3><p>What to bring, day‑of checklist, after‑court moves.</p></a>
-        <span class="soon">coming soon</span>
-      </article>
-      <article class="tile">
-        <a href="courtroom-scripts.html"><h3>🗣 Courtroom Scripts</h3><p>Openings, exhibits, objections, witness Qs, closings.</p></a>
-        <span class="soon">coming soon</span>
-      </article>
-      <article class="tile">
-        <a href="download-hub.html"><h3>📥 Download Hub</h3><p>All your checklists, motion templates, and printables.</p></a>
-        <span class="soon">coming soon</span>
-      </article>
-      <article class="tile">
-        <a href="about.html"><h3>ℹ️ About</h3><p>Who we are, why we built this, and what comes next.</p></a>
-        <span class="soon">coming soon</span>
-      </article>
-    </div>
-  </main>
-
-  <!-- Floating Ask Sage (iframe) -->
-  <iframe id="sageChatWindow" title="Ask Sage Chat" src="sage-chatbot.html" style="position:fixed; bottom:18px; right:18px; width:340px; height:460px; border:none; z-index:999; box-shadow:0 10px 26px rgba(0,0,0,.55); border-radius:14px; overflow:hidden;"></iframe>
-
-  <footer>
-    © Sovereign Academy — Built by Gina Lopez & Sage (your AI with claws). Education only; not legal advice.
-  </footer>
-
-  <!-- Ask Sage Config (CDN) -->
-  <script>
-    window.SageBotConfig = {
-      voice: true,
-      greetMessage: "Tell me what you’re dealing with—I’ll point you to the right tool.",
-      placeholder: "Search or ask for scripts, motions, or checklists…",
-      theme: "dark"
-    };
-  </script>
-  <script defer src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
-
-  <!-- Tile link checker: mark tiles as coming soon if the page isn’t live yet -->
-  <script>
-    (async () => {
-      const tiles = document.querySelectorAll('.tile a');
-      for (const a of tiles) {
-        const href = a.getAttribute('href');
-        if (!href || href.startsWith('#')) continue;
-        try {
-          const r = await fetch(href, { method: 'HEAD', cache: 'no-store' });
-          if (!r.ok) {
-            const card = a.closest('.tile');
-            card.dataset.missing = 'true';
-            a.addEventListener('click', (e) => e.preventDefault());
-          }
-        } catch (e) {
-          const card = a.closest('.tile');
-          card.dataset.missing = 'true';
-          a.addEventListener('click', (e) => e.preventDefault());
-        }
-      }
-    })();
-  </script>
-</body>
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="utf-8" /> 
+<meta name="viewport" content="width=device-width, initial-scale=1" /> <title>Sovereign Academy • Real Help. Real Tools.</title> 
+<!-- Keep offline while on GitHub Pages; remove this meta when reconnecting Vercel --> <meta name="sage-mode" content="offline" /> 
+<link rel="manifest" href="manifest.json" /> 
+<link rel="stylesheet" href="styles.css" /> 
+<script defer src="smart-search.js"></script> 
+<script defer src="voice-search.js"></script> 
+<script> 
+// Service Worker 
+if ('serviceWorker' in navigator) { 
+window.addEventListener('load', () => { 
+navigator.serviceWorker.register('service-worker.js') 
+.then(reg => console.log('Service Worker registered ✅', reg.scope)) .catch(err => console.error('Service Worker registration failed ❌', err)); }); 
+} 
+</script> 
+<style> 
+/* Page-specific light polish to match your neon style without fighting styles.css */ :root { 
+--panel: rgba(255,255,255,0.04); 
+--panel-hover: rgba(255,255,255,0.18); 
+} 
+header.site { 
+display:flex; align-items:center; justify-content:space-between; 
+padding: 14px 16px; 
+} 
+header.site .brand { font-weight: 800; letter-spacing: .5px; } 
+nav.top a.nav-home { text-decoration:none; font-weight:700; } 
+.hero { 
+text-align:center; padding: 28px 16px 8px; 
+} 
+.hero h1 { 
+margin: 0 0 8px 0; font-size: clamp(28px, 4.5vw, 54px); 
+letter-spacing:.6px;
+} 
+.sub { 
+opacity:.9; margin-bottom: 16px; 
+} 
+.container { max-width:1120px; margin:0 auto; padding: 0 16px 40px; } /* Ask Sage panel */ 
+#ask-sage-panel { 
+background: var(--panel); 
+border-radius: 14px; 
+padding: 10px; 
+margin: 0 auto 22px; 
+box-shadow: 0 0 0 1px rgba(255,255,255,0.06) inset; 
+} 
+#ask-sage-panel iframe { 
+width:100%; height:560px; border:0; border-radius: 10px; 
+background: #000; 
+} 
+/* Topics */ 
+#topics { margin-top: 10px; } 
+#topics h2 { margin: 12px 0 10px; text-align:center; } 
+.topics-grid { 
+display:grid; 
+grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+gap: 12px; 
+} 
+.topics-grid a { 
+display:block; padding:14px 16px; border-radius:12px; 
+background: var(--panel); 
+text-decoration:none; font-weight:600; 
+box-shadow: 0 0 0 1px rgba(255,255,255,0.06) inset; 
+} 
+.topics-grid a:hover { box-shadow: 0 0 0 1px var(--panel-hover) inset; } footer.site { 
+display:flex; align-items:center; justify-content:space-between; 
+padding: 18px 16px; margin-top: 24px; border-top: 1px solid rgba(255,255,255,0.08); } 
+footer.site .mini a { text-decoration:none; margin-right:12px; } 
+</style> 
+</head> 
+<body> 
+<!-- Minimal header with Home so every page feels consistent --> 
+<header class="site container"> 
+<div class="brand">Sovereign Academy</div>
+<nav class="top"><a href="index.html" class="nav-home">Home</a></nav> </header> 
+<main class="container"> 
+<!-- Hero --> 
+<section class="hero"> 
+<h1>REAL HELP. REAL TOOLS. NO LEGALESE.</h1> 
+<div class="sub">Plain-language guides, courtroom scripts, and downloads that help you win.</div> 
+</section> 
+<!-- Ask Sage Hero Panel --> 
+<section id="ask-sage-panel" aria-label="Ask Sage"> 
+<!-- If you prefer the older file name, change src to ask-sage.html --> 
+<iframe src="sage-chatbot.html" title="Ask Sage"></iframe> 
+</section> 
+<!-- Topics --> 
+<section id="topics" aria-label="Explore the Toolkit"> 
+<h2>Explore the Full Sovereign Toolkit</h2> 
+<div class="topics-grid"> 
+<!-- DSS / CPS --> 
+<a href="dss-defense.html">DSS & CPS Defense</a> 
+<a href="dss-stratagy-tools.html">DSS Strategy Tools</a> 
+<a href="sue-cps-federal.html">Sue CPS (Federal)</a> 
+<!-- Court Prep --> 
+<a href="court-prep.html">Court Prep Center</a> 
+<a href="courtroom-scripts.html">Courtroom Scripts</a> 
+<a href="court-prep-checklist.pdf">Court Prep Checklist (PDF)</a> 
+<a href="how-to-read-docket.html">How to Read the Docket</a> 
+<a href="how-to-serve-motions.html">How to Serve Motions</a> 
+<a href="fix-your-case-timeline.html">Fix Your Case Timeline</a> 
+<a href="request-for-continuance.html">Request a Continuance</a> 
+<a href="judicial-recusal.html">Judicial Recusal</a> 
+<a href="file-complaint-judge-attorney.html">File Complaint: Judge/Attorney</a> 
+<!-- Custody / Emergencies --> 
+<a href="custody.html">Custody & Family Law</a> 
+<a href="emergency-custody-response.html">Emergency Custody Response</a> <a href="remove-gal.html">Remove Guardian ad Litem (GAL)</a> 
+<a href="reopen-your-case.html">Reopen Your Case</a> 
+<a href="missed-court.html">Missed Court</a>
+<a href="defend-false-allegations.html">Defend False Allegations</a> <a href="demand-discovery.html">Demand Discovery</a> 
+<!-- Rights & Remedies --> 
+<a href="restore-rights.html">Restore Your Rights</a> 
+<a href="civil-liberties.html">Civil Liberties</a> 
+<a href="records.html">Get Your Records</a> 
+<a href="resources.html">Resources</a> 
+<a href="arrested.html">What To Do If You’re Arrested</a> <a href="traffic.html">Traffic Stops & Tickets</a> 
+<a href="ada-complaint.html">ADA Complaint</a> 
+<a href="veterans.html">Veterans Support</a> 
+<!-- Strategy / Knowledge --> 
+<a href="sui-juris.html">Sui Juris</a> 
+<a href="pro-se-vs-sui-juris.html">Pro Se vs. Sui Juris</a> <a href="chevron-doctrine.html">Chevron Decision Explained</a> <a href="conspiracy-defense.html">Conspiracy Defense</a> 
+<!-- Business / Planning --> 
+<a href="llc-guide.html">Start an LLC</a> 
+<a href="llc-to-trust.html">Convert LLC to Trust</a> 
+<a href="estate.html">Estate Planning</a> 
+<!-- Hubs / About --> 
+<a href="printable-resources.html">Download Hub (Printables)</a> <a href="about.html">About Sovereign Academy</a> 
+</div> 
+</section> 
+</main> 
+<footer class="site container"> 
+<div class="mini"> 
+<a href="index.html">Home</a> 
+</div> 
+<div class="mini"> 
+<!-- Keep legal links out of the main grid to reduce clutter --> <a href="privacy.html">Privacy</a> 
+<a href="terms-of-use.html">Terms</a> 
+<a href="contact.html">Contact</a> 
+</div> 
+</footer> 
+</body> 
 </html>
