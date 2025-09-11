@@ -2,108 +2,146 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sovereign Academy - Ask Sage</title>
-  <meta name="description" content="Ask Sage — your AI-powered legal coach. No legalese, no fluff. Just fire.">
-  <meta name="theme-color" content="#000000" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="manifest" href="manifest.json">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b0b0b" />
+  <meta name="description" content="One‑time $5 lifetime access legal empowerment. Tools, scripts, and printables to help you fight back." />
+  <title>Sovereign Academy — Home</title>
+  <meta property="og:title" content="Sovereign Academy — Legal Tools that Hit" />
+  <meta property="og:description" content="Plain‑language tools, motion templates, and courtroom scripts. Built by Gina Lopez & Sage." />
+  <meta property="og:type" content="website" />
+  
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="smart-search.js"></script>
+  <script defer src="voice-search.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(reg => console.log('SW registered ✅', reg))
+          .catch(err => console.error('SW failed ❌', err));
+      });
+    }
+  </script>
 
-<style>
-  .topics{max-width:min(980px,92vw);margin:10px auto 18px}
-  .chips{
-    display:grid;
-    grid-template-columns:repeat(3,minmax(0,1fr));
-    gap:8px;
-    justify-items:center;
-  }
-  .chip{
-    display:inline-block;width:100%;text-align:center;
-    padding:8px 10px;border:1px solid #0f0;border-radius:999px;
-    background:#000;white-space:nowrap;overflow:hidden;text-overflow:ellipsis
-  }
-  @media (max-width:900px){ .chips{grid-template-columns:repeat(2,minmax(0,1fr));} }
-  @media (max-width:560px){ .chips{grid-template-columns:repeat(1,minmax(0,1fr));} }
-</style>
+  <style>
+    /* Page-specific polish to match our neon theme */
+    .hero { background: radial-gradient(1100px 540px at 70% -200px, rgba(0,255,140,0.12), transparent), #0b0b0b; color:#eafff2; text-align:center; padding: 3.2rem 1rem 2.2rem; border-bottom:1px solid rgba(0,255,140,0.15); }
+    .hero h1 { font-size: clamp(1.9rem, 5vw, 3.1rem); margin: 0 0 .4rem; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 1.25rem; }
+    nav.top { background:#111a1a; border-bottom:1px solid rgba(0,255,140,0.15); position: sticky; top:0; z-index:1000; }
+    nav.top .inner { display:flex; align-items:center; justify-content:space-between; gap:.75rem; padding:.6rem 1rem; }
+    nav.top a { color:#d7ffe6; text-decoration:none; font-weight:700; }
 
+    .cta-row { margin-top: 1rem; display:flex; gap:.6rem; justify-content:center; flex-wrap:wrap; }
+    .btn { display:inline-block; padding:.65rem .95rem; border-radius:10px; border:1px solid rgba(0,255,140,.25); background:rgba(0,255,140,.06); color:#d7ffe6; text-decoration:none; font-weight:600; }
+
+    .tiles { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:1rem; margin-top:1.25rem; }
+    .tile { position:relative; background: rgba(255,255,255,0.02); border:1px solid rgba(0,255,140,0.12); border-radius:16px; padding:1rem 1rem 1.1rem; box-shadow: 0 6px 24px rgba(0,0,0,.25); }
+    .tile h3 { margin:.15rem 0 .35rem; font-size:1.1rem; color:#eafff2; }
+    .tile p { margin:0; opacity:.85; }
+    .tile a { text-decoration:none; color:inherit; display:block; }
+    .tile .soon { position:absolute; top:10px; right:10px; font-size:.8rem; padding:.2rem .5rem; border-radius:999px; border:1px solid rgba(255,255,255,.25); background:rgba(255,255,255,.08); display:none; }
+    .tile[data-missing="true"] { opacity:.55; filter:saturate(.6); }
+    .tile[data-missing="true"] .soon { display:inline-block; }
+
+    footer { margin-top:2rem; padding:2rem 1rem; border-top:1px solid rgba(0,255,140,.15); text-align:center; color:#c9ffdf; }
+  </style>
 </head>
-
 <body>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="topics.html">Topics</a>
+  <!-- Top Nav (Home only) -->
+  <nav class="top" aria-label="Primary">
+    <div class="inner container" style="padding-left:1rem;padding-right:1rem;">
+      <a href="index.html" class="brand">🦁 Sovereign Academy</a>
+    </div>
   </nav>
 
-  <div class="wrap">
-    <div id="sage-container">
-      <h1>🧠 Ask Sage</h1>
-
- <section class="topics" aria-label="Quick topics">
-  <div class="chips">
-    <a class="chip" href="llc-guide.html">📘 LLC Guide</a>
-    <a class="chip" href="llc-to-trust.html">🏛 LLC → Trust</a>
-    <a class="chip" href="court-prep.html">🧾 Court Prep</a>
-    <a class="chip" href="courtroom-scripts.html">🎤 Courtroom Scripts</a>
-    <a class="chip" href="dss.html">📄 DSS / CPS</a>
-    <a class="chip" href="dss-defense.html">🛡️ DSS Defense</a>
-    <a class="chip" href="dss-stratagy-tools.html">🧰 DSS Strategy Tools</a>
-    <a class="chip" href="custody.html">👪 Custody</a>
-    <a class="chip" href="emergency-custody-response.html">🚨 Emergency Custody</a>
-    <a class="chip" href="remove-gal.html">❌ Remove GAL</a>
-    <a class="chip" href="restore-rights.html">🎯 Restore Rights</a>
-    <a class="chip" href="defend-false-allegations.html">🕵️‍♂️ False Allegations</a>
-    <a class="chip" href="demand-discovery.html">📂 Demand Discovery</a>
-    <a class="chip" href="how-to-serve-motions.html">📮 Serve Motions</a>
-    <a class="chip" href="request-for-continuance.html">⏳ Continuance</a>
-    <a class="chip" href="reopen-your-case.html">🔁 Reopen Case</a>
-    <a class="chip" href="judicial-recusal.html">⚖️ Judicial Recusal</a>
-    <a class="chip" href="how-to-read-docket.html">📜 Read the Docket</a>
-    <a class="chip" href="name-change.html">🪪 Name Change</a>
-    <a class="chip" href="traffic.html">🚗 Traffic</a>
-    <a class="chip" href="evictions.html">🏚️ Evictions</a>
-    <a class="chip" href="landlord-rights.html">🏠 Landlord Rights</a>
-    <a class="chip" href="records.html">📑 Records Requests</a>
-    <a class="chip" href="estate.html">📜 Estate Planning</a>
-    <a class="chip" href="veterans.html">🎖 Veterans</a>
-    <a class="chip" href="chevron-doctrine.html">⚖️ Chevron Decision</a>
-    <a class="chip" href="conspiracy-defense.html">👁 Conspiracy</a>
-    <a class="chip" href="sue-cps-federal.html">🏛 Sue CPS (Federal)</a>
-    <a class="chip" href="pro-se-vs-sui-juris.html">🧑‍⚖️ Pro Se vs Sui Juris</a>
-    <a class="chip" href="sui-juris.html">📘 Sui Juris</a>
-  </div>
-  <a class="all-link" href="topics.html" style="display:block;text-align:center;margin-top:10px;opacity:.9">📚 View all topics</a>
-</section>
-
-
-      <iframe src="sage-chatbot.html" title="Ask Sage"></iframe>
+  <!-- Hero -->
+  <header class="hero" role="banner">
+    <div class="container">
+      <p style="opacity:.9;margin:.25rem 0 .75rem;">One‑time $5 • Lifetime Access • No Subscriptions</p>
+      <h1>Real help. Real tools. No legal BS.</h1>
+      <p><em>Plain‑language guides, courtroom scripts, and downloads that actually help you win.</em></p>
+      <div class="cta-row">
+        <input id="smartSearch" onkeyup="smartNavigate(this.value)" placeholder="Search legal topics…" type="search" style="padding:12px 14px; min-width:260px; width:min(740px,72vw); border-radius:10px; border:1px solid rgba(0,255,140,.25); background:#0f1313; color:#eafff2;" />
+        <button onclick="startVoiceSearch()" class="btn" aria-label="Start voice search">🎤 Voice</button>
+      </div>
+      <div class="cta-row">
+        <a class="btn" href="dss-defense.html">Start with DSS & CPS Defense</a>
+        <a class="btn" href="download-hub.html">Open Download Hub</a>
+      </div>
     </div>
+  </header>
 
-    <div class="divider"></div>
+  <!-- Tiles -->
+  <main class="container">
+    <div class="tiles" id="tiles">
+      <article class="tile">
+        <a href="dss-defense.html"><h3>🛡️ DSS & CPS Defense</h3><p>Know your rights, control the record, push back calmly.</p></a>
+        <span class="soon">coming soon</span>
+      </article>
+      <article class="tile">
+        <a href="dss-strategy-tools.html"><h3>🧰 DSS Strategy Tools</h3><p>Plan builder + DOCX templates wired to your Download Hub.</p></a>
+        <span class="soon">coming soon</span>
+      </article>
+      <article class="tile">
+        <a href="court-prep.html"><h3>🧑‍⚖️ Court Prep Center</h3><p>What to bring, day‑of checklist, after‑court moves.</p></a>
+        <span class="soon">coming soon</span>
+      </article>
+      <article class="tile">
+        <a href="courtroom-scripts.html"><h3>🗣 Courtroom Scripts</h3><p>Openings, exhibits, objections, witness Qs, closings.</p></a>
+        <span class="soon">coming soon</span>
+      </article>
+      <article class="tile">
+        <a href="download-hub.html"><h3>📥 Download Hub</h3><p>All your checklists, motion templates, and printables.</p></a>
+        <span class="soon">coming soon</span>
+      </article>
+      <article class="tile">
+        <a href="about.html"><h3>ℹ️ About</h3><p>Who we are, why we built this, and what comes next.</p></a>
+        <span class="soon">coming soon</span>
+      </article>
+    </div>
+  </main>
 
-    <section>
-      <h2>🔥 Explore the Full Sovereign Toolkit</h2>
-      <ul>
-        <li><a href="custody.html">👪 Custody</a></li>
-        <li><a href="dss.html">📄 DSS Overview</a></li>
-        <li><a href="restore-rights.html">🎯 Restore Rights</a></li>
-        <li><a href="court-prep.html">🧾 Court Prep</a></li>
-        <li><a href="veterans.html">🎖 Veterans</a></li>
-        <li><a href="estate.html">📜 Estate Planning</a></li>
-        <li><a href="download-hub.html">📂 Download Hub</a></li>
-        <li><a href="emergency-custody-response.html">🚨 Emergency Custody</a></li>
-        <li><a href="remove-gal.html">❌ Remove GAL</a></li>
-        <li><a href="llc-guide.html">📘 LLC Guide</a></li>
-        <li><a href="llc-to-trust.html">🏛 Convert to Trust</a></li>
-        <li><a href="chevron-doctrine.html">⚖️ Chevron Decision</a></li>
-        <li><a href="conspiracy-defense.html">👁 Conspiracy Charges</a></li>
-        <li><a href="about.html">📚 About Sovereign Academy</a></li>
-      </ul>
-    </section>
+  <!-- Floating Ask Sage (iframe) -->
+  <iframe id="sageChatWindow" title="Ask Sage Chat" src="sage-chatbot.html" style="position:fixed; bottom:18px; right:18px; width:340px; height:460px; border:none; z-index:999; box-shadow:0 10px 26px rgba(0,0,0,.55); border-radius:14px; overflow:hidden;"></iframe>
 
-    <footer>
-      Built by <strong>Gina Lopez</strong> &amp; <strong>Sage</strong>, your AI co-pilot for court survival.<br>
-      © 2025 Sovereign Academy. No fear. No fluff. Just fire.
-    </footer>
-  </div>
+  <footer>
+    © Sovereign Academy — Built by Gina Lopez & Sage (your AI with claws). Education only; not legal advice.
+  </footer>
+
+  <!-- Ask Sage Config (CDN) -->
+  <script>
+    window.SageBotConfig = {
+      voice: true,
+      greetMessage: "Tell me what you’re dealing with—I’ll point you to the right tool.",
+      placeholder: "Search or ask for scripts, motions, or checklists…",
+      theme: "dark"
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
+
+  <!-- Tile link checker: mark tiles as coming soon if the page isn’t live yet -->
+  <script>
+    (async () => {
+      const tiles = document.querySelectorAll('.tile a');
+      for (const a of tiles) {
+        const href = a.getAttribute('href');
+        if (!href || href.startsWith('#')) continue;
+        try {
+          const r = await fetch(href, { method: 'HEAD', cache: 'no-store' });
+          if (!r.ok) {
+            const card = a.closest('.tile');
+            card.dataset.missing = 'true';
+            a.addEventListener('click', (e) => e.preventDefault());
+          }
+        } catch (e) {
+          const card = a.closest('.tile');
+          card.dataset.missing = 'true';
+          a.addEventListener('click', (e) => e.preventDefault());
+        }
+      }
+    })();
+  </script>
 </body>
 </html>
