@@ -119,6 +119,47 @@ color: #0f0; /* neon green */
 nav.top a.nav-home:hover { 
 text-decoration: underline; 
 }
+/* HERO — make SAGE the star */ 
+#sage-logo { 
+font-size: clamp(48px, 7vw, 110px); /* responsive big */ 
+font-weight: 900; 
+color: #0f0; /* neon green */ 
+text-shadow: 0 0 15px #0f0; /* glow effect */ 
+text-align: center; 
+margin: 0.15em 0 0.1em; 
+line-height: 0.95; 
+} 
+/* Tagline directly under SAGE (smaller + lighter) */ 
+.tagline { 
+font-size: clamp(16px, 2vw, 24px); 
+font-weight: 400; 
+color: #fff; 
+text-align: center; 
+margin-bottom: 0.8em; 
+} 
+/* “REAL HELP. REAL TOOLS. NO LEGALESE.” — bold but smaller than SAGE */ #site-tagline { 
+font-size: clamp(20px, 2.8vw, 40px); 
+font-weight: 700; 
+color: #fff; 
+text-align: center; 
+margin: 0.5em 0 0.25em; 
+} 
+/* Subline (plain language guides, forms, etc.) */ 
+.subline { 
+font-size: clamp(14px, 1.6vw, 19px); 
+color: #ccc; 
+text-align: center; 
+margin-bottom: 1.25em; 
+} 
+/* Shrink the top line: ReelHelp · ReelTools · NoLegalese */ 
+#top-line, 
+#top-line * { 
+font-size: clamp(12px, 1.8vw, 18px); 
+letter-spacing: 0.04em; 
+font-weight: 600; 
+text-align: center;
+margin-bottom: 1.25em; 
+} 
 /* === Neon Theme Patch (site-wide) === */
 :root{
   --bg:#0b0b0b;
