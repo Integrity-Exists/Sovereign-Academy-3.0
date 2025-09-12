@@ -182,5 +182,24 @@ footer{border-top:1px solid var(--line);color:var(--muted);padding:20px;text-ali
 /* utility */
 .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
 .container{max-width:1000px;margin:0 auto;padding:1.25rem}
+    /* Hero headline smaller */ 
+.hero h1 { 
+font-size: clamp(20px, 3.2vw, 36px); /* was much bigger */ line-height: 1.1; 
+margin: 0 0 8px; 
+} 
+/* Remove the "Ask Sage Anything" banner */ #ask-sage-heading { display: none; } 
+/* Chatbox text & size */ 
+#msgs, #input { 
+font-size: 1rem; /* bump text size */ 
+line-height: 1.5; 
+} 
+.input { 
+min-height: 120px; /* taller input area */ font-size: 1rem; 
+padding: 12px; 
+} 
+.msg { 
+font-size: 1rem; /* bigger messages */ padding: 14px; 
+}
+
 
 
