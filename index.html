@@ -22,88 +22,17 @@
     }
   </script>
 
-  <style>
-    :root {
-      --panel: rgba(0, 0, 0, 0.5);
-      --panel-hover: rgba(0, 255, 0, 0.2);
-    }
-    header.site {
-      display:flex; align-items:center; justify-content:space-between;
-      padding: 14px 16px;
-    }
-  
-    header.site .brand { font-weight: 800; letter-spacing: .5px; }
-    nav.top a.nav-home { text-decoration:none; font-weight:700; }
-    .hero { text-align:center; padding: 28px 16px 8px; }
-    .hero h1
-     <div id="sage-hero">SAGE</div> 
-    {
-      margin: 0 0 8px 0;
-      font-size: clamp(28px, 4.5vw, 54px);
-      letter-spacing:.6px;
-    }
-     sub { opacity:.9; margin-bottom: 16px; }
-    .container { max-width:1120px; margin:0 auto; padding: 0 16px 40px; }
-
-    /* Ask Sage panel */
-    #ask-sage-panel {
-      background: var(--panel);
-      border-radius: 14px;
-      padding: 10px;
-      margin: 0 auto 32px; /* more breathing room */
-      box-shadow: 0 0 0 1px rgba(255,255,255,0.06) inset;
-    }
-    #ask-sage-panel iframe {
-      width:100%; height:560px; border:0; border-radius: 10px;
-      background: #000;
-    }
-
-    /* Topics */
-    #topics { margin-top: 10px; }
-    #topics h2 { margin: 12px 0 16px; text-align:center; }
-    .topics-grid {
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 12px;
-    }
-    .topics-grid a {
-      display:block;
-      padding:14px 16px;
-      border-radius:12px;
-      background: var(--panel);
-      text-decoration:none;
-      font-weight:600;
-      color:#0f0;
-      transition: background 0.2s ease, color 0.2s ease;
-      box-shadow: 0 0 0 1px rgba(255,255,255,0.06) inset;
-    }
-    .topics-grid a:hover {
-      background: var(--panel-hover);
-      color:#fff;
-    }
-
-    footer.site {
-      display:flex; align-items:center; justify-content:space-between;
-      padding: 18px 16px; margin-top: 24px;
-      border-top: 1px solid rgba(255,255,255,0.08);
-    }
-    footer.site .mini a { text-decoration:none; margin-right:12px; }
-
-    /* Disclaimer */
-    .disclaimer {
-      font-size: 0.8rem;
-      text-align: center;
-      opacity: 0.7;
-      margin: 16px auto;
-      max-width: 800px;
-    }
-  </style>
 </head>
 
 <body>
   <header class="site container">
     <div class="brand">Sovereign Academy</div>
-    <nav class="top"><a href="index.html" class="nav-home">Home</a></nav>
+    <div id="sage-hero">SAGE</div> 
+      <!-- Mission Line --> 
+     <h1 class="mission-line"> 
+   REAL HELP. REAL TOOLS. NO LEGALESE. </h1> 
+
+  <nav class="top"><a href="index.html" class="nav-home">Home</a></nav>
   </header>
 
   <main class="container">
