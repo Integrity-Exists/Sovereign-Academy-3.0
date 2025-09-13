@@ -9,6 +9,7 @@
 <script defer src="smart-search.js"></script> 
 <script defer src="voice-search.js"></script> 
 <script> 
+// Service Worker (safe to keep) 
 if ('serviceWorker' in navigator) { 
 addEventListener('load', () => { 
 navigator.serviceWorker.register('service-worker.js').catch(()=>{}); 
@@ -17,53 +18,65 @@ navigator.serviceWorker.register('service-worker.js').catch(()=>{});
 </script> 
 </head> 
 <body> 
+<!-- Minimal, universal header --> 
 <header class="site container"> 
 <div class="brand">Sovereign Academy</div> 
-<nav class="top"> 
-<a href="index.html" class="nav-home">Home</a> 
-<a href="#topics">Topics</a> 
-</nav> 
-</header> 
-<main class="container"> 
-<!-- Hero --> 
+<nav class="top"><a href="index.html" class="nav-home">Home</a></nav> </header> <main class="container"> 
+<!-- Smaller hero --> 
 <section class="hero"> 
 <h1>REAL HELP. REAL TOOLS. NO LEGALESE.</h1> 
 <p class="sub">Plain-language guides, courtroom scripts, and downloads that help you win.</p> 
 </section> 
-<!-- Ask Sage front and center --> 
+<!-- Sage front and center --> 
 <section id="ask-sage-panel" aria-label="Ask Sage"> 
 <h2 class="ask-sage-title">Ask Sage</h2> 
-<iframe src="sage-chatbot.html" title="Ask Sage" class="ask-sage-iframe"></iframe>
+<iframe src="sage-chatbot.html" title="Ask Sage"></iframe> 
 </section> 
-<!-- Topics grid (boxed cards) --> 
+<!-- Topics grid --> 
 <section id="topics" aria-label="Explore the Toolkit"> 
-<h3 class="topics-heading">Explore the Full Sovereign Toolkit</h3> 
-<div class="topics-grid"> 
-<!-- DSS / CPS --> 
-<a class="topic-card" href="dss-defense.html">DSS &amp; CPS Defense</a> <a class="topic-card" href="dss-strategy-tools.html">DSS Strategy Tools</a> <a class="topic-card" href="sue-cps-federal.html">Sue CPS (Federal)</a> 
+<h3 class="topics-heading">Explore the Full Sovereign Toolkit</h3> <div class="topics-grid"> <!-- DSS / CPS --> 
+<a href="dss-defense.html">DSS & CPS Defense</a> 
+<a href="dss-stratagy-tools.html">DSS Strategy Tools</a>
+<a href="sue-cps-federal.html">Sue CPS (Federal)</a> 
 <!-- Court Prep --> 
-<a class="topic-card" href="court-prep.html">Court Prep Center</a> 
-<a class="topic-card" href="courtroom-scripts.html">Courtroom Scripts</a> <a class="topic-card" href="court-prep-checklist.pdf">Court Prep Checklist (PDF)</a> <a class="topic-card" href="how-to-read-docket.html">How to Read the Docket</a> <a class="topic-card" href="how-to-serve-motions.html">How to Serve Motions</a> <a class="topic-card" href="fix-your-case-timeline.html">Fix Your Case Timeline</a> <a class="topic-card" href="request-for-continuance.html">Request a Continuance</a> <a class="topic-card" href="judicial-recusal.html">Judicial Recusal</a> <a class="topic-card" href="file-complaint-judge-attorney.html">File Complaint: Judge/Attorney</a> 
-<!-- Custody / Emergencies --> 
-<a class="topic-card" href="custody.html">Custody &amp; Family Law</a> <a class="topic-card" href="emergency-custody-response.html">Emergency Custody Response</a> 
-<a class="topic-card" href="remove-gal.html">Remove Guardian ad Litem (GAL)</a> <a class="topic-card" href="reopen-your-case.html">Reopen Your Case</a> <a class="topic-card" href="missed-court.html">Missed Court</a> 
-<a class="topic-card" href="defend-false-allegations.html">Defend False Allegations</a> <a class="topic-card" href="demand-discovery.html">Demand Discovery</a> 
+<a href="court-prep.html">Court Prep Center</a> 
+<a href="courtroom-scripts.html">Courtroom Scripts</a> 
+<a href="court-prep-checklist.pdf">Court Prep Checklist (PDF)</a> <a 
+href="how-to-read-docket.html">How to Read the Docket</a> <a 
+href="how-to-serve-motions.html">How to Serve Motions</a> <a 
+href="fix-your-case-timeline.html">Fix Your Case Timeline</a> <a 
+href="request-for-continuance.html">Request a Continuance</a> <a 
+href="judicial-recusal.html">Judicial Recusal</a> 
+<a href="file-complaint-judge-attorney.html">File Complaint: Judge/Attorney</a> <!-- Custody / Emergencies --> 
+<a href="custody.html">Custody & Family Law</a> 
+<a href="emergency-custody-response.html">Emergency Custody Response</a> <a href="remove-gal.html">Remove Guardian ad Litem (GAL)</a> <a 
+href="reopen-your-case.html">Reopen Your Case</a> 
+<a href="missed-court.html">Missed Court</a> 
+<a href="defend-false-allegations.html">Defend False Allegations</a> <a href="demand-discovery.html">Demand Discovery</a> 
 <!-- Rights & Remedies --> 
-<a class="topic-card" href="restore-rights.html">Restore Your Rights</a> <a class="topic-card" href="civil-liberties.html">Civil Liberties</a> 
-<a class="topic-card" href="records.html">Get Your Records</a> 
-<a class="topic-card" href="resources.html">Resources</a> 
-<a class="topic-card" href="arrested.html">What To Do If You’re Arrested</a> <a class="topic-card" href="traffic.html">Traffic Stops &amp; Tickets</a> <a class="topic-card" href="ada-complaint.html">ADA Complaint</a> 
-<a class="topic-card" href="veterans.html">Veterans Support</a>
+<a href="restore-rights.html">Restore Your Rights</a> 
+<a href="civil-liberties.html">Civil Liberties</a> 
+<a href="records.html">Get Your Records</a> 
+<a href="resources.html">Resources</a> 
+<a href="arrested.html">What To Do If You’re Arrested</a> 
+<a href="traffic.html">Traffic Stops & Tickets</a> 
+<a href="ada-complaint.html">ADA Complaint</a> 
+<a href="veterans.html">Veterans Support</a> 
 <!-- Strategy / Knowledge --> 
-<a class="topic-card" href="sui-juris.html">Sui Juris</a> 
-<a class="topic-card" href="pro-se-vs-sui-juris.html">Pro Se vs. Sui Juris</a> <a class="topic-card" href="chevron-doctrine.html">Chevron Decision Explained</a> <a class="topic-card" href="conspiracy-defense.html">Conspiracy Defense</a> 
+<a href="sui-juris.html">Sui Juris</a> 
+<a href="pro-se-vs-sui-juris.html">Pro Se vs. Sui Juris</a> 
+<a href="chevron-doctrine.html">Chevron Decision Explained</a> <a 
+href="conspiracy-defense.html">Conspiracy Defense</a> 
 <!-- Business / Planning --> 
-<a class="topic-card" href="llc-guide.html">Start an LLC</a> 
-<a class="topic-card" href="llc-to-trust.html">Convert LLC to Trust</a> <a class="topic-card" href="estate.html">Estate Planning</a> 
+<a href="llc-guide.html">Start an LLC</a> 
+<a href="llc-to-trust.html">Convert LLC to Trust</a> 
+<a href="estate.html">Estate Planning</a> 
 <!-- Hubs / About --> 
-<a class="topic-card" href="printable-resources.html">Download Hub (Printables)</a> <a class="topic-card" href="about.html">About Sovereign Academy</a> </div> 
+<a href="printable-resources.html">Download Hub (Printables)</a> <a href="about.html">About Sovereign Academy</a> 
+</div> 
 </section> 
 </main> 
+<!-- Consistent footer + disclaimer -->
 <footer class="site-footer"> 
 <div class="footer-links"> 
 <a href="index.html">Home</a> 
@@ -77,4 +90,4 @@ Always consult a licensed attorney for legal matters.
 </div> 
 </footer> 
 </body> 
-</html> 
+</html>
