@@ -88,7 +88,15 @@ footer {
   padding: 1rem;
   font-size: 0.9rem;
 }
-
+/* Glowing Sage Banner */ 
+#sage-hero { 
+font-size: 3rem; /* Bold + big */ color: #0f0; /* Neon green */ text-align: center; 
+text-shadow: 
+0 0 8px #0f0, 
+0 0 16px #0f0, 
+0 0 24px #0f0; /* Solid glow */ margin: 1.5rem 0 0.5rem; /* Spacing */ font-weight: bold; 
+letter-spacing: 2px; 
+} 
 @media (max-width: 600px) {
   nav {
     flex-direction: column;
