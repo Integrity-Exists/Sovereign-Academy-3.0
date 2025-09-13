@@ -8,33 +8,15 @@
 <link rel="stylesheet" href="styles.css" /> 
 <script defer src="smart-search.js"></script> 
 <script defer src="voice-search.js"></script> 
-<style> 
-.hero h1 { 
-font-size: clamp(22px, 4vw, 36px); 
-margin-bottom: 0.4rem; 
-} 
-.ask-sage-title { 
-font-size: clamp(28px, 5vw, 52px); 
-line-height: 1.05; 
-font-weight: bold; 
-text-align: center; 
-} 
-#ask-sage-panel iframe { 
-width: 100%; 
-min-height: 70vh; 
-border: none; 
-} 
-</style> 
 <script> 
-// Service Worker (safe to keep) 
 if ('serviceWorker' in navigator) { 
 addEventListener('load', () => { 
-navigator.serviceWorker.register('service-worker.js').catch(() => {}); }); 
+navigator.serviceWorker.register('service-worker.js').catch(()=>{}); 
+}); 
 } 
 </script> 
 </head> 
 <body> 
-<!-- Minimal, universal header -->
 <header class="site container"> 
 <div class="brand">Sovereign Academy</div> 
 <nav class="top"> 
@@ -48,66 +30,108 @@ navigator.serviceWorker.register('service-worker.js').catch(() => {}); });
 <h1>REAL HELP. REAL TOOLS. NO LEGALESE.</h1> 
 <p class="sub">Plain-language guides, courtroom scripts, and downloads that help you win.</p> 
 </section> 
-<!-- Sage front and center --> 
+<!-- Ask Sage front and center --> 
 <section id="ask-sage-panel" aria-label="Ask Sage"> 
 <h2 class="ask-sage-title">Ask Sage</h2> 
-<iframe src="sage-chatbot.html" title="Ask Sage"></iframe> 
+<iframe src="sage-chatbot.html" title="Ask Sage" class="ask-sage-iframe"></iframe>
 </section> 
-<!-- Topics grid --> 
+<!-- Topics grid (boxed cards) --> 
 <section id="topics" aria-label="Explore the Toolkit"> 
 <h3 class="topics-heading">Explore the Full Sovereign Toolkit</h3> 
 <div class="topics-grid"> 
 <!-- DSS / CPS --> 
-<a href="dss-defense.html">DSS & CPS Defense</a> 
-<a href="dss-strategy-tools.html">DSS Strategy Tools</a> 
-<a href="sue-cps-federal.html">Sue CPS (Federal)</a> 
+<a class="topic-card" href="dss-defense.html">DSS &amp; CPS Defense</a> <a class="topic-card" href="dss-strategy-tools.html">DSS Strategy Tools</a> <a class="topic-card" href="sue-cps-federal.html">Sue CPS (Federal)</a> 
 <!-- Court Prep --> 
-<a href="court-prep.html">Court Prep Center</a> 
-<a href="courtroom-scripts.html">Courtroom Scripts</a> 
-<a href="court-prep-checklist.pdf">Court Prep Checklist (PDF)</a> 
-<a href="how-to-read-docket.html">How to Read the Docket</a> 
-<a href="how-to-serve-motions.html">How to Serve Motions</a> 
-<a href="fix-your-case-timeline.html">Fix Your Case Timeline</a> 
-<a href="request-for-continuance.html">Request a Continuance</a> <a href="judicial-recusal.html">Judicial Recusal</a> 
-<a href="file-complaint-judge-attorney.html">File Complaint: Judge/Attorney</a> <!-- Custody / Emergencies -->
-<a href="custody.html">Custody & Family Law</a> 
-<a href="emergency-custody-response.html">Emergency Custody Response</a> <a href="remove-gal.html">Remove Guardian ad Litem (GAL)</a> <a href="reopen-your-case.html">Reopen Your Case</a> 
-<a href="missed-court.html">Missed Court</a> 
-<a href="defend-false-allegations.html">Defend False Allegations</a> <a href="demand-discovery.html">Demand Discovery</a> 
+<a class="topic-card" href="court-prep.html">Court Prep Center</a> 
+<a class="topic-card" href="courtroom-scripts.html">Courtroom Scripts</a> <a class="topic-card" href="court-prep-checklist.pdf">Court Prep Checklist (PDF)</a> <a class="topic-card" href="how-to-read-docket.html">How to Read the Docket</a> <a class="topic-card" href="how-to-serve-motions.html">How to Serve Motions</a> <a class="topic-card" href="fix-your-case-timeline.html">Fix Your Case Timeline</a> <a class="topic-card" href="request-for-continuance.html">Request a Continuance</a> <a class="topic-card" href="judicial-recusal.html">Judicial Recusal</a> <a class="topic-card" href="file-complaint-judge-attorney.html">File Complaint: Judge/Attorney</a> 
+<!-- Custody / Emergencies --> 
+<a class="topic-card" href="custody.html">Custody &amp; Family Law</a> <a class="topic-card" href="emergency-custody-response.html">Emergency Custody Response</a> 
+<a class="topic-card" href="remove-gal.html">Remove Guardian ad Litem (GAL)</a> <a class="topic-card" href="reopen-your-case.html">Reopen Your Case</a> <a class="topic-card" href="missed-court.html">Missed Court</a> 
+<a class="topic-card" href="defend-false-allegations.html">Defend False Allegations</a> <a class="topic-card" href="demand-discovery.html">Demand Discovery</a> 
 <!-- Rights & Remedies --> 
-<a href="restore-rights.html">Restore Your Rights</a> 
-<a href="civil-liberties.html">Civil Liberties</a> 
-<a href="records.html">Get Your Records</a> 
-<a href="resources.html">Resources</a> 
-<a href="arrested.html">What To Do If You’re Arrested</a> 
-<a href="traffic.html">Traffic Stops & Tickets</a> 
-<a href="ada-complaint.html">ADA Complaint</a> 
-<a href="veterans.html">Veterans Support</a> 
+<a class="topic-card" href="restore-rights.html">Restore Your Rights</a> <a class="topic-card" href="civil-liberties.html">Civil Liberties</a> 
+<a class="topic-card" href="records.html">Get Your Records</a> 
+<a class="topic-card" href="resources.html">Resources</a> 
+<a class="topic-card" href="arrested.html">What To Do If You’re Arrested</a> <a class="topic-card" href="traffic.html">Traffic Stops &amp; Tickets</a> <a class="topic-card" href="ada-complaint.html">ADA Complaint</a> 
+<a class="topic-card" href="veterans.html">Veterans Support</a>
 <!-- Strategy / Knowledge --> 
-<a href="sui-juris.html">Sui Juris</a> 
-<a href="pro-se-vs-sui-juris.html">Pro Se vs. Sui Juris</a> 
-<a href="chevron-doctrine.html">Chevron Decision Explained</a> <a href="conspiracy-defense.html">Conspiracy Defense</a> 
+<a class="topic-card" href="sui-juris.html">Sui Juris</a> 
+<a class="topic-card" href="pro-se-vs-sui-juris.html">Pro Se vs. Sui Juris</a> <a class="topic-card" href="chevron-doctrine.html">Chevron Decision Explained</a> <a class="topic-card" href="conspiracy-defense.html">Conspiracy Defense</a> 
 <!-- Business / Planning --> 
-<a href="llc-guide.html">Start an LLC</a> 
-<a href="llc-to-trust.html">Convert LLC to Trust</a> 
-<a href="estate.html">Estate Planning</a> 
+<a class="topic-card" href="llc-guide.html">Start an LLC</a> 
+<a class="topic-card" href="llc-to-trust.html">Convert LLC to Trust</a> <a class="topic-card" href="estate.html">Estate Planning</a> 
 <!-- Hubs / About --> 
-<a href="printable-resources.html">Download Hub (Printables)</a> <a href="about.html">About Sovereign Academy</a> 
-</div> 
+<a class="topic-card" href="printable-resources.html">Download Hub (Printables)</a> <a class="topic-card" href="about.html">About Sovereign Academy</a> </div> 
 </section> 
 </main> 
-<!-- Consistent footer + disclaimer --> 
 <footer class="site-footer"> 
 <div class="footer-links"> 
 <a href="index.html">Home</a> 
 <a href="privacy.html">Privacy</a> 
 <a href="terms-of-use.html">Terms</a> 
 <a href="contact.html">Contact</a> 
-</div>
+</div> 
 <div class="footer-disclaimer"> 
 Sovereign Academy and Ask Sage provide educational resources only.<br /> We are not attorneys and this is not legal advice.<br /> 
 Always consult a licensed attorney for legal matters. 
 </div> 
 </footer> 
 </body> 
-</html>
+</html> 
+/* --- Homepage sizing tweaks --- */ 
+.hero h1 { 
+font-size: clamp(22px, 4vw, 36px); 
+margin-bottom: 0.4rem; 
+} 
+.ask-sage-title { 
+font-size: clamp(30px, 5vw, 54px); 
+line-height: 1.05; 
+font-weight: 800; 
+text-align: center;
+} 
+.ask-sage-iframe { 
+width: 100%; 
+min-height: 70vh; 
+border: none; 
+} 
+/* --- Topics grid as boxed cards --- */ 
+.topics-heading { 
+font-size: clamp(18px, 2.4vw, 26px); 
+font-weight: 800; 
+margin: 2rem 0 0.75rem; 
+border-bottom: 2px solid currentColor; 
+padding-bottom: 0.4rem; 
+} 
+/* 3 columns desktop, 2 tablet, 1 mobile */ 
+.topics-grid { 
+display: grid; 
+gap: 0.85rem; 
+grid-template-columns: repeat(3, minmax(220px, 1fr)); 
+align-items: stretch; 
+} 
+@media (max-width: 980px) { 
+.topics-grid { grid-template-columns: repeat(2, minmax(200px, 1fr)); } } 
+@media (max-width: 640px) { 
+.topics-grid { grid-template-columns: 1fr; } 
+} 
+/* Card look */ 
+.topic-card { 
+display: block; 
+padding: 0.9rem 1rem; 
+border: 1px solid currentColor; 
+border-radius: 10px; 
+text-decoration: none; 
+line-height: 1.25; 
+font-weight: 600; 
+background: rgba(255,255,255,0.02); /* subtle on black */ 
+transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease; }
+/* On neon/black theme this looks crisp; adjust if needed */ .topic-card:hover, 
+.topic-card:focus-visible { 
+transform: translateY(-2px); 
+box-shadow: 0 6px 18px rgba(0,0,0,0.35); 
+outline: none; 
+background: rgba(255,255,255,0.06); 
+} 
+/* Tighter footer spacing on mobile so cards aren't crowded */ @media (max-width: 480px) { 
+.site-footer { margin-top: 2rem; } 
+}
