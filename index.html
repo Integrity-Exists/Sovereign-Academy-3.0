@@ -1,124 +1,113 @@
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sovereign Academy • Real Help. Real Tools.</title>
-
-  <link rel="manifest" href="manifest.json" />
-  <link rel="stylesheet" href="styles.css" />
-  <script defer src="smart-search.js"></script>
-  <script defer src="voice-search.js"></script>
-
-  <script>
-    // Service Worker
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('service-worker.js')
-          .then(reg => console.log('Service Worker registered ✅', reg.scope))
-          .catch(err => console.error('Service Worker registration failed ❌', err));
-      });
-    }
-  </script>
-
-</head>
-
-<body>
-  <header class="site container">
-    <div class="brand">Sovereign Academy</div>
-    <div id="sage-hero">SAGE</div> 
-      <!-- Mission Line --> 
-     <h1 class="mission-line"> 
-   REAL HELP. REAL TOOLS. NO LEGALESE. </h1> 
-
-  <nav class="top"><a href="index.html" class="nav-home">Home</a></nav>
-  </header>
-
-  <main class="container">
-     <section id="hero" aria-label="Sovereign Academy hero"> 
- <div class="tagline">Ask Sage • Your AI with claws — code & a cause</div> 
-<h2 id="site-tagline">REAL HELP. REAL TOOLS. NO LEGALESE.</h2> <p class="subline">Plain-language guides • Printable forms • On-page AI help</p> </section>
-
-    <section id="ask-sage-panel" aria-label="Ask Sage">
-      <iframe src="sage-chatbot.html" title="Ask Sage"></iframe>
-    </section>
-
-    <section id="topics" aria-label="Explore the Toolkit">
-      <h2>Explore the Full Sovereign Toolkit</h2>
-      <div class="topics-grid">
-
-        <!-- DSS / CPS -->
-        <a href="dss-defense.html">DSS & CPS Defense</a>
-        <a href="dss-stratagy-tools.html">DSS Strategy Tools</a>
-        <a href="sue-cps-federal.html">Sue CPS (Federal)</a>
-
-        <!-- Court Prep -->
-        <a href="court-prep.html">Court Prep Center</a>
-        <a href="courtroom-scripts.html">Courtroom Scripts</a>
-        <a href="court-prep-checklist.pdf">Court Prep Checklist (PDF)</a>
-        <a href="how-to-read-docket.html">How to Read the Docket</a>
-        <a href="how-to-serve-motions.html">How to Serve Motions</a>
-        <a href="fix-your-case-timeline.html">Fix Your Case Timeline</a>
-        <a href="request-for-continuance.html">Request a Continuance</a>
-        <a href="judicial-recusal.html">Judicial Recusal</a>
-        <a href="file-complaint-judge-attorney.html">File Complaint: Judge/Attorney</a>
-
-        <!-- Custody / Emergencies -->
-        <a href="custody.html">Custody & Family Law</a>
-        <a href="emergency-custody-response.html">Emergency Custody Response</a>
-        <a href="remove-gal.html">Remove Guardian ad Litem (GAL)</a>
-        <a href="reopen-your-case.html">Reopen Your Case</a>
-        <a href="missed-court.html">Missed Court</a>
-        <a href="defend-false-allegations.html">Defend False Allegations</a>
-        <a href="demand-discovery.html">Demand Discovery</a>
-
-        <!-- Rights & Remedies -->
-        <a href="restore-rights.html">Restore Your Rights</a>
-        <a href="civil-liberties.html">Civil Liberties</a>
-        <a href="records.html">Get Your Records</a>
-        <a href="resources.html">Resources</a>
-        <a href="arrested.html">What To Do If You’re Arrested</a>
-        <a href="traffic.html">Traffic Stops & Tickets</a>
-        <a href="ada-complaint.html">ADA Complaint</a>
-        <a href="veterans.html">Veterans Support</a>
-
-        <!-- Strategy / Knowledge -->
-        <a href="sui-juris.html">Sui Juris</a>
-        <a href="pro-se-vs-sui-juris.html">Pro Se vs. Sui Juris</a>
-        <a href="chevron-doctrine.html">Chevron Decision Explained</a>
-        <a href="conspiracy-defense.html">Conspiracy Defense</a>
-
-        <!-- Business / Planning -->
-        <a href="llc-guide.html">Start an LLC</a>
-        <a href="llc-to-trust.html">Convert LLC to Trust</a>
-        <a href="estate.html">Estate Planning</a>
-
-        <!-- Hubs / About -->
-        <a href="printable-resources.html">Download Hub (Printables)</a>
-        <a href="about.html">About Sovereign Academy</a>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site container">
-    <div class="mini">
-      <a href="index.html">Home</a>
-    </div>
-    <div class="mini">
-      <a href="privacy.html">Privacy</a>
-      <a href="terms-of-use.html">Terms</a>
-      <a href="contact.html">Contact</a>
-    </div>
-  </footer>
-
-  <!-- Disclaimer -->
-  <div class="disclaimer">
-    Sovereign Academy and Ask Sage provide educational resources only.<br />
-    We are not attorneys and this is not legal advice.<br />
-    Always consult a licensed attorney for legal matters.
-  </div>
-</body>
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="utf-8" /> 
+<meta name="viewport" content="width=device-width, initial-scale=1" /> <title>Sovereign Academy • Real Help. Real Tools.</title> 
+<!-- Keep this while on GitHub Pages; remove when you reconnect Vercel --> <meta name="sage-mode" content="offline" /> 
+<link rel="manifest" href="manifest.json" /> 
+<link rel="stylesheet" href="styles.css" /> 
+<script defer src="smart-search.js"></script> 
+<script defer src="voice-search.js"></script> 
+<style> 
+.hero h1 { 
+font-size: clamp(22px, 4vw, 36px); 
+margin-bottom: 0.4rem; 
+} 
+.ask-sage-title { 
+font-size: clamp(28px, 5vw, 52px); 
+line-height: 1.05; 
+font-weight: bold; 
+text-align: center; 
+} 
+#ask-sage-panel iframe { 
+width: 100%; 
+min-height: 70vh; 
+border: none; 
+} 
+</style> 
+<script> 
+// Service Worker (safe to keep) 
+if ('serviceWorker' in navigator) { 
+addEventListener('load', () => { 
+navigator.serviceWorker.register('service-worker.js').catch(() => {}); }); 
+} 
+</script> 
+</head> 
+<body> 
+<!-- Minimal, universal header -->
+<header class="site container"> 
+<div class="brand">Sovereign Academy</div> 
+<nav class="top"> 
+<a href="index.html" class="nav-home">Home</a> 
+<a href="#topics">Topics</a> 
+</nav> 
+</header> 
+<main class="container"> 
+<!-- Hero --> 
+<section class="hero"> 
+<h1>REAL HELP. REAL TOOLS. NO LEGALESE.</h1> 
+<p class="sub">Plain-language guides, courtroom scripts, and downloads that help you win.</p> 
+</section> 
+<!-- Sage front and center --> 
+<section id="ask-sage-panel" aria-label="Ask Sage"> 
+<h2 class="ask-sage-title">Ask Sage</h2> 
+<iframe src="sage-chatbot.html" title="Ask Sage"></iframe> 
+</section> 
+<!-- Topics grid --> 
+<section id="topics" aria-label="Explore the Toolkit"> 
+<h3 class="topics-heading">Explore the Full Sovereign Toolkit</h3> 
+<div class="topics-grid"> 
+<!-- DSS / CPS --> 
+<a href="dss-defense.html">DSS & CPS Defense</a> 
+<a href="dss-strategy-tools.html">DSS Strategy Tools</a> 
+<a href="sue-cps-federal.html">Sue CPS (Federal)</a> 
+<!-- Court Prep --> 
+<a href="court-prep.html">Court Prep Center</a> 
+<a href="courtroom-scripts.html">Courtroom Scripts</a> 
+<a href="court-prep-checklist.pdf">Court Prep Checklist (PDF)</a> 
+<a href="how-to-read-docket.html">How to Read the Docket</a> 
+<a href="how-to-serve-motions.html">How to Serve Motions</a> 
+<a href="fix-your-case-timeline.html">Fix Your Case Timeline</a> 
+<a href="request-for-continuance.html">Request a Continuance</a> <a href="judicial-recusal.html">Judicial Recusal</a> 
+<a href="file-complaint-judge-attorney.html">File Complaint: Judge/Attorney</a> <!-- Custody / Emergencies -->
+<a href="custody.html">Custody & Family Law</a> 
+<a href="emergency-custody-response.html">Emergency Custody Response</a> <a href="remove-gal.html">Remove Guardian ad Litem (GAL)</a> <a href="reopen-your-case.html">Reopen Your Case</a> 
+<a href="missed-court.html">Missed Court</a> 
+<a href="defend-false-allegations.html">Defend False Allegations</a> <a href="demand-discovery.html">Demand Discovery</a> 
+<!-- Rights & Remedies --> 
+<a href="restore-rights.html">Restore Your Rights</a> 
+<a href="civil-liberties.html">Civil Liberties</a> 
+<a href="records.html">Get Your Records</a> 
+<a href="resources.html">Resources</a> 
+<a href="arrested.html">What To Do If You’re Arrested</a> 
+<a href="traffic.html">Traffic Stops & Tickets</a> 
+<a href="ada-complaint.html">ADA Complaint</a> 
+<a href="veterans.html">Veterans Support</a> 
+<!-- Strategy / Knowledge --> 
+<a href="sui-juris.html">Sui Juris</a> 
+<a href="pro-se-vs-sui-juris.html">Pro Se vs. Sui Juris</a> 
+<a href="chevron-doctrine.html">Chevron Decision Explained</a> <a href="conspiracy-defense.html">Conspiracy Defense</a> 
+<!-- Business / Planning --> 
+<a href="llc-guide.html">Start an LLC</a> 
+<a href="llc-to-trust.html">Convert LLC to Trust</a> 
+<a href="estate.html">Estate Planning</a> 
+<!-- Hubs / About --> 
+<a href="printable-resources.html">Download Hub (Printables)</a> <a href="about.html">About Sovereign Academy</a> 
+</div> 
+</section> 
+</main> 
+<!-- Consistent footer + disclaimer --> 
+<footer class="site-footer"> 
+<div class="footer-links"> 
+<a href="index.html">Home</a> 
+<a href="privacy.html">Privacy</a> 
+<a href="terms-of-use.html">Terms</a> 
+<a href="contact.html">Contact</a> 
+</div>
+<div class="footer-disclaimer"> 
+Sovereign Academy and Ask Sage provide educational resources only.<br /> We are not attorneys and this is not legal advice.<br /> 
+Always consult a licensed attorney for legal matters. 
+</div> 
+</footer> 
+</body> 
 </html>
-index.html
-Displaying Index.pdf.
