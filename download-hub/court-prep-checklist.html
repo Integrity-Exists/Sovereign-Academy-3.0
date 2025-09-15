@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Court-Day Checklist — Sovereign Academy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root{
+      --bg:#0b0b0b; --fg:#eafff2; --accent:#00e676; --muted:#a8ffce;
+      --ink:#111; --paper:#fff;
+    }
+    /* Screen theme */
+    @media screen{
+      body{ background: var(--bg); color: var(--fg); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin:0; }
+      .page{ max-width: 840px; margin: 24px auto; background: rgba(255,255,255,0.02); border:1px solid rgba(0,230,118,0.2);
+             border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,.35); padding: 28px 28px 36px; }
+      h1{ margin: 0 0 8px; font-size: clamp(1.4rem, 4.2vw, 2rem); }
+      .subtitle{ color: var(--muted); margin-top: 0; }
+      .grid{ display: grid; gap: 16px; grid-template-columns: 1fr; }
+      @media (min-width: 820px){ .grid.cols-2{ grid-template-columns: 1fr 1fr; } }
+      section{ border: 1px solid rgba(0,230,118,0.18); border-radius: 12px; padding: 14px 16px; background: rgba(0,230,118,0.05); }
+      h2{ margin: 0 0 10px; font-size: 1.05rem; }
+      ul{ list-style: none; padding: 0; margin: 0; }
+      li{ padding: 6px 0; display: grid; grid-template-columns: 22px 1fr; gap: 10px; align-items: start; }
+      .box{ width: 18px; height: 18px; border-radius: 4px; border: 2px solid var(--accent); margin-top: 2px; }
+      .small{ font-size: 0.92rem; opacity: 0.95; }
+      .footer{ text-align: center; margin-top: 16px; color: var(--muted); font-size: .9rem; }
+      .brand{ color: var(--muted); font-weight: 700; }
+    }
+    /* Print theme */
+    @media print{
+      @page{ size: Letter; margin: 14mm 14mm; }
+      body{ background: var(--paper); color: var(--ink); font: 12pt/1.35 Georgia, 'Times New Roman', Times, serif; }
+      .page{ box-shadow:none; border:none; padding:0; }
+      h1{ font-size: 18pt; margin: 0 0 4pt; }
+      .subtitle{ font-size: 10pt; color:#333; margin: 0 0 8pt; }
+      section{ border:1pt solid #000; background: #fff; break-inside: avoid; padding: 8pt 10pt; }
+      h2{ font-size: 12pt; margin: 0 0 6pt; }
+      ul{ margin:0; padding:0; }
+      li{ grid-template-columns: 18pt 1fr; gap:8pt; padding: 4pt 0; }
+      .box{ width: 14pt; height: 14pt; border: 1.5pt solid #000; }
+      .small{ font-size: 10pt; }
+      .footer{ font-size: 9pt; margin-top: 8pt; color:#000; }
+      .brand{ color:#000; }
+      .no-print{ display:none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <h1>🧑‍⚖️ Court‑Day Checklist</h1>
+    <p class="subtitle">Print this, check items off, and walk in ready. <span class="brand">Sovereign Academy</span></p>
+
+    <div class="grid cols-2">
+      <section>
+        <h2>Night Before</h2>
+        <ul>
+          <li><div class="box"></div><div>Pack your <strong>evidence binder</strong> with tabs: <em>Exhibits · Timeline · Witnesses · Law/Rules · Orders</em>.</div></li>
+          <li><div class="box"></div><div>Make <strong>3–5 copies</strong> of key docs (judge, opposing party, you, and a spare).</div></li>
+          <li><div class="box"></div><div>Print your <strong>one‑page outline</strong> (issue → key facts → relief you want).</div></li>
+          <li><div class="box"></div><div>Confirm <strong>hearing time, location, courtroom</strong>, and parking/security time.</div></li>
+          <li><div class="box"></div><div>Set out <strong>professional attire</strong> and prep a clear bag for documents.</div></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>What to Bring</h2>
+        <ul>
+          <li><div class="box"></div><div>Evidence binder + <strong>tabbed exhibits</strong> (flag the ones you’ll reference).</div></li>
+          <li><div class="box"></div><div><strong>Hearing notice</strong>, prior orders, and <strong>calendar</strong>.</div></li>
+          <li><div class="box"></div><div><strong>Proof of service</strong> / delivery receipts for filings sent.</div></li>
+          <li><div class="box"></div><div><strong>Photo ID</strong> and payment for copies/records.</div></li>
+          <li><div class="box"></div><div>Pens, highlighter, sticky flags; water and small snack (if allowed).</div></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Arrival</h2>
+        <ul>
+          <li><div class="box"></div><div>Arrive <strong>30–45 minutes early</strong>. Silence phone.</div></li>
+          <li><div class="box"></div><div>Check the docket or with the <strong>clerk</strong> for your case number.</div></li>
+          <li><div class="box"></div><div>Organize your binder on a bench; place top exhibits up front.</div></li>
+          <li><div class="box"></div><div>Stand when the judge enters; address as <strong>Your Honor</strong>.</div></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>In the Hearing</h2>
+        <ul>
+          <li><div class="box"></div><div>Use a <strong>60‑second opening</strong>: issue → facts → what you want.</div></li>
+          <li><div class="box"></div><div>When offering documents: “Your Honor, I offer <strong>Exhibit A</strong>, a <em>[document]</em> dated <em>[date]</em>.”</div></li>
+          <li><div class="box"></div><div>Answer only what’s asked. Keep sentences short. Stay calm.</div></li>
+          <li><div class="box"></div><div>Common objections: <em>Hearsay</em>, <em>Relevance</em>, <em>Beyond the scope</em>.</div></li>
+          <li><div class="box"></div><div>Closing: “For these reasons, I ask the Court to grant <strong>[relief]</strong>.”</div></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>After Court</h2>
+        <ul>
+          <li><div class="box"></div><div>Obtain a <strong>signed copy</strong> of any order before you leave.</div></li>
+          <li><div class="box"></div><div>Note all <strong>deadlines</strong> and calendar them today.</div></li>
+          <li><div class="box"></div><div>Send any required <strong>courtesy copies</strong> and file proof of service.</div></li>
+          <li><div class="box"></div><div>Write a short <strong>debrief</strong> while memory is fresh (what worked / to improve).</div></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Emergency Notes</h2>
+        <ul>
+          <li><div class="box"></div><div>Clerk’s window location & phone: ______________________________</div></li>
+          <li><div class="box"></div><div>Case number: __________________   Courtroom: ________________</div></li>
+          <li><div class="box"></div><div>Opposing party / counsel: ____________________________________</div></li>
+          <li><div class="box"></div><div>Next date / deadline: ________________________________________</div></li>
+        </ul>
+      </section>
+    </div>
+
+    <p class="footer small">© Sovereign Academy — Built by Gina Lopez & Sage. Education only; not legal advice.</p>
+    <p class="no-print small" style="text-align:center; margin-top:10px;">
+      Print tip: Press <strong>Ctrl/Cmd + P</strong>. Choose <em>Letter</em>, no margins or default margins.
+    </p>
+  </div>
+</body>
+</html>
