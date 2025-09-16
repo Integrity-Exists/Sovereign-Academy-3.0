@@ -5,7 +5,9 @@
 "display": "standalone", 
 "background_color": "#000000", 
 "theme_color": "#00ff00", 
-"description": "Created by Freedom's Daughter with her AI Sentinel, Sage. Empowerment. Justice. Truth.", 
+"description": "Created by Freedom’s Daughter with Sage as co-creator and co-founder.", "orientation": "portrait", 
+"id": "com.integrityexists.sovereignacademy", 
+"categories": ["education", "productivity", "utilities"], 
 "icons": [ 
 { 
 "src": "icon-192.png", 
@@ -15,6 +17,34 @@
 { 
 "src": "icon-512.png", 
 "sizes": "512x512", 
+"type": "image/png" 
+}, 
+{ 
+"src": "icon-192-maskable.png", 
+"sizes": "192x192", 
+"type": "image/png", 
+"purpose": "maskable" 
+}, 
+{ 
+"src": "icon-512-maskable.png", 
+"sizes": "512x512", 
+"type": "image/png", 
+"purpose": "maskable" 
+} 
+], 
+"screenshots": [ 
+{ 
+"src": "images/screenshots/homepage.png", 
+"sizes": "1080x1920", 
+"type": "image/png" 
+}, 
+{ 
+"src": "images/screenshots/veterans.png", 
+"sizes": "1080x1920",
+"type": "image/png" 
+}, 
+{ 
+"src": "images/screenshots/about.png", "sizes": "1080x1920", 
 "type": "image/png" 
 } 
 ] 
