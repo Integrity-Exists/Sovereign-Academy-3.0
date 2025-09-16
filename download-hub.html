@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /> 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Download Hub • Sovereign Academy</title>
   <meta name="description" content="Grab the printables, templates, and guides you need to win your case. Download and go." />
@@ -9,8 +9,8 @@
   <meta name="theme-color" content="#0b0b0b" />
   <meta name="sage-mode" content="offline" />
 
-  <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="styles.css" />
   <script defer src="smart-search.js"></script>
   <script defer src="voice-search.js"></script>
   <script>
@@ -36,6 +36,20 @@
     footer { margin-top:2rem; padding:2rem 1rem; border-top:1px solid rgba(0,255,140,0.15); text-align:center; color:#c9ffdf; }
     ul.downloads { margin:.4rem 0 0 1rem; }
     ul.downloads li { margin:.25rem 0; }
+
+    /* Printable grid cards (from “Printable Resources”) */
+    .download-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:.9rem; }
+    .dl-card{
+      display:flex; justify-content:space-between; align-items:center; gap:.8rem;
+      padding: .9rem 1rem; border-radius:14px;
+      background: rgba(255,255,255,.02); border:1px solid rgba(0,255,140,.12);
+      text-decoration:none; color:#d7ffe6;
+    }
+    .dl-card:hover{ background: rgba(0,255,140,.08); }
+    .dl-meta h3{ margin:.1rem 0 .15rem; font-size:1.02rem; color:#eafff2; }
+    .dl-meta p{ margin:0; opacity:.85; font-size:.95rem; }
+    .dl-btn{ border:1px solid rgba(0,255,140,.25); padding:.4rem .7rem; border-radius:10px; font-weight:700; white-space:nowrap; }
+    .download-section h2{ margin:.25rem 0 .5rem; }
   </style>
 </head>
 <body>
@@ -58,44 +72,44 @@
   </header>
 
   <main id="content" class="container grid" style="grid-template-columns: 1fr; gap:1.25rem;">
-    <section class="download-section">
-<h2>ADA Resources</h2>
-<div class="download-grid">
-<a class="dl-card" href="download-hub/ADA_Complaint_Template.pdf" download>
-<div class="dl-meta">
-<h3>ADA Complaint Template</h3>
-<p>PDF • DOJ complaint letter</p>
-</div>
-<span class="dl-btn">Download</span>
-</a>
-<a class="dl-card" href="download-hub/Disability_Rights_Self_Advocacy_Guide.pdf"
-download>
-<div class="dl-meta">
-<h3>Disability Rights Self-Advocacy Guide</h3>
-<p>PDF • step-by-step guide</p>
-</div>
-<span class="dl-btn">Download</span>
-</a>
-<a class="dl-card" href="download-hub/Employer_Accommodation_Request_Form.pdf"
-download>
-<div class="dl-meta">
-<h3>Employer Accommodation Request Form</h3>
 
-<p>PDF • Title I ADA template</p>
-</div>
-<span class="dl-btn">Download</span>
-</a>
-</div>
-</section>
+    <!-- ADA Resources (merged from Printable page) -->
+    <section class="card download-section" aria-labelledby="ada-h2">
+      <h2 id="ada-h2">♿ ADA Resources</h2>
+      <div class="download-grid">
+        <a class="dl-card" href="download-hub/ADA_Complaint_Template.pdf" download>
+          <div class="dl-meta">
+            <h3>ADA Complaint Template</h3>
+            <p>PDF • DOJ complaint letter</p>
+          </div>
+          <span class="dl-btn">Download</span>
+        </a>
+        <a class="dl-card" href="download-hub/Disability_Rights_Self_Advocacy_Guide.pdf" download>
+          <div class="dl-meta">
+            <h3>Disability Rights Self-Advocacy Guide</h3>
+            <p>PDF • step-by-step guide</p>
+          </div>
+          <span class="dl-btn">Download</span>
+        </a>
+        <a class="dl-card" href="download-hub/Employer_Accommodation_Request_Form.pdf" download>
+          <div class="dl-meta">
+            <h3>Employer Accommodation Request Form</h3>
+            <p>PDF • Title I ADA template</p>
+          </div>
+          <span class="dl-btn">Download</span>
+        </a>
+      </div>
+    </section>
+
     <!-- Court Prep -->
-   <section class="card" aria-labelledby="court-h2">
-  <h2 id="court-h2">🧑‍⚖️ Court Prep</h2>
-  <ul class="downloads">
-    <li><a href="download-hub/court-prep-checklist.pdf" download>Court-Day Checklist (PDF)</a></li>
-    <li><a href="download-hub/courtroom-scripts.html">Courtroom Scripts (View Online)</a></li>
-    <li><a href="download-hub/courtroom-scripts.pdf" download>Courtroom Scripts (PDF)</a></li>
-  </ul>
-</section>
+    <section class="card" aria-labelledby="court-h2">
+      <h2 id="court-h2">🧑‍⚖️ Court Prep</h2>
+      <ul class="downloads">
+        <li><a href="download-hub/court-prep-checklist.pdf" download>Court-Day Checklist (PDF)</a></li>
+        <li><a href="download-hub/courtroom-scripts.html">Courtroom Scripts (View Online)</a></li>
+        <li><a href="download-hub/courtroom-scripts.pdf" download>Courtroom Scripts (PDF)</a></li>
+      </ul>
+    </section>
 
     <!-- DSS / CPS -->
     <section class="card" aria-labelledby="dss-h2">
@@ -109,19 +123,21 @@ download>
       </ul>
     </section>
 
+    <!-- Motions & Forms (merged items from Printable page) -->
+    <section class="card" aria-labelledby="mf-h2">
+      <h2 id="mf-h2">📄 Motions & Forms</h2>
+      <ul class="downloads">
+        <li><a href="download-hub/motion-to-dismiss.docx" download>Motion to Dismiss (DOCX)</a></li>
+        <li><a href="download-hub/notice-of-appearance.docx" download>Notice of Appearance (DOCX)</a></li>
+        <li><a href="download-hub/motion.to.vacate.pdf" download>Motion to Vacate (PDF)</a></li>
+      </ul>
+    </section>
+
     <!-- LLC / Trust -->
     <section class="card" aria-labelledby="llc-h2">
       <h2 id="llc-h2">🏢 LLC & Trust</h2>
       <ul class="downloads">
         <li><a href="download-hub/llc_checklist.pdf" download>LLC Formation Checklist (PDF)</a></li>
-      </ul>
-    </section>
-
-    <!-- Other Motions -->
-    <section class="card" aria-labelledby="other-h2">
-      <h2 id="other-h2">📄 Other Motions</h2>
-      <ul class="downloads">
-        <li><a href="download-hub/motion.to.vacate.pdf" download>Motion to Vacate (PDF)</a></li>
       </ul>
     </section>
 
@@ -145,10 +161,11 @@ download>
   </script>
   <script src="https://cdn.jsdelivr.net/gh/integrityexists/ask-sage@main/sagebot.js"></script>
 
-  <!-- Safety net: strike out any link if the file isn’t uploaded yet -->
+  <!-- Safety net: strike out only real downloads (PDF/DOCX) if missing -->
   <script>
     document.querySelectorAll('main a[href*="download-hub/"]').forEach(a=>{
       const href = a.getAttribute('href');
+      if (!/\.(pdf|docx)$/i.test(href)) return; // ignore .html viewers
       fetch(href, { method:'HEAD', cache:'no-store' })
         .then(r => { if (!r.ok) a.style.textDecoration='line-through'; })
         .catch(()=> a.style.textDecoration='line-through');
