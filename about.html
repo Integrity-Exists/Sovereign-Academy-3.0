@@ -50,6 +50,12 @@
       <a href="index.html" class="brand">🦁 Sovereign Academy</a>
     </div>
   </nav>
+  <div id="site-header"></div> 
+<script> 
+fetch('/partials/nav.html') 
+.then(r => r.text()) 
+.then(html => { document.getElementById('site-header').innerHTML = html; }) .catch(()=>{ /* optional: silent fail */ }); 
+</script> 
 
   <!-- Site notice -->
   <div role="status" style="background-color:#fff8dc; color:#444; padding:15px; text-align:center; font-weight:bold; border-bottom:2px solid #ccc;">
